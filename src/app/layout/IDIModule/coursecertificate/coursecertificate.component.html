@@ -1,0 +1,31 @@
+<i class="material-icons" (click)="captureScreen()" style="float:right; padding:10px; color: red; cursor: pointer;">
+  print
+</i>
+<div class="left">
+  <div id="print-section">
+    <div class="backgroundimg">
+      <div class="name">
+        <span class="fontname"><b>{{name}} </b></span>
+      </div>
+      <div class="course">
+        <span class="coursename" style="color: green;" *ngIf="course == 'Financial Literacy Skills'"><b>Digital Sakshar
+            for {{course}} </b></span>
+        <span class="coursename" style="color: red;" *ngIf="course == 'Employability Skills'"><b>Digital Sakshar for
+            {{course}} </b></span>
+        <span class="coursename" style="color: brown;"
+          *ngIf="course == 'Digital and Financial Literacy (Women Entrepreneur) - Baseline' || course == 'Digital and 21st Century Skills (Youth)' || course == 'Digital Literacy (Adolescent)' || course == 'Digital and Financial Literacy (Women)'"><b>{{course}}
+          </b></span>
+      </div>
+      <div class="garde row">
+        <span class="gardename"><b>{{grade}} </b></span>
+        <div class="stdatename"><b>{{stdate}}</b></div>
+        <div class="endatename"><b>{{endate}} </b></div>
+      </div>
+      <div class="date row">
+      </div>
+
+
+
+    </div>
+  </div>
+</div>

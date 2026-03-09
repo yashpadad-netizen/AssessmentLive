@@ -1,0 +1,211 @@
+<div class="container">
+
+  <div class="row form-group text-center">
+    <div class="col-md-12 pt-3">
+      <h5><b> Competency Wise Questions</b></h5>
+    </div>
+  </div>
+  <div class="card  mb-3" style="padding: 20px !important;border: solid 1px black;">
+    <div class="row form-group">
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 ">
+        <div class="row">
+          <div class="col-lg-4">
+            <label> Course</label>
+          </div>
+          <div class="col-lg-8">
+            <select type="text" class="form-control" name="course" [(ngModel)]="Course"
+              (change)="OnSelectCourse($event.target.value)">
+              <option [ngValue]="undefined">Select</option>
+              <option *ngFor="let course of course" value={{course.course}}>{{course.course}}</option>
+
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 ">
+        <div class="row">
+          <div class="col-lg-4">
+            <label> Language</label>
+          </div>
+          <div class="col-lg-8">
+            <select type="text" class="form-control" name="language" [(ngModel)]="Language">
+              <option [ngValue]="undefined">Select</option>
+              <option *ngFor="let language of language" value={{language.lang}}>{{language.lang}}</option>
+
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12 ">
+        <button type="submit" class="btn btn-success " (click)="filterrecord(Course,Language)">Search</button>
+
+      </div>
+      <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12 ">
+        <button type="submit" class="btn btn-success " (click)="Export()">Export</button>
+
+      </div>
+      
+    </div>
+
+  </div>
+  <div *ngIf="CompetencyWiseQuestionscount != 0">
+
+ 
+  <div class="row">
+    <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+      <b>Total Record: {{CompetencyWiseQuestionscount}}</b>
+      <b> <span *ngIf="!CompetencyWiseQuestionscount || CompetencyWiseQuestionscount.length==0"></span></b>
+    </div>
+    <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+      <pagination-controls style="float: right" (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+  <div class="table-responsive" >
+
+    <table class="table">
+      <thead class="table-primary">
+        <tr>
+          <td>
+            <b>Sr No</b>
+          </td>
+          <td>
+            <b>Course</b>
+          </td>
+          <td>
+            <b>Language</b>
+          </td>
+          <td>
+            <b>Competency</b>
+          </td>
+          <td>
+            <b>Question ID</b>
+          </td>
+          <td>
+            <b>Question Text</b>
+          </td>
+          <td>
+            <b>Question</b>
+          </td>
+          <td>
+            <b>Right Answer </b>
+          </td>
+          <td>
+            <b>Option 1 </b>
+          </td>
+          <td>
+            <b>Option 2 </b>
+          </td>
+          <td>
+            <b>Option 3 </b>
+          </td>
+          <td>
+            <b>Option 4 </b>
+          </td>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let CompetencyWiseQuestionsList of CompetencyWiseQuestionsList| paginate: { itemsPerPage: 20, currentPage: p  } let i = index;">
+          <td>{{ (p - 1) * 20 + i +1 }}</td>
+
+          <td>
+            {{CompetencyWiseQuestionsList.coursename}}
+          </td>
+          <td>
+            {{CompetencyWiseQuestionsList.language}}
+          </td>
+
+          <td>
+            {{CompetencyWiseQuestionsList.competencyname}}
+          </td>
+          <td>
+            {{CompetencyWiseQuestionsList.questionid}}
+          </td>
+          <td>
+            {{CompetencyWiseQuestionsList.questiontext}}
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.questiontype == 'Audio'">
+            <audio controls controlsList="nodownload">
+              <source src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.url}}" type="audio/mpeg">
+            </audio>
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.questiontype == 'Image'">
+            <img src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.url}}" alt=""
+              class="responsive">
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.questiontype == 'Text'">
+          
+          </td>
+         
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Text'">
+            <span *ngIf="CompetencyWiseQuestionsList.rightanswer == '1'">{{CompetencyWiseQuestionsList.answer1}}</span>
+            <span *ngIf="CompetencyWiseQuestionsList.rightanswer == '2'">{{CompetencyWiseQuestionsList.answer2}}</span>
+            <span *ngIf="CompetencyWiseQuestionsList.rightanswer == '3'">{{CompetencyWiseQuestionsList.answer3}}</span>
+            <span *ngIf="CompetencyWiseQuestionsList.rightanswer == '4'">{{CompetencyWiseQuestionsList.answer4}}</span>
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Image'">
+            <span *ngIf="CompetencyWiseQuestionsList.rightanswer == '1'">
+              <img src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.answer1}}" alt=""
+              class="responsive">
+            </span>
+            <span *ngIf="CompetencyWiseQuestionsList.rightanswer == '2'"><img src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.answer2}}" alt=""
+              class="responsive">
+            </span>
+            <span *ngIf="CompetencyWiseQuestionsList.rightanswer == '3'"><img src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.answer3}}" alt=""
+              class="responsive">
+            </span>
+            <span *ngIf="CompetencyWiseQuestionsList.rightanswer == '4'"><img src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.answer4}}" alt=""
+              class="responsive">
+            </span>
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Text'">
+            {{CompetencyWiseQuestionsList.answer1}}
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Image'">
+            <img src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.answer1}}" alt=""
+              class="responsive">
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Text'">
+            {{CompetencyWiseQuestionsList.answer2}}
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Image'">
+            <img src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.answer2}}" alt=""
+              class="responsive">
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Text'">
+            {{CompetencyWiseQuestionsList.answer3}}
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Image'">
+            <img src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.answer3}}" alt=""
+              class="responsive">
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Text'">
+            {{CompetencyWiseQuestionsList.answer4}}
+          </td>
+          <td *ngIf="CompetencyWiseQuestionsList.answertype == 'Image'">
+            <img src="https://dsexam.digitalsakshar.com/Image/{{CompetencyWiseQuestionsList.answer4}}" alt=""
+              class="responsive">
+          </td>
+
+        </tr>
+      
+      </tbody>
+
+    </table>
+  </div>
+  </div>
+  <div class="card card-default mb-3" style="padding: 10px !important;" *ngIf="CompetencyWiseQuestionscount==0">
+    <div style="text-align: center; color: red;"><b> Requested Data Not Found!</b></div>
+  </div>
+</div>
+<div class="lds-roller" *ngIf="loading else loaded">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

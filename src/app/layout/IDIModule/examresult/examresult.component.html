@@ -1,0 +1,85 @@
+<div class="text-center">
+
+
+</div>
+
+<div class="container">
+  <div class="row " *ngIf="userid != 'USR64308'">
+    <div class="col-lg-2"
+      *ngIf="!coursename == 'Digital Literacy for Employment IBM' || !coursename == 'Digital Literacy for Employment Spoke' || !coursename == 'Digital Literacy for Employment 2022-23'">
+      <button type="button" class="btn btn-success m-2" (click)="Certificate()">Download Certificate</button>
+    </div>
+    <div class="col-lg-2" *ngIf="coursename == 'Employability Skills' || coursename == 'Financial Literacy Skills'">
+      <button type="button" class="btn btn-success m-2" (click)="Feedback()">Feedback</button>
+    </div>
+  </div>
+  <br>
+  <div class="card card-default mb-3" style="padding: 20px; border:  1px solid black;">
+    <div class="row ">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+        <h3> Result</h3>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+        <div class="row form-group">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+            <b>Learner Name : </b>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+            {{FullName}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+            <b>Total Marks: </b>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+            {{totalmarks}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+            <b>Obtained Marks: </b>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+            {{examscore}}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+        <div class="row form-group">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+            <b> Exam: </b>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+            {{coursename}}
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+            <b>Percentage: </b>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+            {{percentage| number:'1.0-2'}}%
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+            <b>Grade: </b>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+            {{grade}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="text-center"
+    *ngIf="userid != 'USR64308' && coursename != 'Pre-Placement Guidance Session (Pre-Test) 2025-26' && coursename != 'Pre-Placement Guidance Session (Post-Test) 2025-26' && coursename != 'Teacher Training (Pre) 2025-26' && coursename != 'Teacher Training (Post) 2025-26' && coursename != 'Happiness Literacy Standard 5 to 7' && coursename != 'Happiness Literacy Standard 8 and Above'">
+    <button type="button" class="btn btn-success m-2" *ngIf="userattempt < 3" (click)="Reexam()">Re-Exam</button>
+  </div>
+</div>

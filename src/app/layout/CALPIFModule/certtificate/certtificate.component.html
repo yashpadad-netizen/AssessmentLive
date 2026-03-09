@@ -1,0 +1,25 @@
+<i class="material-icons" (click)="captureScreen()" style="float:right; padding:10px; color: red; cursor: pointer;">
+  print
+</i>
+<div class="left">
+  <div id="print-section">
+    <div class="backgroundimg">
+      <div class="name">
+        <span class="fontname"><b>{{name}} </b></span>
+      </div>
+      <div class="data">
+        <span class="date"><b>{{ dateVal | date: ' d MMM y' }} </b></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lds-roller" *ngIf="loading else loaded">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

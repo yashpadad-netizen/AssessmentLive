@@ -1,0 +1,213 @@
+<div class="container">
+  <form [formGroup]="AddCourseForm">
+    <div class="row" *ngIf="coursename=='Digital Sakshar Online Exam'">
+      <div class="col-lg-10 webmobile"></div>
+      <div class="col-lg-2 webmobile">
+        <webcam [height]="100" [width]="250" [videoOptions]="videoOptions" [allowCameraSwitch]="allowCameraSwitch">
+        </webcam>
+      </div>
+    </div>
+    <br>
+    <span style="float: left;color: blue;font-size: 18px;"><b>{{currentIndex+1}} out of {{totalquestion}}</b> </span>
+    <h5 style="text-align: center;"><span #time class="text-primary">00:00</span></h5>
+    <div [style.marginTop]="'10px'" [style.backgroundColor]="progresscolor" [style.height]="'10px'"
+      [ngStyle]="{'width': progress+'%'}"></div>
+    <br>
+    <br>
+    <div class="well col-md-12" *ngIf="currentQuestionSet">
+      <div class="row form-group">
+        <div *ngIf="currentQuestionSet.questiontype == 'Text' || currentQuestionSet.questiontype == 'Text\r\n'">
+          <div style="font-size: 25px;font-weight: 600; padding: 10px;"><label
+              [innerHTML]="currentQuestionSet.questiontext1"></label></div>
+        </div>
+        <div *ngIf="currentQuestionSet.questiontype == 'Image' ||  currentQuestionSet.questiontype == 'Image\r\n'">
+          <label [innerHTML]="currentQuestionSet.questiontext1"></label>
+          <img src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.url}}" alt="" class="responsive">
+        </div>
+        <hr>
+        <!-- <div *ngIf="currentQuestionSet.answertype == 'Image'" >
+            <label class="radio space"> <input type="radio" formControlName="answer" name="{{answer1}}" value="1"
+              [(ngModel)]="currentQuestionSet.selected" /> <img src="http://localhost:56524/Image/{{currentQuestionSet.answer1}}" alt="" class="responsive"></label>
+          <label class="radio space"> <input type="radio" formControlName="answer" name="{{answer2}}" value="2"
+              [(ngModel)]="currentQuestionSet.selected" /><img src="http://localhost:56524/Image/{{currentQuestionSet.answer2}}" alt="" class="responsive"></label>
+          <label class="radio space"> <input type="radio" formControlName="answer" name="{{answer3}}" value="3"
+              [(ngModel)]="currentQuestionSet.selected" /><img src="http://localhost:56524/Image/{{currentQuestionSet.answer3}}" alt="" class="responsive"></label>
+          <label class="radio space"> <input type="radio" formControlName="answer" name="{{answer4}}" value="4"
+              [(ngModel)]="currentQuestionSet.selected" /><img src="http://localhost:56524/Image/{{currentQuestionSet.answer4}}" alt="" class="responsive"></label>
+    
+          </div>
+          <div *ngIf="currentQuestionSet.answertype == 'Text'">
+  
+            <label class="radio"> <input type="radio" formControlName="answer" name="{{answer1}}" value="1"
+              [(ngModel)]="currentQuestionSet.selected" />&nbsp;&nbsp;&nbsp;{{currentQuestionSet.answer1}}</label>
+          <label class="radio"> <input type="radio" formControlName="answer" name="{{answer2}}" value="2"
+              [(ngModel)]="currentQuestionSet.selected" />&nbsp;&nbsp;&nbsp;{{currentQuestionSet.answer2}}</label>
+          <label class="radio"> <input type="radio" formControlName="answer" name="{{answer3}}" value="3"
+              [(ngModel)]="currentQuestionSet.selected" />&nbsp;&nbsp;&nbsp;{{currentQuestionSet.answer3}}</label>
+          <label class="radio"> <input type="radio" formControlName="answer" name="{{answer4}}" value="4"
+              [(ngModel)]="currentQuestionSet.selected" />&nbsp;&nbsp;&nbsp;{{currentQuestionSet.answer4}}</label>
+          </div> -->
+
+
+      </div>
+      <!-- <div class="row" *ngIf="currentQuestionSet.answertype == 'Text'">
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+  
+          <div class="row form-group ">
+            
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 second">
+              <label class="radio"> <input type="radio" formControlName="answer" name="{{answer1}}" value="1"
+                [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;" ><span style="padding-left: 30px;">{{currentQuestionSet.answer1}}</span></label>
+            </div>
+          </div>
+          <div class="row form-group ">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 second">
+              <label class="radio"> <input type="radio" formControlName="answer" name="{{answer2}}" value="2"
+                [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;" ><span style="padding-left: 30px;">{{currentQuestionSet.answer2}}</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div class="row form-group ">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 second">
+              <label class="radio"> <input type="radio" formControlName="answer" name="{{answer3}}" value="3"
+                [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;" ><span style="padding-left: 30px;">{{currentQuestionSet.answer3}}</span></label>
+            </div>
+          </div>
+          <div class="row form-group radio">
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 second">
+              <label class="radio"> <input type="radio" formControlName="answer" name="{{answer4}}" value="4"
+                [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;" ><span style="padding-left: 30px;">{{currentQuestionSet.answer4}}</span></label>
+            </div>
+          </div>
+        </div>
+    </div> -->
+      <div class="row" *ngIf="currentQuestionSet.answertype == 'Text' || currentQuestionSet.answertype == 'Text\r\n'">
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+
+          <div class="row form-group ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+              <div class="inputGroup">
+                <input id="radio1" name="radio" type="radio" formControlName="answer" name="{{answer1}}" value="1"
+                  [(ngModel)]="currentQuestionSet.selected" />
+                <label for="radio1"><b>A.</b> {{currentQuestionSet.answer1}}</label>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+              <div class="inputGroup">
+                <input id="radio2" name="radio" type="radio" formControlName="answer" name="{{answer2}}" value="2"
+                  [(ngModel)]="currentQuestionSet.selected" />
+                <label for="radio2"><b>B.</b> {{currentQuestionSet.answer2}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" *ngIf="currentQuestionSet.answer3">
+          <div class="row form-group ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+              <div class="inputGroup">
+                <input id="radio3" name="radio" type="radio" formControlName="answer" name="{{answer3}}" value="3"
+                  [(ngModel)]="currentQuestionSet.selected" />
+                <label for="radio3"><b>C.</b> {{currentQuestionSet.answer3}}</label>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group radio" *ngIf="currentQuestionSet.answer4">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+              <div class="inputGroup">
+                <input id="radio4" name="radio" type="radio" formControlName="answer" name="{{answer4}}" value="4"
+                  [(ngModel)]="currentQuestionSet.selected" />
+                <label for="radio4"><b>D.</b> {{currentQuestionSet.answer4}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="form" *ngIf="currentQuestionSet.answertype == 'Text'">
+      <div class="inputGroup">
+        <input id="radio1" name="radio" type="radio" formControlName="answer" name="{{answer1}}" value="1"
+        [(ngModel)]="currentQuestionSet.selected"/>
+        <label for="radio1">{{currentQuestionSet.answer1}}</label>
+      </div>
+      <div class="inputGroup">
+        <input id="radio2" name="radio" type="radio" formControlName="answer" name="{{answer2}}" value="2"
+        [(ngModel)]="currentQuestionSet.selected"/>
+        <label for="radio2">{{currentQuestionSet.answer2}}</label>
+      </div>
+      <div class="inputGroup">
+        <input id="radio3" name="radio" type="radio" formControlName="answer" name="{{answer3}}" value="3"
+        [(ngModel)]="currentQuestionSet.selected"/>
+        <label for="radio3">{{currentQuestionSet.answer3}}</label>
+      </div>
+      <div class="inputGroup">
+        <input id="radio4" name="radio" type="radio" formControlName="answer" name="{{answer4}}" value="4"
+        [(ngModel)]="currentQuestionSet.selected"/>
+        <label for="radio4">{{currentQuestionSet.answer4}}</label>
+      </div>
+  </div> -->
+      <div class="row"
+        *ngIf="currentQuestionSet.answertype == 'Image'  || currentQuestionSet.answertype == 'Image\r\n'">
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+
+          <div class="row form-group ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+              <label class="radio"> <input type="radio" formControlName="answer" name="{{answer1}}" value="1"
+                  [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;"><img
+                  src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.answer1}}" alt=""
+                  class="responsive"></label>
+            </div>
+          </div>
+          <div class="row form-group radio">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+              <label class="radio"> <input type="radio" formControlName="answer" name="{{answer2}}" value="2"
+                  [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;"><img
+                  src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.answer2}}" alt=""
+                  class="responsive"></label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" *ngIf="currentQuestionSet.answer3">
+          <div class="row form-group radio">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+              <label class="radio"> <input type="radio" formControlName="answer" name="{{answer3}}" value="3"
+                  [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;"><img
+                  src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.answer3}}" alt=""
+                  class="responsive"></label>
+            </div>
+          </div>
+          <div class="row form-group radio" *ngIf="currentQuestionSet.answer4">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+              <label class="radio"> <input type="radio" formControlName="answer" name="{{answer4}}" value="4"
+                  [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;"><img
+                  src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.answer4}}" alt=""
+                  class="responsive"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div align="center">
+
+        <button *ngIf="(currentIndex+1) != questions.length" type="submit" [disabled]="!AddCourseForm.valid"
+          class="btn btn-success" (click)="next(currentIndex+1,currentQuestionSet.selected,currentQuestionSet)">Next<i
+            class="fa fa-arrow-right fa-lg" aria-hidden="true" style="padding-left: 10px;"></i></button>
+        <button *ngIf="(currentIndex+1) == questions.length" type="submit" [disabled]="!AddCourseForm.valid"
+          class="btn btn-success" (click)="next(currentIndex+1,currentQuestionSet.selected,currentQuestionSet)"
+          (click)="submit();submitButton.disabled = true" #submitButton>Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="lds-roller" *ngIf="loading else loaded">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

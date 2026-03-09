@@ -1,0 +1,42 @@
+<i class="material-icons" (click)="captureScreen()" style="float:right; padding:10px; color: red; cursor: pointer;">
+  print
+</i>
+<div class="left">
+  <div id="print-section">
+    <div class="backgroundimg">
+      <div class="name">
+        <span class="fontname"><b>{{name}} </b></span>
+      </div>
+      <div class="course">
+        <span class="coursename"><b>{{course}} </b></span>
+       
+      </div>
+      <div class="data">
+        <span class="date"><b>{{ dateVal | date: ' d MMM y' }} </b></span>
+        <span class="grade"><b>{{grade}} </b></span>
+      </div>
+   
+      <!-- <div class="footer1">
+        <span class="Certificategrade"><b>{{CertificateGrade}}</b></span>
+
+        <span class="studentid"><b>{{examid}}</b>-</span>
+        <span class="examid"><b>{{studentid}}</b></span>
+      </div> -->
+      <div class="footer1">
+      <span style="float: left;"><b>{{CertificateGrade}}</b></span>
+      <span style="float: right;"><b>{{examid}} - {{studentid}}</b></span>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="lds-roller" *ngIf="loading else loaded">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container my-5">
+    <div class="feedback-wrapper">
+
+        <div class="feedback-header">
+            <h3>Training Feedback Form</h3>
+            <p>Please share your experience</p>
+        </div>
+
+        <form [formGroup]="feedbackdetails">
+
+            <!-- Language Toggle -->
+            <div class="language-switch mb-4">
+                <label class="language-label">Select Language</label>
+
+                <div class="custom-toggle">
+                    <input type="radio" id="marathi" formControlName="language" value="Marathi"
+                        (change)="onSelectLanguage('Marathi')">
+                    <label for="marathi">Marathi</label>
+
+                    <input type="radio" id="hindi" formControlName="language" value="Hindi"
+                        (change)="onSelectLanguage('Hindi')">
+                    <label for="hindi">Hindi</label>
+
+                    <span class="slider"></span>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="question-card" *ngFor="let question of [
+          {label:q1, control:'q1', options:[yes,no]},
+          {label:q2, control:'q2', options:[never,rarely,frequently,veryfrequently]},
+          {label:q3, control:'q3', options:[never,rarely,frequently,veryfrequently]},
+          {label:q4, control:'q4', options:[dissatisfied,satisfied,good,excellent]},
+          {label:q5, control:'q5', options:[dissatisfied,satisfied,good,excellent]}
+        ]; let i = index">
+
+                <div class="question-title">
+                    <span class="question-number">{{i+1}}</span>
+                    <span>{{question.label}}</span>
+                </div>
+
+                <div class="options-wrapper">
+                    <label class="option-pill" *ngFor="let opt of question.options">
+                        <input type="radio" [value]="opt" [formControlName]="question.control">
+                        <span>{{opt}}</span>
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- Textarea -->
+            <div class="question-card">
+                <div class="question-title">
+                    <span class="question-number">6</span>
+                    <span>{{q6}}</span>
+                </div>
+
+                <textarea class="form-control custom-textarea" rows="4" formControlName="q6"
+                    placeholder="Write your feedback here..."></textarea>
+            </div>
+
+            <!-- Save Button -->
+            <div class="text-center mt-4">
+                <button type="button" class="btn save-btn" (click)="updateFeedback()"
+                    [disabled]="feedbackdetails.invalid || btndisabled">
+                    Submit Feedback
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+      <div class="card p-5 w-50" style=" box-shadow: 0 0 60px;">
+        <div class="text-center pb-3">
+          <h3>Data Sync</h3>
+        </div>
+        <div class="form-group">
+          <select type="text" class="form-control" name="course" [(ngModel)]="Course">
+            <option [ngValue]="undefined">Select</option>
+            <option *ngFor="let course of courselist" value={{course.course}}>{{course.course}}</option>
+          </select>
+          <small *ngIf="courseundefined" class="text-center error"  style="color: red">{{courseundefined}}</small>
+          <br>
+        </div>
+        <div class="form-group">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary"  (click)="DataSync(Course)"> Sync</button>
+  
+          </div>
+        </div>
+      </div>
+     
+  </div>
+</div>
+<div class="lds-roller" *ngIf="loading">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

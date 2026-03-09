@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="login-card card-body auth-body ">
+    <div class="auth-box" style=" box-shadow: 0 0 60px;">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter User Id" [(ngModel)]="userid">
+        <span class="md-line"></span>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary "
+          (click)="Serachdata(userid)">Search</button>
+      </div>
+      
+      <div *ngIf="courselist">
+        <hr>
+          <select type="text" class="form-control" name="course" [(ngModel)]="Course">
+            <option [ngValue]="undefined">Select</option>
+            <option *ngFor="let course of courselist" value={{course.course}}>{{course.course}}</option>
+          </select>
+        <small *ngIf="courseundefined" class="text-center error"  style="color: red">{{courseundefined}}</small>
+          <br>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary"
+            (click)="Getcertificate(Course)">Download Certificate</button>
+        </div>
+      </div><br>
+        <p *ngIf="nullmsg" class="text-center error"  style="color: red">{{nullmsg}}</p>
+      <div>
+
+      </div>
+    </div>
+  </div>
+</div>

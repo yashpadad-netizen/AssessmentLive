@@ -1,0 +1,200 @@
+@media screen and (max-width: 992px) {
+  .backgroundimg {
+    background-image: url(/assets/images/MicrosoftCertificate.jpg);
+    background-size: 100% 100%;
+    width: 325px;
+    height: 255px;
+  }
+
+  .left {
+    padding-top: 57px;
+  }
+
+  .name {
+
+    padding-top: 103px;
+    margin-left: 70px;
+  }
+
+  .fontname {
+    font-size: 10px;
+    font-family: 'Arial';
+  }
+
+  .data {
+    margin-left: 50px;
+    margin-top: 23px;
+  }
+
+  .date {
+    font-size: 9px;
+    font-family: 'Arial';
+    margin-left: 106px;
+
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  .left {
+    padding-left: 100px;
+  }
+
+  .backgroundimg {
+    background-image: url(/assets/images/MicrosoftCertificate.jpg);
+    background-size: 100% 100%;
+    width: 1105px;
+    height: 655px;
+  }
+
+  .name {
+    margin-left: 320px;
+    padding-top: 274px;
+  }
+
+  .fontname {
+    font-size: 28px;
+    font-family: 'Arial';
+  }
+
+  .data {
+    margin-left: 375px;
+    padding-top: 74px;
+  }
+
+  .date {
+    font-size: 25px;
+    font-family: 'Arial';
+    margin-left: 172px;
+  }
+
+}
+
+
+.lds-roller {
+  position: fixed;
+  top: 45%;
+  left: 48%;
+  width: 64px;
+  height: 64px;
+  z-index: 1;
+}
+
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 32px 32px;
+}
+
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgb(9, 120, 211);
+  margin: -3px 0 0 -3px;
+}
+
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+  top: 50px;
+  left: 50px;
+}
+
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+  top: 54px;
+  left: 45px;
+}
+
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+  top: 57px;
+  left: 39px;
+}
+
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+  top: 58px;
+  left: 32px;
+}
+
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+  top: 57px;
+  left: 25px;
+}
+
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+  top: 54px;
+  left: 19px;
+}
+
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+  top: 50px;
+  left: 14px;
+}
+
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+  top: 45px;
+  left: 10px;
+}
+
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .lds-roller {
+    position: fixed;
+    top: 45%;
+    left: 43%;
+    width: 64px;
+    height: 64px;
+    z-index: 1;
+  }
+
+  .first {
+    flex: 1;
+  }
+
+  .second {
+    flex: 1;
+  }
+}

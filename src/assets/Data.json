@@ -1,0 +1,327 @@
+[
+    {
+        "questiontext1": "What is full form of 'www' in web address?",
+        "rightanswer": "1",
+        "answer1": "World Wide Web",
+        "answer2": "Which Wind Web",
+        "answer3": "Waste Wide Web",
+        "answer4": "Wise What Web",
+        "questionseqno": 1,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"level0"
+    },
+    {
+        "questiontext1": "App used to search information over internet is called as? ",
+        "rightanswer": "2",
+        "answer1": "Finder",
+        "answer2": "Browser",
+        "answer3": "Surfer",
+        "answer4": "Learner",
+        "questionseqno": 2,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"level0"
+
+    },
+    {
+        "questiontext1": "In which option do we see all the emails we receive?",
+        "rightanswer": "1",
+        "answer1": "Inbox",
+        "answer2": "Sent Mail",
+        "answer3": "Draft",
+        "answer4": "Compose Mail",
+        "questionseqno": 3,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"level0"
+
+    },
+    {
+        "questiontext1": "Which option we use to write a new E-mail?",
+        "rightanswer": "4",
+        "answer1": "Inbox",
+        "answer2": "Sent Mail",
+        "answer3": "Draft",
+        "answer4": "Compose Mail",
+        "questionseqno": 4,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"level0"
+
+    },
+    {
+        "questiontext1": "Which app of Google is helpful to get information about distance, travel time or route to any place?",
+        "rightanswer": "4",
+        "answer1": "Google Drive",
+        "answer2": "Google Translate",
+        "answer3": "Google Lens",
+        "answer4": "Google Maps",
+        "questionseqno": 5,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"level0"
+
+    },
+    {
+        "questiontext1": "We can not mark our home location on Google Map.",
+        "rightanswer": "2",
+        "answer1": "Right",
+        "answer2": "Wrong",
+        "answer3": "Can't Say",
+        "answer4": "Not Applicable",
+        "questionseqno": 6,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Beginner"
+
+    },
+    {
+        "questiontext1": "Computer It is an _____________ device.",
+        "rightanswer": "3",
+        "answer1": "Transparent",
+        "answer2": "Motion",
+        "answer3": "Electronic",
+        "answer4": "Simple",
+        "questionseqno": 7,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Beginner"
+
+    },
+    {
+        "questiontext1": "_______ Generation is the fourth generation of computers.",
+        "rightanswer": "4",
+        "answer1": "Metaprocessor",
+        "answer2": "Autoprocessor",
+        "answer3": "Miniprocessor",
+        "answer4": "Microprocessor",
+        "questionseqno": 8,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Beginner"
+
+    },
+    {
+        "questiontext1": "CPU means ________________________",
+        "rightanswer": "3",
+        "answer1": "Central Property Use",
+        "answer2": "Common Property Unit",
+        "answer3": "Central Processing Unit",
+        "answer4": "Can Process Unit",
+        "questionseqno": 9,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Beginner"
+
+    },
+    {
+        "questiontext1": "ALU means ___________________________.",
+        "rightanswer": "1",
+        "answer1": "Arithmetic Logical Unit",
+        "answer2": "All logical unit",
+        "answer3": "Arithmetic Login Unit",
+        "answer4": "Anti logic unit",
+        "questionseqno": 10,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Beginner"
+
+    },
+    {
+        "questiontext1": "For internet security we need to _______ every time after use in email.",
+        "rightanswer": "2",
+        "answer1": "Exit",
+        "answer2": "Log Out",
+        "answer3": "Take Out",
+        "answer4": "Close",
+        "questionseqno": 11,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Basic"
+
+    },
+    {
+        "questiontext1": "________ These are also one type of programs, which spoil the programs or memory of your mobile.",
+        "rightanswer": "1",
+        "answer1": "Virus",
+        "answer2": "Bacteria",
+        "answer3": "Anti Program",
+        "answer4": "Fungus",
+        "questionseqno": 12,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Basic"
+
+    },
+    {
+        "questiontext1": "The ideas / pictures / videos we share on our Face book page are called ______.",
+        "rightanswer": "1",
+        "answer1": "Post",
+        "answer2": "Thought",
+        "answer3": "Mail",
+        "answer4": "Drama",
+        "questionseqno": 13,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Basic"
+
+    },
+    {
+        "questiontext1": "Whats app status disappears after _____ hours.",
+        "rightanswer": "4",
+        "answer1": "12",
+        "answer2": "18",
+        "answer3": "16",
+        "answer4": "24",
+        "questionseqno": 14,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Basic"
+
+    },
+    {
+        "questiontext1": "A _________ is a rectangular box that occurs at the intersection of a vertical column and a horizontal row in a worksheet",
+        "rightanswer": "1",
+        "answer1": "Cell",
+        "answer2": "Squire",
+        "answer3": "Box",
+        "answer4": "Marker",
+        "questionseqno": 15,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Basic"
+
+    },
+    {
+        "questiontext1": "The total number of rows in a worksheet is ______________.",
+        "rightanswer": "2",
+        "answer1": "65536",
+        "answer2": "1048576",
+        "answer3": "1084675",
+        "answer4": "1084576",
+        "questionseqno": 16,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Intermediate"
+
+    },
+    {
+        "questiontext1": "The total number of columns in a worksheet is __________________.",
+        "rightanswer": "4",
+        "answer1": "16382",
+        "answer2": "16355",
+        "answer3": "16348",
+        "answer4": "16384",
+        "questionseqno": 17,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Intermediate"
+
+    },
+    {
+        "questiontext1": "_____________  command is used to apply motions words and images in presentation.",
+        "rightanswer": "4",
+        "answer1": "Movements",
+        "answer2": "Transition",
+        "answer3": "Sound",
+        "answer4": "Custom Animation",
+        "questionseqno": 18,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Intermediate"
+
+    },
+    {
+        "questiontext1": "Use the _______________ command to insert a new slide in presentation.",
+        "rightanswer": "3",
+        "answer1": "Open Slide",
+        "answer2": "Start Slide",
+        "answer3": "New Slide",
+        "answer4": "Slide Plus",
+        "questionseqno": 19,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Intermediate"
+
+    },
+    {
+        "questiontext1": "Add effects from the Custom Animation dialog box have __________  effect options.",
+        "rightanswer": "2",
+        "answer1": "Five",
+        "answer2": "Four",
+        "answer3": "Three",
+        "answer4": "Two",
+        "questionseqno": 20,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Intermediate"
+
+    },
+    {
+        "questiontext1": "What kind of communication shall we call the notice on the notice board? ",
+        "rightanswer": "4",
+        "answer1": "Notice communication",
+        "answer2": "Text messages ",
+        "answer3": "Nonverbal dialog",
+        "answer4": "Written communication",
+        "questionseqno": 21,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Advance"
+
+    },
+    {
+        "questiontext1": "When any information is assessed without words, what dialogue is it called? ",
+        "rightanswer": "1",
+        "answer1": "Nonverbal communication ",
+        "answer2": "Mass communication ",
+        "answer3": "Daily communication",
+        "answer4": "Muted communication",
+        "questionseqno": 22,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Advance"
+
+    },
+    {
+        "questiontext1": "What is the skill of presenting oneself or one's work to people?",
+        "rightanswer": "1",
+        "answer1": "Presentation skills ",
+        "answer2": "Offer skills ",
+        "answer3": "Communication skills",
+        "answer4": "Show off skills",
+        "questionseqno": 23,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Advance"
+
+    },
+    {
+        "questiontext1": "What is the first stage of presentation? ",
+        "rightanswer": "3",
+        "answer1": "Voice recognition ",
+        "answer2": "Observer recognition ",
+        "answer3": "Recognizing the need",
+        "answer4": "Taking good things",
+        "questionseqno": 24,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Advance"
+
+    },
+    {
+        "questiontext1": "It is not important to have good communication in between team members to form a good team.",
+        "rightanswer": "2",
+        "answer1": "TRUE",
+        "answer2": "FALSE",
+        "answer3": "Can't Say",
+        "answer4": "Not Applicable",
+        "questionseqno": 25,
+        "questiontype": "Text",
+        "answertype": "Text",
+        "level":"Advance"
+
+    }
+  
+]

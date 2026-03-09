@@ -1,0 +1,43 @@
+.container {
+    height: 100%;
+
+    justify-content: center;
+}
+.h3 .h6{
+    text-align: center;
+}
+.b{
+    padding:10px;
+}
+.parent {
+    display: flex;
+    flex-direction:row;
+  }
+  
+  .column {
+    flex: 1 1 0px;
+ padding-bottom: 10px;
+  }
+  .icofont{
+    font-size: 30px;
+  }
+  .table td, .table th {
+    padding: 6px !important;
+     vertical-align: top;
+     border: 1px solid black;
+ }
+ @media only screen and (max-width:600px)
+ {
+ 
+     .first
+     {
+         flex: 1;
+     }
+     .second
+     {
+         flex: 1;
+     }
+ }
+ .table-primary{
+  background-color: #e2e6f0;
+ }

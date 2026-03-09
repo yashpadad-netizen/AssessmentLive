@@ -1,0 +1,70 @@
+<div class="container" style="color: white;">
+  <div class="cardblackboard">
+    <p class="pboard" align="center">
+      <select type="text" class="form-control" name="language" (change)="onchangedpd($event.target.value)">
+        <option ngValue="">Select Language</option>
+        <option *ngFor="let languagename of languagename" value={{languagename.lang}}>{{languagename.lang}}
+
+      </select>
+
+    </p>
+    <div *ngIf="noofmin">
+      <div style="text-align: center;">
+        <p style="font-size: 19px;"> Name :{{course}}</p>
+        <p style="font-size: 19px;"> No Of Minutes : {{noofmin}} </p>
+        <!-- <div   class="row form-group ">
+       
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <p style="font-size: 19px;"> No Of Minutes :  {{noofmin}} </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <p style="font-size: 19px;"> No Of Questions :  {{totalmarks}}</p>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+        </div>
+   
+      </div> -->
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12"></div>
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+          <ol style="font-size: 19px;list-style-position: inside;">
+            <p style="font-size: 19px;"> <b>Instructions :</b></p>
+
+            <li>Before starting the test, make sure you are in place with no disturbance.</li>
+            <li>Mark your answers by selecting the right option.</li>
+            <li>Remember that you have to mark only one correct answer for each question.</li>
+            <li>The test will automatically end after the maximum time allocated.</li>
+            <li>Allow Location and Camera access if asked by system.</li>
+          </ol>
+        </div>
+        <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12"></div>
+
+      </div>
+      <br>
+      <div style="text-align: center;">
+        <!-- <button class="btn btn-primary"  >Start Exam</button> -->
+        <a (click)="send()" class="btn btn-lg btn-primary" style="color: white;">Start <i class="fa fa-arrow-right"
+            aria-hidden="true"></i>
+        </a>
+      </div>
+      <br>
+    </div>
+  </div>
+
+</div>
+
+<div class="lds-roller" *ngIf="loading">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

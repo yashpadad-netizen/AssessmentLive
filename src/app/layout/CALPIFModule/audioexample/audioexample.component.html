@@ -1,0 +1,11 @@
+<div class="container">
+  <h5 class="text-center">Audio Play example</h5>
+<br>
+
+  <div class="text-center" *ngFor="let item of audios">
+    <audio controls controlsList="nodownload">
+      <source src="{{item.src}}" type="{{item.type}}">
+    </audio>
+  </div>
+  
+</div>

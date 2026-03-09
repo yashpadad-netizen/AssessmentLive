@@ -1,0 +1,69 @@
+::ng-deep.owl-carousel {
+    width: 90% !important;
+    margin: auto;
+  }
+  
+  ::ng-deep .owl-carousel .owl-nav {
+    overflow: hidden;
+    height: 0px;
+   
+  }
+  
+  ::ng-deep .owl-carousel .nav-btn {
+    height: 47px;
+    position: absolute;
+    width: 26px;
+    cursor: pointer;
+    top: 40% !important;
+  }
+  
+  ::ng-deep.owl-carousel .owl-prev.disabled,
+  ::ng-deep.owl-carousel .owl-next.disabled {
+    //pointer-events: none;
+    opacity: 1;
+  }
+  
+  
+  .divider{
+    margin-top: 2px;
+    border-bottom: 4px solid rgb(56, 199, 63);
+    width:120px;
+    display: block;
+    line-height:1.6em;
+    float: left;
+  } 
+  .card-block{
+    padding: 5px;
+  }
+  .card1{
+    height: 400px;
+    background-image: url(/assets/images/blackboard.png);
+    background-repeat: no-repeat;
+  }
+  .space{
+    padding-right: 40px;
+  }
+  @media screen and (max-width: 992px) {
+    .card1{
+    
+      background-image: url(/assets/images/mobforboard2.png);
+      min-height: 795px;
+         padding: 3%; 
+         background-repeat: no-repeat;
+         width: 350px;
+    }
+    .space{
+      padding-right: 40px;
+    }
+}
+.table td, .table th {
+  padding: 7px;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+.cardblackboard{
+  border: #B87333 30px solid;
+  background-color: black;
+  padding-top: 15px;
+  height: 100%;
+}

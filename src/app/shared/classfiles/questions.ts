@@ -1,0 +1,25 @@
+export class Questions {
+    constructor(
+        public examid :string="",
+        public courseid:string="",
+        public examname :string="",
+        public examhead :string="",
+        public examtype :string="",
+        public noofmin :number =0,
+        public noofquestion :number =0,
+        public markperquestion :number =0,
+        public totalmarks :number =0,
+        public validtill:Date = new Date(),
+        public examattempt :number =0,
+        public  postexamdate :Date = new Date(),
+        public examaccess :string="",
+        public status :string="",
+        public seqno :string="",
+        public createdby :string="",
+        public  createdon :string="",
+        public updatedby :string="",
+        public  updatedon :string="",
+        public language :string="",
+        public certificate:string="",
+    ){}
+}

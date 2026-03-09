@@ -1,0 +1,283 @@
+<div class="container">
+  <div class="row form-group text-center">
+    <div class="col-md-12 pt-3">
+      <h5><b> Competency Wise Questions</b></h5>
+    </div>
+  </div>
+  <form [formGroup]="setwiseform">
+  <div class="card  mb-3" style="padding: 20px !important;border: solid 1px black;">
+    <div class="row form-group">
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 ">
+        <div class="row" [ngClass]="{'has-error': ((setwiseform.get('courses').touched ||
+        setwiseform.get('courses').dirty) &&
+        setwiseform.get('courses').errors)}">
+          <div class="col-lg-4">
+            <label> Course</label>
+          </div>
+          <div class="col-lg-8">
+            <select type="text" class="form-control" name="language" [(ngModel)]="Course" formControlName="courses"
+              (change)="OnSelectCourse($event.target.value)">
+              <option [ngValue]="undefined">Select</option>
+              <option *ngFor="let course of course" value={{course.course}}>{{course.course}}</option>
+
+            </select>
+            <span class="text-danger" *ngIf="((setwiseform.get('courses').touched ||
+            setwiseform.get('courses').dirty) &&
+            setwiseform.get('courses').errors)">
+              <small *ngIf="setwiseform.get('courses').errors.required">
+                Course is required
+              </small>
+           
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 ">
+        <div class="row" [ngClass]="{'has-error': ((setwiseform.get('langauge').touched ||
+        setwiseform.get('langauge').dirty) &&
+        setwiseform.get('langauge').errors)}">
+          <div class="col-lg-4">
+            <label> Language</label>
+          </div>
+          <div class="col-lg-8">
+            <select type="text" class="form-control" name="language" [(ngModel)]="Language" formControlName="langauge" (change)="OnSelectLangugae($event.target.value)">
+              <option [ngValue]="undefined">Select</option>
+              <option *ngFor="let language of language" value={{language.lang}}>{{language.lang}}</option>
+
+            </select>
+            <span class="text-danger" *ngIf="((setwiseform.get('langauge').touched ||
+            setwiseform.get('langauge').dirty) &&
+            setwiseform.get('langauge').errors)">
+              <small *ngIf="setwiseform.get('langauge').errors.required">
+                Langauge is required
+              </small>
+           
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 ">
+        <div class="row" [ngClass]="{'has-error': ((setwiseform.get('level').touched ||
+        setwiseform.get('level').dirty) &&
+        setwiseform.get('level').errors)}">
+          <div class="col-lg-4">
+            <label> Level</label>
+          </div>
+          <div class="col-lg-8">
+            <select type="text" class="form-control" name="language" [(ngModel)]="Level" formControlName="level">
+              <option [ngValue]="undefined">Select</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Basic">Basic</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advance">Advance</option>
+
+            </select>
+            <span class="text-danger" *ngIf="((setwiseform.get('level').touched ||
+            setwiseform.get('level').dirty) &&
+            setwiseform.get('level').errors)">
+              <small *ngIf="setwiseform.get('level').errors.required">
+                Level is required
+              </small>
+           
+            </span>
+          </div>
+        </div>
+      </div>
+      
+    </div><br>
+    <div class="row form-group">
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 ">
+        <div class="row"  [ngClass]="{'has-error': ((setwiseform.get('set').touched ||
+        setwiseform.get('set').dirty) &&
+        setwiseform.get('set').errors)}">
+          <div class="col-lg-4">
+            <label> Set</label>
+          </div>
+          <div class="col-lg-8">
+            <select type="text" class="form-control" name="set" [(ngModel)]="setid" formControlName="set" >
+              <option [ngValue]="undefined">Select</option>
+              <option *ngFor="let setlist of setlist" value={{setlist.setid}}>{{setlist.setid}}</option>
+
+            </select>
+            <span class="text-danger" *ngIf="((setwiseform.get('set').touched ||
+            setwiseform.get('set').dirty) &&
+            setwiseform.get('set').errors)">
+              <small *ngIf="setwiseform.get('set').errors.required">
+                Set is required
+              </small>
+           
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12 ">
+        <button type="submit" class="btn btn-success " (click)="filterrecord(setid,Level,Language)" [disabled]="!setwiseform.valid">Search</button>
+
+      </div>
+      <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 " *ngIf="questionlist">
+        <button type="submit" class="btn btn-success " (click)="PDF('mydiv')">Generate PDF</button>
+
+      </div>
+    </div>
+  </div>
+</form>
+<div class="card  mb-3" style="padding: 20px !important;border: solid 1px black;" id="mydiv" *ngIf="questionlist">
+    <!-- <div align="center" style="display: inline-block;">
+        <span><img src="/assets/images/logo.png" alt=""></span>
+        
+          <span style="font-size: 30px;font-weight: 600;">Pratham InfoTech Foundation</span><br>
+        
+    </div> -->
+    <div class="row">
+    <div style="width: 73%;float: left;">
+      <table>
+        <tr>
+          <td rowspan="2"><span style="font-size: 40px;padding-left: 20px;">Set {{setnumber}}</span></td>
+          <td rowspan="2" style="width: 200px;"><span><img src="/assets/images/logo.png" alt="" style="float:right;"></span></td>
+          <td style="padding-left: 10px;"><span style="font-size: 30px;font-weight: 600;">Pratham InfoTech Foundation</span> <br>
+            <span style="padding-left: 20px;font-size: 20px;">First Semester Exam - (2020-2021)</span>
+            
+          </td>
+       
+        </tr>
+        
+      </table>
+        <div style="padding-left: 20px;">
+        <span style="font-size: 22px;">Name Of The Student : _____________________________________</span><br>
+        <span style="font-size: 22px;">Name Of The School : ______________________________________</span><br>
+        <span style="font-size: 22px;"> Std: {{standard}}    &nbsp; &nbsp; &nbsp; Div: ____</span>  
+      </div>
+    </div>
+    <div style="width: 27%;float: left;padding-top: 40px;">
+      <table style="font-size: 20px;">
+        <tr >
+          <td style="border:  solid 1px black;text-align: center;"><b>Competency Name</b></td>
+          <td style="border:  solid 1px black;text-align: center;"><b>Marks</b></td>
+        </tr>
+        <tr *ngFor="let data of complist">
+          <td style="border:  solid 1px black;text-align: center;white-space: initial;">{{data.competencyname}}</td>
+          <td style="border:  solid 1px black;text-align: center;">{{data.noofquestion}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <hr>
+  <div *ngFor="let currentQuestionSet of questionlist let i = index;"  class="pbreak">
+
+  
+  <div class="row form-group">
+
+    <div *ngIf="currentQuestionSet.questiontype == 'Audio'">
+      <div style="font-size: 22px;font-weight: 600; padding: 10px;">{{i+1}}. <label [innerHTML]="currentQuestionSet.questiontext1"></label></div>
+     
+          <img src="/assets/images/play.png" style="margin-left: 60px;" alt="" *ngIf="btn == true" (click)="play(currentQuestionSet.url)">
+          <img src="/assets/images/pause.png" style="margin-left: 60px;" alt=""  *ngIf="btn == false" (click)="Pause(currentQuestionSet.url)">
+    </div>
+    <div  *ngIf="currentQuestionSet.questiontype == 'Text'" ><div style="font-size: 20px;font-weight: 600; padding: 5px;display: flex;">{{i+1}}. <label style="margin-bottom: 0;" [innerHTML]="currentQuestionSet.questiontext1"></label></div></div>
+    <div *ngIf="currentQuestionSet.questiontype == 'Image'">
+      <div style="font-size: 22px;font-weight: 600; padding: 5px;">{{i+1}}. <label [innerHTML]="currentQuestionSet.questiontext1"></label></div>
+      <img src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.url}}" alt="" class="responsive">
+    </div>
+
+    </div>
+    <div class="row" *ngIf="currentQuestionSet.answertype == 'Text'">
+      <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+
+        <div class="row form-group ">
+          
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+            <div style="display: inline-block;">
+              <span class='box red'></span><label style="font-size: 17px;"  [innerHTML]="currentQuestionSet.answer1"></label>
+            </div>
+            
+            <!-- <div class="inputGroup">
+              <input id="radio1" name="radio" type="radio"  name="{{answer1}}" value="1"
+              [(ngModel)]="currentQuestionSet.selected"/>
+              <label ><b>A.</b> {{currentQuestionSet.answer1}}</label>
+            </div> -->
+          </div>
+        </div>
+        <div class="row form-group ">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+            <!-- <div class="inputGroup">
+              <input id="radio2" name="radio" type="radio" name="{{answer2}}" value="2"
+              [(ngModel)]="currentQuestionSet.selected"/>
+              <label for="radio2"><b>B.</b> {{currentQuestionSet.answer2}}</label>
+            </div> -->
+            <div style="display: inline-block;">
+              <span class='box red'></span><label style="font-size: 17px;"  [innerHTML]="currentQuestionSet.answer2" > </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+        <div class="row form-group ">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+            <!-- <div class="inputGroup">
+              <input id="radio3" name="radio" type="radio"  name="{{answer3}}" value="3"
+              [(ngModel)]="currentQuestionSet.selected"/>
+              <label for="radio3"><b>C.</b> {{currentQuestionSet.answer3}}</label>
+            </div> -->
+            <div style="display: inline-block;">
+             <span class='box red'></span> <label style="font-size: 17px;"   [innerHTML]="currentQuestionSet.answer3"> </label>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group radio">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+            <!-- <div class="inputGroup">
+              <input id="radio4" name="radio" type="radio"  name="{{answer4}}" value="4"
+              [(ngModel)]="currentQuestionSet.selected"/>
+              <label for="radio4"><b>D.</b> {{currentQuestionSet.answer4}}</label>
+            </div> -->
+            <div style="display: inline-block;">
+              <span class='box red'></span><label style="font-size: 17px;" [innerHTML]="currentQuestionSet.answer4" > </label>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row" *ngIf="currentQuestionSet.answertype == 'Image'">
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+
+      <div class="row form-group ">
+       
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+          <label class="radio"> <input type="radio"  name="{{answer1}}" value="1"
+            [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;" ><img src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.answer1}}" alt="" class="responsive"></label>
+        </div>
+        
+      </div>
+      <div class="row form-group radio">
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+          <label class="radio"> <input type="radio" name="{{answer2}}" value="2"
+            [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;" ><img src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.answer2}}" alt="" class="responsive"></label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+      <div class="row form-group radio">
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+          <label class="radio"> <input type="radio"  name="{{answer3}}" value="3"
+            [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;" ><img src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.answer3}}" alt="" class="responsive"></label>
+        </div>
+      </div>
+      <div class="row form-group radio">
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second">
+          <label class="radio"> <input type="radio"  name="{{answer4}}" value="4"
+            [(ngModel)]="currentQuestionSet.selected" style="padding-right: 30px;" ><img src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.answer4}}" alt="" class="responsive"></label>        </div>
+      </div>
+    </div>
+</div>
+  <div *ngIf="(i+1) % 4 == 0">
+    <div class="pagebrake"></div>
+      <br>      
+
+  </div>
+  </div>
+</div>
+</div> 

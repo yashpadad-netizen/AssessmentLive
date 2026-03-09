@@ -1,0 +1,328 @@
+<form [formGroup]="feedbackform" (ngSubmit)="onSubmit(feedbackform.value)">
+    <div class="container">
+
+        <div class="p-1">
+            <h4 style="color: #525252; text-align: center;">A Survey on Students’ Career Aspirations 2025-26</h4>
+        </div>
+        <hr>
+
+        <div class="row form-group">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 pt-2"><b>Please select your preferred language</b></div>
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                <input type="radio" name="language" value="English" id="englishRadio" style="margin-right: 8px;"
+                    (change)="onSelectLanguage($event.target.value)">
+                <label for="englishRadio" style="margin-right: 25px;">English</label>
+
+                <input type="radio" name="language" value="Marathi" id="marathiRadio" style="margin-right: 8px;"
+                    (change)="onSelectLanguage($event.target.value)">
+                <label for="marathiRadio" style="margin-right: 25px;">Marathi</label>
+
+                <input type="radio" name="language" value="Hindi" id="hindiRadio" style="margin-right: 8px;"
+                    (change)="onSelectLanguage($event.target.value)">
+                <label for="hindiRadio" style="margin-right: 25px;">Hindi</label>
+
+                <input type="radio" name="language" value="Gujarati" id="gujaratiRadio" style="margin-right: 8px;"
+                    (change)="onSelectLanguage($event.target.value)">
+                <label for="gujaratiRadio" style="margin-right: 25px;">Gujarati</label>
+            </div>
+        </div>
+        <hr>
+        <br><br>
+        <div *ngIf="selectedlang">
+            <div class="row">
+                <label class="question">1. {{q1}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q1" formControlName="q1" value="1" />
+                            <p class="text">{{option11}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q1" formControlName="q1" value="2" />
+                            <p class="text"> {{option12}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 third">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q1" formControlName="q1" value="3" />
+                            <p class="text"> {{option13}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 fourth">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q1" formControlName="q1" value="4" />
+                            <p class="text"> {{option14}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 fifth">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q1" formControlName="q1" value="5" />
+                            <p class="text"> {{option15}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">2. {{q2}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q2" formControlName="q2" value="1" />
+                            <p class="text">{{yes}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q2" formControlName="q2" value="2" />
+                            <p class="text"> {{no}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">3. {{q3}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q3" formControlName="q3" value="1" />
+                            <p class="text">{{yes}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q3" formControlName="q3" value="2" />
+                            <p class="text"> {{no}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">4. {{q4}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q4" formControlName="q4" value="1" />
+                            <p class="text">{{yes}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q4" formControlName="q4" value="2" />
+                            <p class="text"> {{no}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">5. {{q5}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q5" formControlName="q5" value="1" />
+                            <p class="text">{{yes}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q5" formControlName="q5" value="2" />
+                            <p class="text"> {{no}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">6. {{q6}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q6" formControlName="q6" value="1" />
+                            <p class="text">{{yes}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q6" formControlName="q6" value="2" />
+                            <p class="text"> {{no}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">7. {{q7}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q7" formControlName="q7" value="1" />
+                            <p class="text">{{option71}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q7" formControlName="q7" value="2" />
+                            <p class="text">{{option72}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 third">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q7" formControlName="q7" value="3" />
+                            <p class="text">{{option73}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 fourth">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q7" formControlName="q7" value="4" />
+                            <p class="text">{{option74}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 fifth">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q7" formControlName="q7" value="5" />
+                            <p class="text">{{option75}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">8. {{q8}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q8" formControlName="q8" value="1" />
+                            <p class="text">{{yes}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q8" formControlName="q8" value="2" />
+                            <p class="text"> {{no}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">9. {{q9}}</label>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <textarea class="form-control" rows="2" placeholder="Your Answer" formControlName="q9"
+                        style="width: 15rem; resize: none;" pattern="[a-zA-Z,\s]+"
+                        title="Only text is allowed"></textarea>
+                    <span class="text-danger" *ngIf="((feedbackform.get('q9').touched || feedbackform.get('q9').dirty) &&
+                    feedbackform.get('q9').errors)">
+                        <small *ngIf="feedbackform.get('q9').errors.required">
+                            Answer is required
+                        </small>
+                        <small *ngIf="feedbackform.get('q9').hasError('pattern')">
+                            Only text is allowed (no numbers).
+                        </small>
+                    </span>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">10. {{q10}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q10" formControlName="q10" value="1" />
+                            <p class="text">{{good}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q10" formControlName="q10" value="2" />
+                            <p class="text"> {{average}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 third">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q10" formControlName="q10" value="3" />
+                            <p class="text"> {{poor}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+                <label class="question">11. {{q11}}</label>
+            </div>
+            <div class="row">
+                <div style="display: flex;">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 first">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q11" formControlName="q11" value="1" />
+                            <p class="text">{{good}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 second">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q11" formControlName="q11" value="2" />
+                            <p class="text"> {{average}}</p>
+                        </label>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 third">
+                        <label class="radio-inline">
+                            <input type="radio" class="option-input radio" name="q11" formControlName="q11" value="3" />
+                            <p class="text"> {{poor}}</p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary"
+                    [disabled]="!feedbackform .valid || btndisabled">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="lds-roller" *ngIf="loading else loaded">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>

@@ -1,0 +1,105 @@
+
+@media screen and (max-width: 992px) {
+    .backgroundimg{
+      background-image: url(/assets/images/certificate1.jpg);
+             background-size: 100% 100%;
+             width:325px;
+            height: 255px;
+         }
+         .left{
+          padding-top: 57px;
+        }
+        .name{
+          text-align: center;
+          padding-top: 100px;
+          padding-left: 21px;
+        }
+        .fontname{
+          font-size: 9px;font-family: 'Arial';
+        }
+        .course{
+          text-align: center;
+          padding-left: 5px;
+          padding-top: 10px;
+        }
+        .coursename{
+          font-size: 9px;font-family: 'Arial' ;
+        }
+        .garde{
+          text-align: center;
+          padding-left: 91px;
+        }
+        .gardename{
+          font-size: 9px;font-family: 'Arial' ;
+        }
+        .date{
+          
+          padding-bottom: 20px;
+          margin-left: 19px;
+          padding-top: 2px;
+        }
+        .stdatename{
+          font-size: 8px;
+          font-family: 'Arial';
+          margin-left: 120px;
+          padding-right: 14px
+        }
+        
+        .endatename{
+          font-size: 8px;
+          font-family: 'Arial';
+          margin-left: 13px;
+        }
+    }
+    @media (min-width: 992px) {
+       
+      .left{
+        padding-left: 100px;
+      }
+  .backgroundimg{
+    background-image: url(/assets/images/certificate1.jpg);
+      background-size: 100% 100%;
+      width: 1105px;
+      height: 655px;
+  }
+  .name{
+    text-align: center;
+      padding-left: 55px;
+      padding-top: 270px;
+  }
+  .fontname{
+    font-size: 28px;font-family: 'Arial' ;
+  }
+  .course{
+    text-align: center;
+    padding-left: 5px;
+    padding-top: 44px;
+  }
+  .coursename{
+    font-size: 28px;font-family: 'Arial' ;
+  }
+  .garde{
+    text-align: center;
+      padding-left: 188px;
+  }
+  .gardename{
+    font-size: 28px;font-family: 'Arial' ;
+  }
+  .date{
+          
+    
+    padding-top: 4px;
+  }
+  .stdatename{
+    font-size: 22px;
+    font-family: 'Arial';
+    padding-left: 476px;
+    padding-right: 60px;
+  }
+  
+  .endatename{
+        font-size: 22px;
+      font-family: 'Arial';
+      padding-left: 88px;
+  }
+    }

@@ -1,0 +1,156 @@
+<div class="fluid-container">
+  <div class="row"
+    *ngIf="coursename == 'Artificial Intelligence' || coursename == 'STD 1 - Baseline 2023-24' || coursename == 'STD 2 - Baseline 2023-24' || coursename == 'STD 3 - Baseline 2023-24' || coursename == 'STD 4 - Baseline 2023-24'">
+    <div class="col-lg-6 pb-5">
+      <div class="card d-flex justify-content-center cardblackboard1">
+
+        <h4 class="text-center f-w-600  " style="color: white;" *ngIf="coursename == 'Artificial Intelligence'"> Course
+          1 :</h4>
+        <h4 class="text-center f-w-600  " style="color: white;" *ngIf="!coursename == 'Artificial Intelligence'"> Name :
+          {{fullname }}</h4>
+        <br>
+        <h4 class="text-center f-w-600  " style="color: white;"> {{course1name }}</h4>
+        <br>
+        <div class=" text-center" *ngIf="course1examcount < 3">
+          <button class="btn btn-success" (click)="Start(course1name)">Start </button>
+        </div>
+        <h5 *ngIf="course1examcount >= 3" class=" text-center" style="color: white;">All Attempt Done</h5>
+        <hr style="height: 2px;background-color: #ccc; border: none;margin-right: 40px;margin-left: 40px">
+
+        <h5 *ngIf="course1examcount >= 3 || course1examcount < 3" class=" text-center" style="color: white;">Previous
+          Attempt Summary</h5>
+        <br>
+        <div class="row justify-content-center" *ngIf="course1prevgrade !=0 ">
+          <div class="col-auto">
+            <table class="table table-responsive" style="color: white;font-size: 11px;">
+              <tr>
+                <td><b>Course</b></td>
+                <td>{{course1name}}</td>
+              </tr>
+              <tr>
+                <td><b>Language</b></td>
+                <td>{{course1language}}</td>
+              </tr>
+              <tr>
+                <td><b>Grade</b></td>
+                <td>{{course1grade}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td *ngIf="course1prevgrade !=0 && course2prevgrade !=0 "><b><a
+                      (click)="CertificateRedirect(course1name)" style="color: rgb(25, 162, 241);cursor: pointer;">View
+                      Certificate</a></b></td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+        <h5 *ngIf="course1prevgrade == 0 " class=" text-center" style="color: white;">No Previous Attempt</h5>
+      </div>
+    </div>
+    <div class="col-lg-6 pb-5">
+      <div class="card d-flex justify-content-center cardblackboard1">
+
+        <h4 class="text-center f-w-600  " style="color: white;" *ngIf="coursename == 'Artificial Intelligence'"> Course
+          2 : </h4>
+        <h4 class="text-center f-w-600  " style="color: white;" *ngIf="!coursename == 'Artificial Intelligence'"> Name :
+          {{fullname }}</h4>
+        <br>
+        <h4 class="text-center f-w-600  " style="color: white;"> {{course2name }}</h4>
+        <br>
+        <div class=" text-center" *ngIf="course2examcount < 3">
+          <button class="btn btn-success" (click)="Start(course2name)">Start </button>
+        </div>
+        <h5 *ngIf="course2examcount >= 3" class=" text-center" style="color: white;">All Attempt Done</h5>
+        <hr style="height: 2px;background-color: #ccc; border: none;margin-right: 40px;margin-left: 40px">
+
+        <h5 *ngIf="course2examcount >= 3 || course2examcount < 3" class=" text-center" style="color: white;">Previous
+          Attempt Summary</h5>
+        <br>
+        <div class="row justify-content-center" *ngIf="course2prevgrade !=0 ">
+          <div class="col-auto">
+            <table class="table table-responsive" style="color: white;font-size: 11px;">
+              <tr>
+                <td><b>Course</b></td>
+                <td>{{course2name}}</td>
+              </tr>
+              <tr>
+                <td><b>Language</b></td>
+                <td>{{course2language}}</td>
+              </tr>
+              <tr>
+                <td><b>Grade</b></td>
+                <td>{{course2grade}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td *ngIf="course1prevgrade !=0 && course2prevgrade !=0 "><b><a
+                      (click)="CertificateRedirect(course2name)" style="color: rgb(25, 162, 241);cursor: pointer;">View
+                      Certificate</a></b></td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+        <h5 *ngIf="course2prevgrade ==0 " class=" text-center" style="color: white;">No Previous Attempt</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="card d-flex justify-content-center cardblackboard"
+    *ngIf="coursename == 'STD 5 - Baseline 2025-26' || coursename == 'STD 6 - Baseline 2025-26' || coursename == 'STD 7 - Baseline 2025-26' || coursename == 'STD 8 - Baseline 2025-26' || coursename == 'STD 9 - Baseline 2025-26' || coursename == 'STD 10 - Baseline 2025-26' || coursename == 'STD 11 - Baseline 2025-26' || coursename == 'STD 12 - Baseline 2025-26' || coursename == 'STD 12 - Baseline 2025-26 (Old)' || coursename == 'STD 9 - Gujarati - Baseline 2025-26' || coursename == 'STD 10 - Gujarati - Baseline 2025-26' || coursename == 'STD 11 - Gujarati - Baseline 2025-26' || coursename == 'STD 12 - Gujarati - Baseline 2025-26' || coursename == 'STD 1 - Kerala Baseline 2025-26' || coursename == 'STD 2 - Kerala Baseline 2025-26' || coursename == 'STD 3 - Kerala Baseline 2025-26' || coursename == 'STD 4 - Kerala Baseline 2025-26' || coursename == 'STD 5 - Kerala Baseline 2025-26' || coursename == 'STD 6 - Kerala Baseline 2025-26' || coursename == 'STD 7 - Kerala Baseline 2025-26' || coursename == 'STD 5 - Midline 2025-26' || coursename == 'STD 6 - Midline 2025-26' || coursename == 'STD 7 - Midline 2025-26' || coursename == 'STD 8 - Midline 2025-26' || coursename == 'STD 9 - Midline 2025-26' || coursename == 'STD 11 - Midline 2025-26' || coursename == 'STD 9 - Gujarati - Midline 2025-26' || coursename == 'STD 11 - Gujarati - Midline 2025-26' || coursename == 'STD 5 - Endline 2025-26' || coursename == 'STD 6 - Endline 2025-26' || coursename == 'STD 7 - Endline 2025-26' || coursename == 'STD 8 - Endline 2025-26' || coursename == 'STD 9 - Endline 2025-26' || coursename == 'STD 10 - Endline 2025-26' || coursename == 'STD 11 - Endline 2025-26' || coursename == 'STD 12 - Endline 2025-26' || coursename == 'STD 9 - Gujarati - Endline 2025-26' || coursename == 'STD 10 - Gujarati - Endline 2025-26' || coursename == 'STD 11 - Gujarati - Endline 2025-26' || coursename == 'STD 12 - Gujarati - Endline 2025-26'">
+
+    <h4 class="text-center f-w-600  " style="color: white;"> Name : {{fullname }}</h4>
+    <br>
+    <h4 class="text-center f-w-600  " style="color: white;"> {{coursename }}</h4>
+    <br>
+    <div class=" text-center" *ngIf="examcount < 3">
+      <button class="btn btn-success" (click)="Start(coursename)">Start </button>
+    </div>
+    <h5 *ngIf="examcount >= 3" class=" text-center" style="color: white;">All Attempt Done</h5>
+    <hr style="height: 2px;background-color: #ccc; border: none;margin-right: 40px;margin-left: 40px">
+
+    <h5 *ngIf="examcount >= 3" class=" text-center" style="color: white;">Previous Attempt Summary</h5>
+    <br>
+    <div class="row justify-content-center" *ngIf="prevgrade !=0 ">
+      <div class="col-auto">
+        <table class="table table-responsive" style="color: white;font-size: 11px;">
+          <tr>
+            <td><b>Course</b></td>
+            <td>{{coursename}}</td>
+          </tr>
+          <tr>
+            <td><b>Language</b></td>
+            <td>{{prevlanguage}}</td>
+          </tr>
+          <tr>
+            <td><b>Grade</b></td>
+            <td>{{FinalGrade}}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <!-- <td><b><a (click)="CertificateRedirect()" style="color: rgb(25, 162, 241);cursor: pointer;">View
+                  Certificate</a></b></td> -->
+          </tr>
+        </table>
+
+      </div>
+    </div>
+    <h5 *ngIf="prevgrade ==0 " class=" text-center" style="color: white;">No Previous Attempt</h5>
+  </div>
+
+</div>
+
+<div class="lds-roller" *ngIf="loading">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>

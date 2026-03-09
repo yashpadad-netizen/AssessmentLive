@@ -1,0 +1,86 @@
+<section class=" text-center"
+  style="background-image: url(/assets/images/dsbackground.jpg); height: 100%; width: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;position: fixed;">
+  <div class="row ">
+
+    <div class="container">
+      <div class="login-card card-body auth-body ">
+        <form class="md-float-material" #loginForm="ngForm">
+          <!-- <div class="text-center">
+               <h5><b style="color: #007bff;">DIGITAL SAKSHAR</b></h5> 
+               <img src="/assets/images/digital-sakshar-new-website-logo.png" border="0" width="224" height="46" orgwidth="224" orgheight="46" alt="">
+
+              </div> -->
+          <div class="auth-box" style=" box-shadow: 0 0 60px;">
+            <div class="row">
+              <div class="col-md-12">
+                <!-- <h3 class="text-center txt-primary">Log In</h3> -->
+                <img src="/assets/images/digital-sakshar-new-website-logo.png" border="0" width="224" height="46"
+                  orgwidth="224" orgheight="46" alt="">
+
+              </div>
+            </div>
+
+            <!-- nemae -->
+            <div class="row" style="padding-top: 20px; font-size: 25px; color: #4680ff;">
+              <div class="col-md-12">
+                <div class="text-center"><b>Jaanch Portal</b></div>
+              </div>
+            </div>
+            <!-- end -->
+
+            <hr />
+            <div class="input-group">
+              <input type="text" name="UserName" class="form-control" placeholder="User Name" ngModel>
+              <span class="md-line"></span>
+            </div>
+            <div class="input-group">
+              <input type="password" name="Password" class="form-control" placeholder="Password" ngModel>
+              <span class="md-line"></span>
+            </div>
+            <p *ngIf="message" class="text-center error" style="color: red">{{message}}</p>
+            <div class="row m-t-30">
+
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"
+                  (click)="Loginuser(loginForm.value)">Log in</button>
+              </div>
+              <!-- <div class="col-md-12">
+                    <a class="text-center f-w-600 text-inverse">Register</a>
+                  </div><br>
+                  <div class="col-md-12 m-t-10">
+                    <button  [routerLink]="['/TeacherRegistration']"  class="btn btn-md btn-block waves-effect text-center m-b-20" style="background-color: #93BE52;"><b style="color: white;"><i class="icofont icofont-girl-alt"></i>Register Teacher </b></button>
+                  </div>
+                  <div class="col-md-12">
+                    <button   [routerLink]="['/StudentRegistration']"  class="btn  btn-md btn-block waves-effect text-center m-b-20" style="background-color: #FC6180;"><b style="color: white;"><i class="icofont icofont-learn"></i>Register Student</b></button>
+                  </div> -->
+              <!-- <div class="col-md-12">
+                    <a class="text-center"   style="color: #4680ff;cursor: pointer;" (click)="CertificateSearch()"><b>Download Certificate</b></a>
+                  </div> -->
+            </div>
+            <!-- <br> -->
+
+
+            <div class="row">
+              <div class="col-md-12">
+                <p class="text-inverse text-center m-b-0">An Initiative by</p>
+                <p class="text-inverse text-center"><b>Pratham InfoTech Foundation</b></p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="lds-roller" *ngIf="loading">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
