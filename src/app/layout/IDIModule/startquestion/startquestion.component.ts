@@ -282,22 +282,44 @@ export class StartquestionComponent implements OnInit {
       this.obj['examtype'] = this.coursename;
 
       this.service1.AddHappinessAssessment(this.UserValues.username, this.obj).subscribe((res: any) => {
-        if (res == 'success') {
+        if(res){
           localStorage.removeItem("cq");
           localStorage.removeItem("qdata");
           localStorage.removeItem("result");
           localStorage.removeItem("obj");
           localStorage.removeItem("timer");
+
+          this.obj['totalmark'] = res.totalmark;
+          this.obj['percentage'] = res.percentage;
+          this.obj['grade'] = res.grade;
+          sessionStorage.setItem('ExamResult', JSON.stringify(this.obj));
           this.loading = false;
           this.router.navigate(['/ExamResult', this.setid]);
         }
-        else if (res == 'Exists') {
+        else{
           this.loading = false;
           alert("Exam Already Given!");
           localStorage.clear();
           sessionStorage.clear();
           this.router.navigate(['/login']);
         }
+
+        // if (res == 'success') {
+        //   localStorage.removeItem("cq");
+        //   localStorage.removeItem("qdata");
+        //   localStorage.removeItem("result");
+        //   localStorage.removeItem("obj");
+        //   localStorage.removeItem("timer");
+        //   this.loading = false;
+        //   this.router.navigate(['/ExamResult', this.setid]);
+        // }
+        // else if (res == 'Exists') {
+        //   this.loading = false;
+        //   alert("Exam Already Given!");
+        //   localStorage.clear();
+        //   sessionStorage.clear();
+        //   this.router.navigate(['/login']);
+        // }
 
       })
     }
