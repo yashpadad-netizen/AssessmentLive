@@ -64,3 +64,20 @@
     background: #0d6efd;
     margin-top: 6px;
 }
+
+.standard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin-top: 5px;
+}
+
+.standard-option {
+    background: #f3f6fb;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
