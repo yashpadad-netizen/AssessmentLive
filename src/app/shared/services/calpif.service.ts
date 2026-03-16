@@ -41,7 +41,7 @@ export class CalpifService {
   }
   GetCompetencywiseQuestionList(where: any) {
 
-    return this.http.get(environment.apiUrl + "DSAssessment/" + "GetCompetencywiseQuestionList?whr=" + btoa(where))
+    return this.http.get(environment.apiUrl + "DSAssessment/" + "GetCompetencywiseQuestionList?whr=" + where)
   }
   StaticData(user: User) {
     var headers = new HttpHeaders({ "Content-Type": "application/json" })
@@ -129,4 +129,14 @@ export class CalpifService {
   TeacherRegistration(data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "TeacherRegistration", data);
   }
+  TeacherRegistrationHappiness(data: any) {
+    return this.http.post(environment.apiUrl + "DSAssessment/" + "TeacherRegistrationHappiness", data);
+  }
+  InsertHappinessTeacherFeedback(userid: any, data: any) {
+    return this.http.post(environment.apiUrl + "DSAssessment/" + "InsertHappinessTeacherFeedback/" + userid, data);
+  }
+  FillDropDown(tablename, column1, column2, where) {
+    return this.http.get(environment.apiUrl + 'DSAssessment/' + 'FillDropDown?tablename=' + tablename + '&column1=' + column1 + '&column2=' + column2 + '&whr=' + where);
+  }
+
 }

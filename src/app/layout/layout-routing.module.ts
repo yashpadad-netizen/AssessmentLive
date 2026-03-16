@@ -26,6 +26,7 @@ const routes: Routes = [
       { path: 'CareerAwarenessExam', loadChildren: () => import('./careerawarenessexam/careerawarenessexam.module').then(m => m.CareerawarenessexamModule) },
       { path: 'PrePlacementFeedback', loadChildren: () => import('./preplacementfeedback/preplacementfeedback.module').then(m => m.PreplacementfeedbackModule) },
       { path: 'TeacherTrainingFeedback', loadChildren: () => import('./Teacher Training/teachertrainingfeedback/teachertrainingfeedback.module').then(m => m.TeachertrainingfeedbackModule) },
+      { path: 'HappinessTeacherFeedback', loadChildren: () => import('./Happiness Teacher/happinessteacherfeedback/happinessteacherfeedback.module').then(m => m.HappinessteacherfeedbackModule) },
 
 
     ]

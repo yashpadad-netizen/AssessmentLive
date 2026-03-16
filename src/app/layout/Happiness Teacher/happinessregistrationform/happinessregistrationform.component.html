@@ -1,0 +1,175 @@
+<section class="registration-section">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-9 col-lg-10">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h4 class="mb-0 text-center">Happiness Teacher Registration</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <form [formGroup]="teacherForm" (ngSubmit)="submitForm()">
+
+                            <!-- PERSONAL INFORMATION -->
+                            <h5 class="section-title">Personal Information</h5>
+                            <!-- <hr> -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Teacher Name <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter Teacher Name" class="form-control"
+                                        formControlName="teachername">
+                                    <div class="text-danger" *ngIf="f.teachername.touched && f.teachername.errors">
+                                        <small *ngIf="f.teachername.errors.required">Teacher Name is required</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Teacher's Designation <span
+                                            class="text-danger">*</span></label>
+                                    <select class="form-control" formControlName="teacherdesignation">
+                                        <option value="">Select</option>
+                                        <option>Primary Teacher</option>
+                                        <option>Secondary Teacher</option>
+                                        <option>Upper Primary Teacher</option>
+                                        <option>Higher Secondary Teacher</option>
+                                    </select>
+                                    <div class="text-danger"
+                                        *ngIf="f.teacherdesignation.touched && f.teacherdesignation.errors">
+                                        <small *ngIf="f.teacherdesignation.errors.required">Designation is
+                                            required</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label class="form-label">Mobile No <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter Mobile No." class="form-control"
+                                        formControlName="mobileno">
+                                    <div class="text-danger" *ngIf="f.mobileno.touched && f.mobileno.errors">
+                                        <small *ngIf="f.mobileno.errors.required">Mobile number is required</small>
+                                        <small *ngIf="f.mobileno.errors.pattern">Enter valid 10 digit number</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input type="email" placeholder="Enter Email" class="form-control"
+                                        formControlName="email">
+                                    <div class="text-danger" *ngIf="f.email.touched && f.email.errors">
+                                        <small *ngIf="f.email.errors.required">Email is required</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">Gender <span class="text-danger">*</span></label>
+                                    <select class="form-control" formControlName="gender">
+                                        <option value="">Select</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Other</option>
+                                    </select>
+                                    <div class="text-danger" *ngIf="f.gender.touched && f.gender.errors">
+                                        <small *ngIf="f.gender.errors.required">Gender is required</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <!-- SCHOOL INFORMATION -->
+                            <h5 class="section-title">School Information</h5>
+                            <!-- <hr> -->
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label class="form-label">State <span class="text-danger">*</span></label>
+                                    <select class="form-control" formControlName="state"
+                                        (change)="onStateChange($event.target.value)">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let state of state" [value]="state.column2">{{state.column2}}
+                                        </option>
+                                    </select>
+                                    <!-- <input type="text" placeholder="Enter State" class="form-control"
+                                        formControlName="state"> -->
+                                    <div class="text-danger" *ngIf="f.state.touched && f.state.errors">
+                                        <small *ngIf="f.state.errors.required">State is required</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">District <span class="text-danger">*</span></label>
+                                    <select class="form-control" formControlName="district"
+                                        (change)="onDistrictChange($event.target.value)">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let district of district" [value]="district.column2">
+                                            {{district.column2}}</option>
+                                    </select>
+                                    <!-- <input type="text" placeholder="Enter District" class="form-control"
+                                        formControlName="district"> -->
+                                    <div class="text-danger" *ngIf="f.district.touched && f.district.errors">
+                                        <small *ngIf="f.district.errors.required">District is required</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">City <span class="text-danger">*</span></label>
+                                    <select class="form-control" formControlName="city"
+                                        (change)="onCityChange($event.target.value)">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let city of city" [value]="city.column2">{{city.column2}}
+                                        </option>
+                                    </select>
+                                    <!-- <input type="text" placeholder="Enter Block" class="form-control"
+                                        formControlName="city"> -->
+                                    <div class="text-danger" *ngIf="f.city.touched && f.city.errors">
+                                        <small *ngIf="f.city.errors.required">City is required</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">School Name <span class="text-danger">*</span></label>
+                                    <select class="form-control" formControlName="schoolname"
+                                        (change)="onSchoolChange($event.target.value)">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let school of school" [value]="school.column2">
+                                            {{school.column1}}
+                                        </option>
+                                    </select>
+                                    <!-- <input type="text" placeholder="Enter School Name" class="form-control"
+                                        formControlName="schoolname"> -->
+                                    <div class="text-danger" *ngIf="f.schoolname.touched && f.schoolname.errors">
+                                        <small *ngIf="f.schoolname.errors.required">School Name is required</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label">UDISE No <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter UDISENO" class="form-control"
+                                        formControlName="udiseno">
+                                    <div class="text-danger" *ngIf="f.udiseno.touched && f.udiseno.errors">
+                                        <small *ngIf="f.udiseno.errors.required">UDISE is required</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="form-label">Standard <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter Standard" class="form-control"
+                                        formControlName="standard">
+                                    <div class="text-danger" *ngIf="f.standard.touched && f.standard.errors">
+                                        <small *ngIf="f.standard.errors.required">Standard is required</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="text-center mt-4">
+                                <button class="btn btn-primary px-5" type="submit"
+                                    [disabled]="teacherForm.invalid || isSubmitting">
+                                    {{ isSubmitting ? 'Submitting...' : 'Submit Registration' }}
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

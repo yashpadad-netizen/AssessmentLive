@@ -95,6 +95,9 @@ export class StartexamComponent implements OnInit {
     { name: "Teacher Training (Post) 2025-26", totmarks: 15 },
     { name: "Teacher Training (Feedback) 2025-26", totmarks: 11 },
 
+    //happiness teacher 
+    { name: "Happiness Teacher Feedback", totmarks: 8 },
+
   ];
   FinalGrade;
   username
@@ -146,6 +149,9 @@ export class StartexamComponent implements OnInit {
     }
     else if (this.coursename == 'Teacher Training (Feedback) 2025-26') {
       this.router.navigate(['/TeacherTrainingFeedback']);
+    }
+    else if (this.coursename == 'Happiness Teacher Feedback') {
+      this.router.navigate(['/HappinessTeacherFeedback']);
     }
     else {
       this.router.navigate(['/MainStartQuestion']);

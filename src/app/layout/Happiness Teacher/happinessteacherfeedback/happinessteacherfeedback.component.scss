@@ -1,0 +1,132 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 120px);
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.card {
+    width: min(960px, 100%);
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: clamp(20px, 3vw, 32px);
+    border: 1px solid #dbe5f6;
+    box-shadow: 0 24px 60px rgba(9, 18, 34, 0.12);
+    font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.header h2 {
+    margin: 0 0 6px;
+    color: #17345f;
+    font-size: clamp(20px, 2.4vw, 28px);
+}
+
+.header p {
+    margin: 0;
+    color: #4a6695;
+    font-weight: 600;
+}
+
+.language {
+    margin: 8px 0 18px;
+    padding: 12px 0 16px;
+    border-bottom: 1px solid #dbe5f6;
+    text-align: center;
+}
+
+.language p {
+    margin: 0 0 10px;
+    font-weight: 700;
+    color: #17345f;
+}
+
+.language-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    color: #1c3763;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.question-card {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #f6f9fe;
+    border: 1px solid #dbe5f6;
+}
+
+.question-title {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 10px;
+    color: #17345f;
+    font-weight: 700;
+}
+
+.num {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: #e3ecfb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: #2a66be;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #dbe5f6;
+    color: #1c3763;
+    font-weight: 600;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 6px;
+    border: 1px solid #cad5eb;
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #f9fbff;
+    font-size: 14px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+button {
+    margin-top: 10px;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: #2a66be;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}

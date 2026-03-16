@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule), canActivate: [AuthGuard] },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
   { path: 'RegistrationForm', loadChildren: () => import('./layout/Teacher Training/registrationform/registrationform.module').then(m => m.RegistrationformModule) },
+  { path: 'HappinessTeacherRegistration', loadChildren: () => import('./layout/Happiness Teacher/happinessregistrationform/happinessregistrationform.module').then(m => m.HappinessregistrationformModule) },
   { path: 'DataSync', loadChildren: () => import('./datasync/datasync.module').then(m => m.DatasyncModule) },
   { path: 'CompetencyWiseQuestions', loadChildren: () => import('./competencywisequestion/competencywisequestion.module').then(m => m.CompetencywisequestionModule) },
   { path: 'DSFeedback', loadChildren: () => import('./dsfeedback/dsfeedback.module').then(m => m.DsfeedbackModule) },
