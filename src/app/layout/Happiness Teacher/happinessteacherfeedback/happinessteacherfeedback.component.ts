@@ -80,6 +80,7 @@ export class HappinessteacherfeedbackComponent implements OnInit {
   }
 
   setLanguage(lang: string): void {
+    this.form.reset();
     this.selectedLang = lang;
     this.form.patchValue({ language: lang });
 

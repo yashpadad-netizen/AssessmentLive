@@ -151,7 +151,7 @@ export class HappinessregistrationformComponent implements OnInit {
 
           if (res == 'Teacher registered successfully') {
 
-            alert('Teacher Registered Successfully');
+            alert('Teacher Registered Successfully! \nPlease login with register mobile number to continue!');
 
             this.teacherForm.reset();
 
