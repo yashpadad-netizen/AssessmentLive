@@ -17,7 +17,7 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label>Teacher Name *</label>
+                                    <label>Teacher Name <span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" placeholder="Enter Teacher Name"
                                         formControlName="teachername">
 
@@ -25,29 +25,11 @@
                                         Teacher Name is required
                                     </div>
                                 </div>
-
-                                <div class="col-md-6">
-                                    <label>Teacher Designation *</label>
-
-                                    <select class="form-control" formControlName="teacherdesignation">
-                                        <option value="">Select</option>
-                                        <option>Primary Teacher</option>
-                                        <option>Secondary Teacher</option>
-                                        <option>Upper Primary Teacher</option>
-                                        <option>Higher Secondary Teacher</option>
-                                    </select>
-
-                                    <div class="text-danger"
-                                        *ngIf="f.teacherdesignation.touched && f.teacherdesignation.errors">
-                                        Designation is required
-                                    </div>
-                                </div>
                             </div>
 
                             <div class="row mb-3">
-
                                 <div class="col-md-4">
-                                    <label>Mobile No *</label>
+                                    <label>Mobile No <span style="color: red;">*</span></label>
 
                                     <input type="text" class="form-control" placeholder="Enter Mobile No"
                                         formControlName="mobileno">
@@ -58,7 +40,7 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label>Email *</label>
+                                    <label>Email <span style="color: red;">*</span></label>
 
                                     <input type="email" class="form-control" placeholder="Enter Email"
                                         formControlName="email">
@@ -69,7 +51,7 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label>Gender *</label>
+                                    <label>Gender <span style="color: red;">*</span></label>
 
                                     <select class="form-control" formControlName="gender">
                                         <option value="">Select</option>
@@ -94,7 +76,7 @@
                             <div class="row mb-3">
 
                                 <div class="col-md-4">
-                                    <label>State *</label>
+                                    <label>State <span style="color: red;">*</span></label>
 
                                     <select class="form-control" formControlName="state"
                                         (change)="onStateChange($event.target.value)">
@@ -114,7 +96,7 @@
 
 
                                 <div class="col-md-4">
-                                    <label>District *</label>
+                                    <label>District <span style="color: red;">*</span></label>
 
                                     <select class="form-control" formControlName="district"
                                         (change)="onDistrictChange($event.target.value)">
@@ -134,7 +116,7 @@
 
 
                                 <div class="col-md-4">
-                                    <label>City *</label>
+                                    <label>City <span style="color: red;">*</span></label>
 
                                     <select class="form-control" formControlName="city"
                                         (change)="onCityChange($event.target.value)">
@@ -157,7 +139,7 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label>School Name *</label>
+                                    <label>School Name <span style="color: red;">*</span></label>
                                     <select class="form-control" formControlName="schoolname"
                                         (change)="onSchoolChange($event.target.value)">
                                         <option value="">Select</option>
@@ -172,20 +154,18 @@
 
 
                                 <div class="col-md-3">
-                                    <label>UDISE No *</label>
+                                    <label>UDISE No</label>
 
-                                    <input class="form-control" formControlName="udiseno" placeholder="Enter UDISE">
-
-                                    <div class="text-danger" *ngIf="f.udiseno.touched && f.udiseno.errors">
-                                        UDISE is required
-                                    </div>
+                                    <input class="form-control" formControlName="udiseno" placeholder="UDISE" readonly>
                                 </div>
 
 
                                 <!-- STANDARD CHECKBOX GRID -->
 
                                 <div class="col-md-3">
-                                    <label>Standard *</label>
+                                    <label>
+                                        Which standards are you teaching Happiness Literacy? <span style="color: red;">*</span>
+                                    </label>
 
                                     <div class="standard-grid">
 
