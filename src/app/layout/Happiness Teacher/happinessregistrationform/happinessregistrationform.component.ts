@@ -36,7 +36,7 @@ export class HappinessregistrationformComponent implements OnInit {
       gender: ['', Validators.required],
 
       schoolname: ['', Validators.required],
-      udiseno: ['', Validators.required],
+      udiseno: [''],
 
       standard: [[], Validators.required],
 
@@ -44,7 +44,7 @@ export class HappinessregistrationformComponent implements OnInit {
       district: ['', Validators.required],
       city: ['', Validators.required],
 
-      teacherdesignation: ['', Validators.required]
+      // teacherdesignation: ['', Validators.required]
 
     });
 
