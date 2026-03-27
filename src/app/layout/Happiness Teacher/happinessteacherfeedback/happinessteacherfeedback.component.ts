@@ -31,7 +31,6 @@ export class HappinessteacherfeedbackComponent implements OnInit {
 
   c1 = '';
   c2 = '';
-  c3 = '';
 
   d1 = '';
   d2 = '';
@@ -77,6 +76,37 @@ export class HappinessteacherfeedbackComponent implements OnInit {
 
   ngOnInit(): void {
     this.setLanguage('English');
+
+    // Initially remove validators for Q4–Q8
+    this.clearValidatorsForNextQuestions();
+
+    this.form.get('q3')?.valueChanges.subscribe(value => {
+      if (!value || value === this.c2) {
+        this.clearValidatorsForNextQuestions();
+      } else {
+        this.addValidatorsForNextQuestions();
+      }
+    });
+  }
+
+  clearValidatorsForNextQuestions() {
+    ['q4', 'q5', 'q6', 'q7', 'q8'].forEach(q => {
+      this.form.get(q)?.clearValidators();
+      this.form.get(q)?.setValue('');
+      this.form.get(q)?.updateValueAndValidity();
+    });
+  }
+
+  addValidatorsForNextQuestions() {
+    ['q4', 'q5', 'q6', 'q7', 'q8'].forEach(q => {
+      this.form.get(q)?.setValidators(Validators.required);
+      this.form.get(q)?.updateValueAndValidity();
+    });
+  }
+
+  shouldShowNextQuestions(): boolean {
+    const q3Value = this.form.get('q3')?.value;
+    return !!q3Value && q3Value !== this.c2;
   }
 
   setLanguage(lang: string): void {
@@ -85,7 +115,7 @@ export class HappinessteacherfeedbackComponent implements OnInit {
     this.form.patchValue({ language: lang });
 
     if (lang === 'Marathi') {
-      this.q1 = 'आपल्या शाळेत Happiness Lab उपक्रम राबविण्यास  आपण इच्छुक आहात का?';
+      this.q1 = 'आपल्या शाळेत राबविण्यात आलेला ‘Happiness Lab’ उपक्रम तुम्हाला आवडला का?';
       this.a1 = 'होय';
       this.a2 = 'काही प्रमाणात';
       this.a3 = 'नाही';
@@ -95,10 +125,9 @@ export class HappinessteacherfeedbackComponent implements OnInit {
       this.b2 = 'अशंत: बदल';
       this.b3 = 'कोणताही बदल नाही';
 
-      this.q3 = '3.	आपल्या शाळेत Compassion Day (करुणा दिवस) हा दिवस साजरा करण्यात आला होता का?';
+      this.q3 = 'आपल्या शाळेत Compassion Day (करुणा दिवस) हा दिवस साजरा करण्यात आला होता का?';
       this.c1 = 'होय';
       this.c2 = 'नाही';
-      this.c3 = 'नियोजन केले आहे, पण अद्याप केलेला नाही';
 
       this.q4 = 'Compassion Day दरम्यान विद्यार्थ्यांनी कोणत्या क्रियांमध्ये सहभाग घेतला?';
       this.d1 = 'करुणा शपथ (Compassion Oath) घेणे';
@@ -128,7 +157,7 @@ export class HappinessteacherfeedbackComponent implements OnInit {
     }
 
     if (lang === 'Hindi') {
-      this.q1 = 'आप अपने विद्यालय में Happiness Lab की गतिविधियाँ आयोजित करने में  इच्छुक हैं?';
+      this.q1 = 'अपने विद्यालय में आयोजित ‘Happiness Lab’ गतिविधियां आपको अच्छी लगी क्या?';
       this.a1 = 'हाँ';
       this.a2 = 'आंशिक रूप से';
       this.a3 = 'नहीं';
@@ -141,7 +170,6 @@ export class HappinessteacherfeedbackComponent implements OnInit {
       this.q3 = 'क्या आपके विद्यालय में Compassion Day (करुणा दिन) मनाया गया था?';
       this.c1 = 'हाँ';
       this.c2 = 'नहीं';
-      this.c3 = 'योजना बनाई गई है, लेकिन अभी तक मनाया नहीं गया है';
 
       this.q4 = 'Compassion Day के दौरान विद्यार्थियों ने किन गतिविधियों में भाग लिया?';
       this.d1 = 'करुणा शपथ (Compassion Oath) लेना';
@@ -171,7 +199,7 @@ export class HappinessteacherfeedbackComponent implements OnInit {
     }
 
     if (lang === 'English') {
-      this.q1 = 'Are you interested in conducting Happiness Lab activities in your school?';
+      this.q1 = 'Did you find conducting Happiness Lab activities in your school interesting?';
       this.a1 = 'Yes';
       this.a2 = 'Somewhat';
       this.a3 = 'No';
@@ -184,7 +212,6 @@ export class HappinessteacherfeedbackComponent implements OnInit {
       this.q3 = 'Has your school celebrated the Compassion Day activity?';
       this.c1 = 'Yes';
       this.c2 = 'No';
-      this.c3 = 'Planned but not yet conducted';
 
       this.q4 = 'Which activities have you observed students engaging in during the Compassion Day initiative?';
       this.d1 = 'Compassion Oath/Pledge Taking';

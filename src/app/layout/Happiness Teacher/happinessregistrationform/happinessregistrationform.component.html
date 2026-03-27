@@ -5,7 +5,7 @@
                 <div class="card shadow-lg border-0">
 
                     <div class="card-header bg-primary text-white py-3">
-                        <h4 class="mb-0 text-center">Happiness Teacher Registration</h4>
+                        <h4 class="mb-0 text-center">Teacher Registration - Happiness Literacy Program</h4>
                     </div>
 
                     <div class="card-body p-4">
@@ -16,13 +16,33 @@
                             <h5 class="section-title">Personal Information</h5>
 
                             <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label>Teacher Name <span style="color: red;">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter Teacher Name"
-                                        formControlName="teachername">
+                                <div class="col-md-4">
+                                    <label>First Name <span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter First Name"
+                                        formControlName="firstname">
 
-                                    <div class="text-danger" *ngIf="f.teachername.touched && f.teachername.errors">
-                                        Teacher Name is required
+                                    <div class="text-danger" *ngIf="f.firstname.touched && f.firstname.errors">
+                                        First Name is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>Middle Name <span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter Middle Name"
+                                        formControlName="middlename">
+
+                                    <div class="text-danger" *ngIf="f.middlename.touched && f.middlename.errors">
+                                        Middle Name is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>Last Name <span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter Last Name"
+                                        formControlName="lastname">
+
+                                    <div class="text-danger" *ngIf="f.lastname.touched && f.lastname.errors">
+                                        Last Name is required
                                     </div>
                                 </div>
                             </div>
@@ -74,92 +94,45 @@
                             <h5>School Information</h5>
 
                             <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label>UDISE No <span style="color: red;">*</span></label>
 
-                                <div class="col-md-4">
-                                    <label>State <span style="color: red;">*</span></label>
-
-                                    <select class="form-control" formControlName="state"
-                                        (change)="onStateChange($event.target.value)">
-
-                                        <option value="">Select</option>
-
-                                        <option *ngFor="let s of state" [value]="s.column2">
-                                            {{s.column2}}
-                                        </option>
-
-                                    </select>
-
-                                    <div class="text-danger" *ngIf="f.state.touched && f.state.errors">
-                                        State is required
-                                    </div>
+                                    <input class="form-control" formControlName="udiseno" placeholder="UDISE"
+                                        (change)="onUdiseChange($event.target.value)">
                                 </div>
 
+                                <div class="col-md-6">
+                                    <label>School Name</label>
 
-                                <div class="col-md-4">
-                                    <label>District <span style="color: red;">*</span></label>
-
-                                    <select class="form-control" formControlName="district"
-                                        (change)="onDistrictChange($event.target.value)">
-
-                                        <option value="">Select</option>
-
-                                        <option *ngFor="let d of district" [value]="d.column2">
-                                            {{d.column2}}
-                                        </option>
-
-                                    </select>
-
-                                    <div class="text-danger" *ngIf="f.district.touched && f.district.errors">
-                                        District is required
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-4">
-                                    <label>City <span style="color: red;">*</span></label>
-
-                                    <select class="form-control" formControlName="city"
-                                        (change)="onCityChange($event.target.value)">
-
-                                        <option value="">Select</option>
-
-                                        <option *ngFor="let c of city" [value]="c.column2">
-                                            {{c.column2}}
-                                        </option>
-
-                                    </select>
-
-                                    <div class="text-danger" *ngIf="f.city.touched && f.city.errors">
-                                        City is required
-                                    </div>
+                                    <input class="form-control" formControlName="schoolname" placeholder="School Name"
+                                        readonly>
                                 </div>
 
                             </div>
-
 
                             <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label>School Name <span style="color: red;">*</span></label>
-                                    <select class="form-control" formControlName="schoolname"
-                                        (change)="onSchoolChange($event.target.value)">
-                                        <option value="">Select</option>
-                                        <option *ngFor="let s of school" [value]="s.column1">
-                                            {{s.column1}}
-                                        </option>
-                                    </select>
-                                    <div class="text-danger" *ngIf="f.schoolname.touched && f.schoolname.errors">
-                                        School Name is required
-                                    </div>
+
+                                <div class="col-md-4">
+                                    <label>State</label>
+
+                                    <input class="form-control" formControlName="state" placeholder="State" readonly>
                                 </div>
 
+                                <div class="col-md-4">
+                                    <label>District</label>
 
-                                <div class="col-md-6">
-                                    <label>UDISE No</label>
+                                    <input class="form-control" formControlName="district" placeholder="District"
+                                        readonly>
+                                </div>
 
-                                    <input class="form-control" formControlName="udiseno" placeholder="UDISE" readonly>
+                                <div class="col-md-4">
+                                    <label>City</label>
+
+                                    <input class="form-control" formControlName="city" placeholder="City" readonly>
                                 </div>
 
                             </div>
+
                             <div class="row mb-3">
                                 <!-- STANDARD CHECKBOX GRID -->
 
@@ -173,7 +146,7 @@
 
                                         <label class="standard-option" *ngFor="let option of standardOptions">
 
-                                            <input type="checkbox" [checked]="isStandardSelected(option)"
+                                            <input type="checkbox" [checked]="isStandardSelected(option)" 
                                                 (change)="toggleStandard(option,$any($event.target).checked)">
 
                                             Std {{option}}

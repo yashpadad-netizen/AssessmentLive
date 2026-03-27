@@ -20,17 +20,17 @@ export class HappinessregistrationformComponent implements OnInit {
 
   standardOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  constructor(
-    private fb: FormBuilder,
+  constructor(private fb: FormBuilder,
     private service: CalpifService,
-    private router: Router
-  ) { }
+    private router: Router) { }
 
   ngOnInit(): void {
 
     this.teacherForm = this.fb.group({
 
-      teachername: ['', Validators.required],
+      firstname: ['', Validators.required],
+      middlename: ['', Validators.required],
+      lastname: ['', Validators.required],
       mobileno: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
       email: ['', [Validators.required, Validators.email]],
       gender: ['', Validators.required],
@@ -44,64 +44,38 @@ export class HappinessregistrationformComponent implements OnInit {
       district: ['', Validators.required],
       city: ['', Validators.required],
 
-      // teacherdesignation: ['', Validators.required]
-
     });
-
-    this.loadStates();
-
   }
 
-  loadStates() {
+  onUdiseChange(value: string) {
+    console.log(value);
 
-    this.service.FillDropDown('HappinessSchoolwiseData', 'distinct state', 'state', '')
-      .subscribe((res: any) => {
-        this.state = res;
-      });
+    const udise = this.teacherForm.get('udiseno')?.value;
 
-  }
+    if (udise) {
+      this.service.GetSchoolDetails(udise).subscribe((res) => {
+        console.log(res);
 
-  onStateChange(stateValue) {
-
-    this.service.FillDropDown('HappinessSchoolwiseData', 'distinct district', 'district', "where state='" + stateValue + "'")
-      .subscribe((res: any) => { this.district = res });
-
-    this.service.FillDropDown('HappinessSchoolwiseData', 'distinct city', 'city', "where state='" + stateValue + "'")
-      .subscribe((res: any) => { this.city = res });
-
-    this.service.FillDropDown('HappinessSchoolwiseData', 'distinct schoolname', 'schoolid', "where state='" + stateValue + "'")
-      .subscribe((res: any) => { this.school = res });
-
-  }
-
-  onDistrictChange(districtValue) {
-
-    this.service.FillDropDown('HappinessSchoolwiseData', 'distinct city', 'city', "where district='" + districtValue + "'")
-      .subscribe((res: any) => { this.city = res });
-
-    this.service.FillDropDown('HappinessSchoolwiseData', 'distinct schoolname', 'schoolid', "where district='" + districtValue + "'")
-      .subscribe((res: any) => { this.school = res });
-
-  }
-
-  onCityChange(cityValue) {
-
-    this.service.FillDropDown('HappinessSchoolwiseData', 'distinct schoolname', 'schoolid', "where city='" + cityValue + "'")
-      .subscribe((res: any) => { this.school = res });
-
-  }
-
-  onSchoolChange(schoolValue) {
-
-    this.service.FillDropDown('HappinessSchoolwiseData', 'distinct udiseno', 'udiseno', "where schoolname='" + schoolValue + "'")
-      .subscribe((res: any) => {
-
-        this.teacherForm.patchValue({
-          udiseno: res[0].column1
-        });
+        if (res) {
+          this.teacherForm.patchValue({
+            state: res[0].state,
+            district: res[0].district,
+            city: res[0].city,
+            schoolname: res[0].schoolname
+          });
+        }
+        else {
+          alert('Invalid UDISE number');
+          this.teacherForm.patchValue({
+            state: '',
+            district: '',
+            city: '',
+            school: ''
+          });
+        }
 
       });
-
+    }
   }
 
   isStandardSelected(option: number): boolean {
@@ -141,7 +115,11 @@ export class HappinessregistrationformComponent implements OnInit {
 
       const formData = {
         ...this.teacherForm.value,
-        standard: this.teacherForm.value.standard.join(',')
+        standard: this.teacherForm.value.standard.join(','),
+        teachername:
+          this.teacherForm.value.firstname + ' ' +
+          this.teacherForm.value.middlename + ' ' +
+          this.teacherForm.value.lastname
       };
 
       this.service.TeacherRegistrationHappiness(formData)

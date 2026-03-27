@@ -54,72 +54,88 @@
         <div class="options">
             <label class="pill"><input type="radio" [value]="c1" formControlName="q3" /><span>{{ c1 }}</span></label>
             <label class="pill"><input type="radio" [value]="c2" formControlName="q3" /><span>{{ c2 }}</span></label>
-            <label class="pill"><input type="radio" [value]="c3" formControlName="q3" /><span>{{ c3 }}</span></label>
         </div>
     </div>
 
-    <div class="question-card">
-        <div class="question-title">
-            <span class="num">4</span>
-            <span>{{ q4 }}</span>
+    <div *ngIf="shouldShowNextQuestions()">
+        <div class="question-card">
+            <div class="question-title">
+                <span class="num">4</span>
+                <span>{{ q4 }}</span>
+            </div>
+            <div class="options">
+                <label class="pill"><input type="radio" [value]="d1" formControlName="q4" /><span>{{ d1
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="d2" formControlName="q4" /><span>{{ d2
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="d3" formControlName="q4" /><span>{{ d3
+                        }}</span></label>
+            </div>
         </div>
-        <div class="options">
-            <label class="pill"><input type="radio" [value]="d1" formControlName="q4" /><span>{{ d1 }}</span></label>
-            <label class="pill"><input type="radio" [value]="d2" formControlName="q4" /><span>{{ d2 }}</span></label>
-            <label class="pill"><input type="radio" [value]="d3" formControlName="q4" /><span>{{ d3 }}</span></label>
-        </div>
-    </div>
 
-    <div class="question-card">
-        <div class="question-title">
-            <span class="num">5</span>
-            <span>{{ q5 }}</span>
+        <div class="question-card">
+            <div class="question-title">
+                <span class="num">5</span>
+                <span>{{ q5 }}</span>
+            </div>
+            <div class="options">
+                <label class="pill"><input type="radio" [value]="e1" formControlName="q5" /><span>{{ e1
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="e2" formControlName="q5" /><span>{{ e2
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="e3" formControlName="q5" /><span>{{ e3
+                        }}</span></label>
+            </div>
         </div>
-        <div class="options">
-            <label class="pill"><input type="radio" [value]="e1" formControlName="q5" /><span>{{ e1 }}</span></label>
-            <label class="pill"><input type="radio" [value]="e2" formControlName="q5" /><span>{{ e2 }}</span></label>
-            <label class="pill"><input type="radio" [value]="e3" formControlName="q5" /><span>{{ e3 }}</span></label>
-        </div>
-    </div>
 
-    <div class="question-card">
-        <div class="question-title">
-            <span class="num">6</span>
-            <span>{{ q6 }}</span>
+        <div class="question-card">
+            <div class="question-title">
+                <span class="num">6</span>
+                <span>{{ q6 }}</span>
+            </div>
+            <div class="options">
+                <label class="pill"><input type="radio" [value]="f1" formControlName="q6" /><span>{{ f1
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="f2" formControlName="q6" /><span>{{ f2
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="f3" formControlName="q6" /><span>{{ f3
+                        }}</span></label>
+            </div>
         </div>
-        <div class="options">
-            <label class="pill"><input type="radio" [value]="f1" formControlName="q6" /><span>{{ f1 }}</span></label>
-            <label class="pill"><input type="radio" [value]="f2" formControlName="q6" /><span>{{ f2 }}</span></label>
-            <label class="pill"><input type="radio" [value]="f3" formControlName="q6" /><span>{{ f3 }}</span></label>
-        </div>
-    </div>
 
-    <div class="question-card">
-        <div class="question-title">
-            <span class="num">7</span>
-            <span>{{ q7 }}</span>
+        <div class="question-card">
+            <div class="question-title">
+                <span class="num">7</span>
+                <span>{{ q7 }}</span>
+            </div>
+            <div class="options">
+                <label class="pill"><input type="radio" [value]="g1" formControlName="q7" /><span>{{ g1
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="g2" formControlName="q7" /><span>{{ g2
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="g3" formControlName="q7" /><span>{{ g3
+                        }}</span></label>
+            </div>
         </div>
-        <div class="options">
-            <label class="pill"><input type="radio" [value]="g1" formControlName="q7" /><span>{{ g1 }}</span></label>
-            <label class="pill"><input type="radio" [value]="g2" formControlName="q7" /><span>{{ g2 }}</span></label>
-            <label class="pill"><input type="radio" [value]="g3" formControlName="q7" /><span>{{ g3 }}</span></label>
-        </div>
-    </div>
 
-    <div class="question-card">
-        <div class="question-title">
-            <span class="num">8</span>
-            <span>{{ q8 }}</span>
-        </div>
-        <div class="options">
-            <label class="pill"><input type="radio" [value]="h1" formControlName="q8" /><span>{{ h1 }}</span></label>
-            <label class="pill"><input type="radio" [value]="h2" formControlName="q8" /><span>{{ h2 }}</span></label>
-            <label class="pill"><input type="radio" [value]="h3" formControlName="q8" /><span>{{ h3 }}</span></label>
+        <div class="question-card">
+            <div class="question-title">
+                <span class="num">8</span>
+                <span>{{ q8 }}</span>
+            </div>
+            <div class="options">
+                <label class="pill"><input type="radio" [value]="h1" formControlName="q8" /><span>{{ h1
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="h2" formControlName="q8" /><span>{{ h2
+                        }}</span></label>
+                <label class="pill"><input type="radio" [value]="h3" formControlName="q8" /><span>{{ h3
+                        }}</span></label>
+            </div>
         </div>
     </div>
 
     <div class="actions">
-        <button type="button" (click)="submit()" [disabled]="loading || form.invalid">
+        <button type="button" (click)="submit()" [disabled]="loading || form.invalid || !form.get('q3')?.value">
             {{ loading ? 'Submitting...' : 'Submit Feedback' }}
         </button>
     </div>
