@@ -200,6 +200,10 @@ export class StartquestionComponent implements OnInit {
 
   }
   Submit() {
+    console.log('submit');
+    console.log(this.coursename);
+    
+    
     this.loading = true;
     var total = localStorage.getItem("result")
     var percentage = parseInt(total) / this.totalquestion * 100;
@@ -224,7 +228,35 @@ export class StartquestionComponent implements OnInit {
     this.obj['grade'] = this.FinalGrade;
     sessionStorage.setItem('ExamResult', JSON.stringify(this.obj));
 
-    if (this.coursename == 'Pre-Placement Guidance Session (Pre-Test) 2025-26' || this.coursename == 'Pre-Placement Guidance Session (Post-Test) 2025-26') {
+    if (this.coursename == 'Students Standard 2 - 7 Summer Camp 2025 - 26 (Pre Test)' || this.coursename == 'Students Standard 2 - 7 Summer Camp 2025 - 26 (Post Test)' || this.coursename == 'Students Standard 8 and above Summer Camp 2025 - 26 (Pre Test)' || this.coursename == 'Students Standard 8 and above Summer Camp 2025 - 26 (Post Test)') {
+      this.obj['studentid'] = this.UserValues.username;
+      this.obj['type'] = this.coursename;
+      this.obj['outof'] = this.totalquestion;
+      this.obj['language'] = this.language;
+
+      this.service1.AddStudentSummerCampAssessment(this.UserValues.username, this.obj).subscribe((res: any) => {
+        console.log(res);
+        
+        if (res == 'Success') {
+          localStorage.removeItem("cq");
+          localStorage.removeItem("qdata");
+          localStorage.removeItem("result");
+          localStorage.removeItem("obj");
+          localStorage.removeItem("timer");
+          this.loading = false;
+          this.router.navigate(['/ExamResult', this.setid]);
+        }
+        else if (res == 'Exists') {
+          this.loading = false;
+          alert("Exam Already Given!");
+          localStorage.clear();
+          sessionStorage.clear();
+          this.router.navigate(['/login']);
+        }
+
+      })
+    }
+    else if (this.coursename == 'Pre-Placement Guidance Session (Pre-Test) 2025-26' || this.coursename == 'Pre-Placement Guidance Session (Post-Test) 2025-26') {
       this.obj['studentid'] = this.UserValues.username;
       this.obj['studentname'] = this.UserValues.fullname;
       this.obj['testtype'] = this.coursename;
@@ -282,7 +314,7 @@ export class StartquestionComponent implements OnInit {
       this.obj['examtype'] = this.coursename;
 
       this.service1.AddHappinessAssessment(this.UserValues.username, this.obj).subscribe((res: any) => {
-        if(res){
+        if (res) {
           localStorage.removeItem("cq");
           localStorage.removeItem("qdata");
           localStorage.removeItem("result");
@@ -296,7 +328,7 @@ export class StartquestionComponent implements OnInit {
           this.loading = false;
           this.router.navigate(['/ExamResult', this.setid]);
         }
-        else{
+        else {
           this.loading = false;
           alert("Exam Already Given!");
           localStorage.clear();

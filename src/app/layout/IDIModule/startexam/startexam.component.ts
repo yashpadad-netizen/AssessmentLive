@@ -98,6 +98,12 @@ export class StartexamComponent implements OnInit {
     //happiness teacher 
     { name: "Happiness Teacher Feedback", totmarks: 8 },
 
+    //summer camp  
+    { name: "Students Standard 2 - 7 Summer Camp 2025 - 26 (Pre Test)", totmarks: 5 },
+    { name: "Students Standard 2 - 7 Summer Camp 2025 - 26 (Post Test)", totmarks: 5 },
+    { name: "Students Standard 8 and above Summer Camp 2025 - 26 (Pre Test)", totmarks: 5 },
+    { name: "Students Standard 8 and above Summer Camp 2025 - 26 (Post Test)", totmarks: 5 },
+
   ];
   FinalGrade;
   username

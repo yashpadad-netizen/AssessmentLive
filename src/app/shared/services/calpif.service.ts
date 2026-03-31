@@ -110,6 +110,9 @@ export class CalpifService {
   InsertPrePlacementGuidance(userid: any, data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "InsertPrePlacementGuidance/" + userid, data);
   }
+  AddStudentSummerCampAssessment(username: any, data: any) {
+    return this.http.post(environment.apiUrl + "DSAssessment/" + "AddStudentSummerCampAssessment/" + username, data);
+  }
   InsertTeacherTrainingLMS(username: any, data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "InsertTeacherTrainingLMS/" + username, data);
   }

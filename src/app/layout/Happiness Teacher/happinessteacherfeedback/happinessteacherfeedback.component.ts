@@ -77,36 +77,37 @@ export class HappinessteacherfeedbackComponent implements OnInit {
   ngOnInit(): void {
     this.setLanguage('English');
 
-    // Initially remove validators for Q4–Q8
-    this.clearValidatorsForNextQuestions();
+    // Initially remove validator for Q4 only
+    this.form.get('q4')?.clearValidators();
+    this.form.get('q4')?.updateValueAndValidity();
 
     this.form.get('q3')?.valueChanges.subscribe(value => {
       if (!value || value === this.c2) {
-        this.clearValidatorsForNextQuestions();
+        // Hide Q4
+        this.form.get('q4')?.clearValidators();
+        this.form.get('q4')?.setValue('');
       } else {
-        this.addValidatorsForNextQuestions();
+        // Show Q4
+        this.form.get('q4')?.setValidators(Validators.required);
       }
+      this.form.get('q4')?.updateValueAndValidity();
     });
   }
 
-  clearValidatorsForNextQuestions() {
-    ['q4', 'q5', 'q6', 'q7', 'q8'].forEach(q => {
-      this.form.get(q)?.clearValidators();
-      this.form.get(q)?.setValue('');
-      this.form.get(q)?.updateValueAndValidity();
-    });
-  }
-
-  addValidatorsForNextQuestions() {
-    ['q4', 'q5', 'q6', 'q7', 'q8'].forEach(q => {
-      this.form.get(q)?.setValidators(Validators.required);
-      this.form.get(q)?.updateValueAndValidity();
-    });
-  }
-
-  shouldShowNextQuestions(): boolean {
+  shouldShowQ4(): boolean {
     const q3Value = this.form.get('q3')?.value;
     return !!q3Value && q3Value !== this.c2;
+  }
+
+  getQuestionNumber(base: number): number {
+    if (base <= 3) return base;
+
+    // If Q4 is hidden → shift numbers up
+    if (!this.shouldShowQ4()) {
+      return base - 1;
+    }
+
+    return base;
   }
 
   setLanguage(lang: string): void {
@@ -134,7 +135,7 @@ export class HappinessteacherfeedbackComponent implements OnInit {
       this.d2 = 'करुणा भिंत (Compassion Wall) तयार करणे';
       this.d3 = 'दोन्ही – करुणा शपथ घेणे आणि करुणा भिंत तयार करणे';
 
-      this.q5 = '5.	या उपक्रमांनंतर विद्यार्थ्यांच्या वर्तनात सकारात्मक बदल आपण पाहिला आहे का?';
+      this.q5 = 'या उपक्रमांनंतर विद्यार्थ्यांच्या वर्तनात सकारात्मक बदल आपण पाहिला आहे का?';
       this.e1 = 'होय, स्पष्टपणे';
       this.e2 = 'काही प्रमाणात';
       this.e3 = 'नाही';
