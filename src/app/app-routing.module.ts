@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
   { path: 'RegistrationForm', loadChildren: () => import('./layout/Teacher Training/registrationform/registrationform.module').then(m => m.RegistrationformModule) },
   { path: 'HappinessTeacherRegistration', loadChildren: () => import('./layout/Happiness Teacher/happinessregistrationform/happinessregistrationform.module').then(m => m.HappinessregistrationformModule) },
+  { path: 'HappinessTeacherRegistrationHaryana', loadChildren: () => import('./layout/Happiness Teacher/happinessregistrationharyana/happinessregistrationharyana.module').then(m => m.HappinessregistrationharyanaModule) },
+  { path: 'YouthTrainingRegistration/:id', loadChildren: () => import('./layout/youthtrainingregistration/youthtrainingregistration.module').then(m => m.YouthtrainingregistrationModule) },
   { path: 'DataSync', loadChildren: () => import('./datasync/datasync.module').then(m => m.DatasyncModule) },
   { path: 'CompetencyWiseQuestions', loadChildren: () => import('./competencywisequestion/competencywisequestion.module').then(m => m.CompetencywisequestionModule) },
   { path: 'DSFeedback', loadChildren: () => import('./dsfeedback/dsfeedback.module').then(m => m.DsfeedbackModule) },

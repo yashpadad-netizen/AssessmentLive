@@ -113,6 +113,9 @@ export class CalpifService {
   AddStudentSummerCampAssessment(username: any, data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "AddStudentSummerCampAssessment/" + username, data);
   }
+  InsertYouthsSummerCampAssessment(username: any, data: any) {
+    return this.http.post(environment.apiUrl + "DSAssessment/" + "InsertYouthsSummerCampAssessment/" + username, data);
+  }
   InsertTeacherTrainingLMS(username: any, data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "InsertTeacherTrainingLMS/" + username, data);
   }
@@ -135,11 +138,14 @@ export class CalpifService {
   TeacherRegistrationHappiness(data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "TeacherRegistrationHappiness", data);
   }
+  YouthsRegistration(data: any) {
+    return this.http.post(environment.apiUrl + "DSAssessment/" + "YouthsRegistration", data);
+  }
   InsertHappinessTeacherFeedback(userid: any, data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "InsertHappinessTeacherFeedback/" + userid, data);
   }
   FillDropDown(tablename, column1, column2, where) {
-    return this.http.get(environment.apiUrl + 'DSAssessment/' + 'FillDropDown?tablename=' + tablename + '&column1=' + column1 + '&column2=' + column2 + '&whr=' + where);
+    return this.http.get(environment.apiUrl + 'DSAssessment/' + 'FillDropDown?tablename=' + tablename + '&column1=' + btoa(column1).replace(/=+$/, '') + '&column2=' + btoa(column2).replace(/=+$/, '') + '&whr=' + btoa(where).replace(/=+$/, ''));
   }
 
 }

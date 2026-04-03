@@ -99,10 +99,14 @@ export class StartexamComponent implements OnInit {
     { name: "Happiness Teacher Feedback", totmarks: 8 },
 
     //summer camp  
-    { name: "Students Standard 2 - 7 Summer Camp 2025 - 26 (Pre Test)", totmarks: 5 },
-    { name: "Students Standard 2 - 7 Summer Camp 2025 - 26 (Post Test)", totmarks: 5 },
-    { name: "Students Standard 8 and above Summer Camp 2025 - 26 (Pre Test)", totmarks: 5 },
-    { name: "Students Standard 8 and above Summer Camp 2025 - 26 (Post Test)", totmarks: 5 },
+    { name: "Students Standard 2 - 7 Summer Camp 2025 - 26 (Pre Test)", totmarks: 10 },
+    { name: "Students Standard 2 - 7 Summer Camp 2025 - 26 (Post Test)", totmarks: 10 },
+    { name: "Students Standard 8 and above Summer Camp 2025 - 26 (Pre Test)", totmarks: 10 },
+    { name: "Students Standard 8 and above Summer Camp 2025 - 26 (Post Test)", totmarks: 10 },
+
+    //Youth Training
+    { name: "Youths Summer Camp 2025 - 26 (Pre Test)", totmarks: 10 },
+    { name: "Youths Summer Camp 2025 - 26 (Post Test)", totmarks: 10 },
 
   ];
   FinalGrade;

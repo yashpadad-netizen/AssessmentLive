@@ -202,8 +202,8 @@ export class StartquestionComponent implements OnInit {
   Submit() {
     console.log('submit');
     console.log(this.coursename);
-    
-    
+
+
     this.loading = true;
     var total = localStorage.getItem("result")
     var percentage = parseInt(total) / this.totalquestion * 100;
@@ -228,7 +228,36 @@ export class StartquestionComponent implements OnInit {
     this.obj['grade'] = this.FinalGrade;
     sessionStorage.setItem('ExamResult', JSON.stringify(this.obj));
 
-    if (this.coursename == 'Students Standard 2 - 7 Summer Camp 2025 - 26 (Pre Test)' || this.coursename == 'Students Standard 2 - 7 Summer Camp 2025 - 26 (Post Test)' || this.coursename == 'Students Standard 8 and above Summer Camp 2025 - 26 (Pre Test)' || this.coursename == 'Students Standard 8 and above Summer Camp 2025 - 26 (Post Test)') {
+    if (this.coursename == 'Youths Summer Camp 2025 - 26 (Pre Test)' || this.coursename == 'Youths Summer Camp 2025 - 26 (Post Test)') {
+      this.obj['mobileno'] = this.UserValues.username;
+      this.obj['studentname'] = this.UserValues.fullname;
+      this.obj['type'] = this.coursename;
+      this.obj['outof'] = this.totalquestion;
+      this.obj['language'] = this.language;
+      this.obj['grade'] = this.FinalGrade;
+
+      this.service1.InsertYouthsSummerCampAssessment(this.UserValues.username, this.obj).subscribe((res: any) => {
+
+        if (res == 'Success') {
+          localStorage.removeItem("cq");
+          localStorage.removeItem("qdata");
+          localStorage.removeItem("result");
+          localStorage.removeItem("obj");
+          localStorage.removeItem("timer");
+          this.loading = false;
+          this.router.navigate(['/ExamResult', this.setid]);
+        }
+        else if (res == 'Exists') {
+          this.loading = false;
+          alert("Exam Already Given!");
+          localStorage.clear();
+          sessionStorage.clear();
+          this.router.navigate(['/login']);
+        }
+
+      })
+    }
+    else if (this.coursename == 'Students Standard 2 - 7 Summer Camp 2025 - 26 (Pre Test)' || this.coursename == 'Students Standard 2 - 7 Summer Camp 2025 - 26 (Post Test)' || this.coursename == 'Students Standard 8 and above Summer Camp 2025 - 26 (Pre Test)' || this.coursename == 'Students Standard 8 and above Summer Camp 2025 - 26 (Post Test)') {
       this.obj['studentid'] = this.UserValues.username;
       this.obj['type'] = this.coursename;
       this.obj['outof'] = this.totalquestion;
@@ -236,7 +265,7 @@ export class StartquestionComponent implements OnInit {
 
       this.service1.AddStudentSummerCampAssessment(this.UserValues.username, this.obj).subscribe((res: any) => {
         console.log(res);
-        
+
         if (res == 'Success') {
           localStorage.removeItem("cq");
           localStorage.removeItem("qdata");

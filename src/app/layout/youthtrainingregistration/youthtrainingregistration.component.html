@@ -1,0 +1,144 @@
+<section class="registration-section">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h4 class="mb-0 text-center">Youth Training Registration</h4>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+                            <h5 class="section-title">Participant Details</h5>
+
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <label>Center Name <span class="required">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Center name"
+                                        formControlName="centname" readonly>
+
+                                    <div class="text-danger" *ngIf="f.centname.touched && f.centname.errors">
+                                        Center name is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>State <span class="required">*</span></label>
+                                    <input type="text" class="form-control" placeholder="State" formControlName="state"
+                                        readonly>
+
+                                    <div class="text-danger" *ngIf="f.state.touched && f.state.errors">
+                                        State is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label>Location <span class="required">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Location"
+                                        formControlName="location" readonly>
+
+                                    <div class="text-danger" *ngIf="f.location.touched && f.location.errors">
+                                        Location is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <label>Full Name <span class="required">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter full name"
+                                        formControlName="studentname">
+
+                                    <div class="text-danger" *ngIf="f.studentname.touched && f.studentname.errors">
+                                        Name is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label>Mobile Number <span class="required">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter mobile number"
+                                        formControlName="mobileno" maxlength="10">
+
+                                    <div class="text-danger" *ngIf="f.mobileno.touched && f.mobileno.errors">
+                                        Enter a valid 10-digit mobile number
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Mail Id <span class="required">*</span></label>
+                                    <input type="email" class="form-control" placeholder="Enter email address"
+                                        formControlName="email">
+
+                                    <div class="text-danger" *ngIf="f.email.touched && f.email.errors">
+                                        Enter a valid email address
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label>Date of Birth <span class="required">*</span></label>
+                                    <input type="date" class="form-control" formControlName="dob"
+                                        (change)="onDateOfBirthChange()">
+
+                                    <div class="text-danger" *ngIf="f.dob.touched && f.dob.errors">
+                                        Date of birth is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Age (Auto) <span class="required">*</span></label>
+                                    <input type="text" class="form-control" formControlName="age"
+                                        placeholder="Age will be calculated automatically" readonly>
+
+                                    <div class="text-danger" *ngIf="f.age.touched && f.age.errors">
+                                        Age is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <label>Gender <span class="required">*</span></label>
+                                    <select class="form-control" formControlName="gender">
+                                        <option value="">Select gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+
+                                    <div class="text-danger" *ngIf="f.gender.touched && f.gender.errors">
+                                        Gender is required
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <label>Highest Educational Qualification <span class="required">*</span></label>
+                                    <select class="form-control" formControlName="qualification">
+                                        <option value="">Select qualification</option>
+                                        <option *ngFor="let qualification of qualificationOptions"
+                                            [value]="qualification">
+                                            {{ qualification }}
+                                        </option>
+                                    </select>
+
+                                    <div class="text-danger" *ngIf="f.qualification.touched && f.qualification.errors">
+                                        Highest educational qualification is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button class="btn btn-primary px-5" type="submit"
+                                    [disabled]="registrationForm.invalid || isSubmitting">
+                                    {{ isSubmitting ? 'Submitting...' : 'Submit Registration' }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
