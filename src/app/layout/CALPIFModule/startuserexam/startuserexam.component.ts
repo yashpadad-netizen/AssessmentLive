@@ -20,19 +20,19 @@ export class StartuserexamComponent implements OnInit {
   prevlanguage;
   courselist;
   examarr = [
-    { name: "STD 5 - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 6 - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 7 - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 8 - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 9 - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 10 - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 11 - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 12 - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 12 - Baseline 2025-26 (Old)", totmarks: 32 },
-    { name: "STD 9 - Gujarati - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 10 - Gujarati - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 11 - Gujarati - Baseline 2025-26", totmarks: 32 },
-    { name: "STD 12 - Gujarati - Baseline 2025-26", totmarks: 32 },
+    { name: "STD 5 - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 6 - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 7 - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 8 - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 9 - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 10 - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 11 - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 12 - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 12 - Baseline 2026-27 (Old)", totmarks: 32 },
+    { name: "STD 9 - Gujarati - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 10 - Gujarati - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 11 - Gujarati - Baseline 2026-27", totmarks: 32 },
+    { name: "STD 12 - Gujarati - Baseline 2026-27", totmarks: 32 },
 
     { name: "STD 5 - Endline 2025-26", totmarks: 32 },
     { name: "STD 6 - Endline 2025-26", totmarks: 32 },
@@ -49,13 +49,13 @@ export class StartuserexamComponent implements OnInit {
     { name: "STD 12 - Gujarati - Endline 2025-26", totmarks: 32 },
 
     // kerala
-    { name: "STD 1 - Kerala Baseline 2025-26", totmarks: 32 },
-    { name: "STD 2 - Kerala Baseline 2025-26", totmarks: 32 },
-    { name: "STD 3 - Kerala Baseline 2025-26", totmarks: 32 },
-    { name: "STD 4 - Kerala Baseline 2025-26", totmarks: 32 },
-    { name: "STD 5 - Kerala Baseline 2025-26", totmarks: 32 },
-    { name: "STD 6 - Kerala Baseline 2025-26", totmarks: 32 },
-    { name: "STD 7 - Kerala Baseline 2025-26", totmarks: 32 },
+    { name: "STD 1 - Kerala Baseline 2026-27", totmarks: 32 },
+    { name: "STD 2 - Kerala Baseline 2026-27", totmarks: 32 },
+    { name: "STD 3 - Kerala Baseline 2026-27", totmarks: 32 },
+    { name: "STD 4 - Kerala Baseline 2026-27", totmarks: 32 },
+    { name: "STD 5 - Kerala Baseline 2026-27", totmarks: 32 },
+    { name: "STD 6 - Kerala Baseline 2026-27", totmarks: 32 },
+    { name: "STD 7 - Kerala Baseline 2026-27", totmarks: 32 },
     //
 
     { name: "App Development (Baseline)", totmarks: 24 },
@@ -96,6 +96,8 @@ export class StartuserexamComponent implements OnInit {
     this.programid = localStorage.getItem('Programid');
 
     this.UserValues = JSON.parse(sessionStorage.getItem('Uservalue'));
+    console.log(this.UserValues);
+    
 
     this.fullname = this.UserValues.fullname;
     this.coursename = this.UserValues.coursename;
@@ -206,7 +208,7 @@ export class StartuserexamComponent implements OnInit {
       if (this.prevgrade != 0) {
         var percentage = this.prevgrade / totalmarks.totmarks * 100
 
-        if (this.coursename == 'STD 1 - Kerala Baseline 2025-26' || this.coursename == 'STD 2 - Kerala Baseline 2025-26' || this.coursename == 'STD 3 - Kerala Baseline 2025-26' || this.coursename == 'STD 4 - Kerala Baseline 2025-26' || this.coursename == 'STD 5 - Kerala Baseline 2025-26' || this.coursename == 'STD 6 - Kerala Baseline 2025-26' || this.coursename == 'STD 7 - Kerala Baseline 2025-26' || this.coursename == 'App Development (Endline)' || this.coursename == 'Software Development (Endline)' || this.coursename == 'Webpage Development L-2 (Endline)' || this.coursename == 'Webpage Development L-1 (Endline)' || this.coursename == 'App Development (Baseline)' || this.coursename == 'Software Development (Baseline)' || this.coursename == 'Webpage Development L-2 (Baseline)' || this.coursename == 'Webpage Development L-1 (Baseline)' || this.coursename == 'STD 5 - Baseline 2025-26' || this.coursename == 'STD 6 - Baseline 2025-26' || this.coursename == 'STD 7 - Baseline 2025-26' || this.coursename == 'STD 8 - Baseline 2025-26' || this.coursename == 'STD 9 - Baseline 2025-26' || this.coursename == 'STD 10 - Baseline 2025-26' || this.coursename == 'STD 11 - Baseline 2025-26' || this.coursename == 'STD 12 - Baseline 2025-26' || this.coursename == 'STD 9 - Gujarati - Baseline 2025-26' || this.coursename == 'STD 10 - Gujarati - Baseline 2025-26' || this.coursename == 'STD 11 - Gujarati - Baseline 2025-26' || this.coursename == 'STD 12 - Gujarati - Baseline 2025-26' || this.coursename == 'STD 5 - Midline 2025-26' || this.coursename == 'STD 6 - Midline 2025-26' || this.coursename == 'STD 7 - Midline 2025-26' || this.coursename == 'STD 8 - Midline 2025-26' || this.coursename == 'STD 9 - Midline 2025-26' || this.coursename == 'STD 11 - Midline 2025-26' || this.coursename == 'STD 9 - Gujarati - Midline 2025-26' || this.coursename == 'STD 11 - Gujarati - Midline 2025-26' || this.coursename == 'STD 5 - Endline 2025-26' || this.coursename == 'STD 6 - Endline 2025-26' || this.coursename == 'STD 7 - Endline 2025-26' || this.coursename == 'STD 8 - Endline 2025-26' || this.coursename == 'STD 9 - Endline 2025-26' || this.coursename == 'STD 10 - Endline 2025-26' || this.coursename == 'STD 11 - Endline 2025-26' || this.coursename == 'STD 12 - Endline 2025-26' || this.coursename == 'STD 9 - Gujarati - Endline 2025-26' || this.coursename == 'STD 10 - Gujarati - Endline 2025-26' || this.coursename == 'STD 11 - Gujarati - Endline 2025-26' || this.coursename == 'STD 12 - Gujarati - Endline 2025-26') {
+        if (this.coursename == 'STD 1 - Kerala Baseline 2026-27' || this.coursename == 'STD 2 - Kerala Baseline 2026-27' || this.coursename == 'STD 3 - Kerala Baseline 2026-27' || this.coursename == 'STD 4 - Kerala Baseline 2026-27' || this.coursename == 'STD 5 - Kerala Baseline 2026-27' || this.coursename == 'STD 6 - Kerala Baseline 2026-27' || this.coursename == 'STD 7 - Kerala Baseline 2026-27' || this.coursename == 'App Development (Endline)' || this.coursename == 'Software Development (Endline)' || this.coursename == 'Webpage Development L-2 (Endline)' || this.coursename == 'Webpage Development L-1 (Endline)' || this.coursename == 'App Development (Baseline)' || this.coursename == 'Software Development (Baseline)' || this.coursename == 'Webpage Development L-2 (Baseline)' || this.coursename == 'Webpage Development L-1 (Baseline)' || this.coursename == 'STD 5 - Baseline 2026-27' || this.coursename == 'STD 6 - Baseline 2026-27' || this.coursename == 'STD 7 - Baseline 2026-27' || this.coursename == 'STD 8 - Baseline 2026-27' || this.coursename == 'STD 9 - Baseline 2026-27' || this.coursename == 'STD 10 - Baseline 2026-27' || this.coursename == 'STD 11 - Baseline 2026-27' || this.coursename == 'STD 12 - Baseline 2026-27' || this.coursename == 'STD 9 - Gujarati - Baseline 2026-27' || this.coursename == 'STD 10 - Gujarati - Baseline 2026-27' || this.coursename == 'STD 11 - Gujarati - Baseline 2026-27' || this.coursename == 'STD 12 - Gujarati - Baseline 2026-27' || this.coursename == 'STD 5 - Midline 2025-26' || this.coursename == 'STD 6 - Midline 2025-26' || this.coursename == 'STD 7 - Midline 2025-26' || this.coursename == 'STD 8 - Midline 2025-26' || this.coursename == 'STD 9 - Midline 2025-26' || this.coursename == 'STD 11 - Midline 2025-26' || this.coursename == 'STD 9 - Gujarati - Midline 2025-26' || this.coursename == 'STD 11 - Gujarati - Midline 2025-26' || this.coursename == 'STD 5 - Endline 2025-26' || this.coursename == 'STD 6 - Endline 2025-26' || this.coursename == 'STD 7 - Endline 2025-26' || this.coursename == 'STD 8 - Endline 2025-26' || this.coursename == 'STD 9 - Endline 2025-26' || this.coursename == 'STD 10 - Endline 2025-26' || this.coursename == 'STD 11 - Endline 2025-26' || this.coursename == 'STD 12 - Endline 2025-26' || this.coursename == 'STD 9 - Gujarati - Endline 2025-26' || this.coursename == 'STD 10 - Gujarati - Endline 2025-26' || this.coursename == 'STD 11 - Gujarati - Endline 2025-26' || this.coursename == 'STD 12 - Gujarati - Endline 2025-26') {
           if (percentage >= 61 && percentage <= 100) {
             this.FinalGrade = "A";
           }
@@ -251,7 +253,7 @@ export class StartuserexamComponent implements OnInit {
 
   Grade(percentage) {
 
-    if (this.coursename == 'STD 1 - Kerala Baseline 2025-26' || this.coursename == 'STD 2 - Kerala Baseline 2025-26' || this.coursename == 'STD 3 - Kerala Baseline 2025-26' || this.coursename == 'STD 4 - Kerala Baseline 2025-26' || this.coursename == 'STD 5 - Kerala Baseline 2025-26' || this.coursename == 'STD 6 - Kerala Baseline 2025-26' || this.coursename == 'STD 7 - Kerala Baseline 2025-26' || this.coursename == 'STD 5 - Baseline 2025-26' || this.coursename == 'STD 6 - Baseline 2025-26' || this.coursename == 'STD 7 - Baseline 2025-26' || this.coursename == 'STD 8 - Baseline 2025-26' || this.coursename == 'STD 9 - Baseline 2025-26' || this.coursename == 'STD 10 - Baseline 2025-26' || this.coursename == 'STD 11 - Baseline 2025-26' || this.coursename == 'STD 12 - Baseline 2025-26' || this.coursename == 'STD 9 - Gujarati - Baseline 2025-26' || this.coursename == 'STD 10 - Gujarati - Baseline 2025-26' || this.coursename == 'STD 11 - Gujarati - Baseline 2025-26' || this.coursename == 'STD 12 - Gujarati - Baseline 2025-26' || this.coursename == 'App Development (Baseline)' || this.coursename == 'Software Development (Baseline)' || this.coursename == 'Webpage Development L-2 (Baseline)' || this.coursename == 'Webpage Development L-1 (Baseline)' || this.coursename == 'App Development (Endline)' || this.coursename == 'Software Development (Endline)' || this.coursename == 'Webpage Development L-2 (Endline)' || this.coursename == 'Webpage Development L-1 (Endline)' || this.coursename == 'STD 5 - Midline 2025-26' || this.coursename == 'STD 6 - Midline 2025-26' || this.coursename == 'STD 7 - Midline 2025-26' || this.coursename == 'STD 8 - Midline 2025-26' || this.coursename == 'STD 9 - Midline 2025-26' || this.coursename == 'STD 11 - Midline 2025-26' || this.coursename == 'STD 9 - Gujarati - Midline 2025-26' || this.coursename == 'STD 11 - Gujarati - Midline 2025-26' || this.coursename == 'STD 5 - Endline 2025-26' || this.coursename == 'STD 6 - Endline 2025-26' || this.coursename == 'STD 7 - Endline 2025-26' || this.coursename == 'STD 8 - Endline 2025-26' || this.coursename == 'STD 9 - Endline 2025-26' || this.coursename == 'STD 10 - Endline 2025-26' || this.coursename == 'STD 11 - Endline 2025-26' || this.coursename == 'STD 12 - Endline 2025-26' || this.coursename == 'STD 9 - Gujarati - Endline 2025-26' || this.coursename == 'STD 10 - Gujarati - Endline 2025-26' || this.coursename == 'STD 11 - Gujarati - Endline 2025-26' || this.coursename == 'STD 12 - Gujarati - Endline 2025-26') {
+    if (this.coursename == 'STD 1 - Kerala Baseline 2026-27' || this.coursename == 'STD 2 - Kerala Baseline 2026-27' || this.coursename == 'STD 3 - Kerala Baseline 2026-27' || this.coursename == 'STD 4 - Kerala Baseline 2026-27' || this.coursename == 'STD 5 - Kerala Baseline 2026-27' || this.coursename == 'STD 6 - Kerala Baseline 2026-27' || this.coursename == 'STD 7 - Kerala Baseline 2026-27' || this.coursename == 'STD 5 - Baseline 2026-27' || this.coursename == 'STD 6 - Baseline 2026-27' || this.coursename == 'STD 7 - Baseline 2026-27' || this.coursename == 'STD 8 - Baseline 2026-27' || this.coursename == 'STD 9 - Baseline 2026-27' || this.coursename == 'STD 10 - Baseline 2026-27' || this.coursename == 'STD 11 - Baseline 2026-27' || this.coursename == 'STD 12 - Baseline 2026-27' || this.coursename == 'STD 9 - Gujarati - Baseline 2026-27' || this.coursename == 'STD 10 - Gujarati - Baseline 2026-27' || this.coursename == 'STD 11 - Gujarati - Baseline 2026-27' || this.coursename == 'STD 12 - Gujarati - Baseline 2026-27' || this.coursename == 'App Development (Baseline)' || this.coursename == 'Software Development (Baseline)' || this.coursename == 'Webpage Development L-2 (Baseline)' || this.coursename == 'Webpage Development L-1 (Baseline)' || this.coursename == 'App Development (Endline)' || this.coursename == 'Software Development (Endline)' || this.coursename == 'Webpage Development L-2 (Endline)' || this.coursename == 'Webpage Development L-1 (Endline)' || this.coursename == 'STD 5 - Midline 2025-26' || this.coursename == 'STD 6 - Midline 2025-26' || this.coursename == 'STD 7 - Midline 2025-26' || this.coursename == 'STD 8 - Midline 2025-26' || this.coursename == 'STD 9 - Midline 2025-26' || this.coursename == 'STD 11 - Midline 2025-26' || this.coursename == 'STD 9 - Gujarati - Midline 2025-26' || this.coursename == 'STD 11 - Gujarati - Midline 2025-26' || this.coursename == 'STD 5 - Endline 2025-26' || this.coursename == 'STD 6 - Endline 2025-26' || this.coursename == 'STD 7 - Endline 2025-26' || this.coursename == 'STD 8 - Endline 2025-26' || this.coursename == 'STD 9 - Endline 2025-26' || this.coursename == 'STD 10 - Endline 2025-26' || this.coursename == 'STD 11 - Endline 2025-26' || this.coursename == 'STD 12 - Endline 2025-26' || this.coursename == 'STD 9 - Gujarati - Endline 2025-26' || this.coursename == 'STD 10 - Gujarati - Endline 2025-26' || this.coursename == 'STD 11 - Gujarati - Endline 2025-26' || this.coursename == 'STD 12 - Gujarati - Endline 2025-26') {
       if (percentage >= 61 && percentage <= 100) {
         return "A";
       }
