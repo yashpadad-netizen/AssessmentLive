@@ -34,6 +34,8 @@ export class MainexamstartComponent implements OnInit {
     }
     this.course = this.UserValues.coursename;
     this.totalmarks = this.UserValues.totalmarks;
+    console.log(this.course);
+
     this.service.GetLanguage(this.course).subscribe((data: any) => {
       this.languagename = data;
       console.log(this.languagename);
@@ -51,7 +53,13 @@ export class MainexamstartComponent implements OnInit {
 
     this.course = this.UserValues.coursename;
     this.totalmarks = this.UserValues.totalmarks;
-    var min = this.totalmarks * 2;
+
+    if (this.course == 'STD 6 - My e-School Baseline 2026-27' || this.course == 'STD 7 - My e-School Baseline 2026-27' || this.course == 'STD 8 - My e-School Baseline 2026-27' || this.course == 'STD 9 - My e-School Baseline 2026-27') {
+      var min = this.totalmarks * 3;
+    }
+    else {
+      var min = this.totalmarks * 2;
+    }
     this.noofmin = this.timeConvert(min)
     Object.assign(this.UserValues, { totalmin: min, language: language });
     sessionStorage.setItem('Uservalue', JSON.stringify(this.UserValues));

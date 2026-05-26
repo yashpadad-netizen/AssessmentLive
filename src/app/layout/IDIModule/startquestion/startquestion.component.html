@@ -1,6 +1,7 @@
 <div class="container">
   <form [formGroup]="AddCourseForm">
-    <div class="row" *ngIf="coursename=='Digital Sakshar Online Exam'">
+    <div class="row"
+      *ngIf="coursename == 'Digital Sakshar Online Exam' || coursename == 'STD 6 - My e-School Baseline 2026-27' || coursename == 'STD 7 - My e-School Baseline 2026-27' || coursename == 'STD 8 - My e-School Baseline 2026-27' || coursename == 'STD 9 - My e-School Baseline 2026-27'">
       <div class="col-lg-10 webmobile"></div>
       <div class="col-lg-2 webmobile">
         <webcam [height]="100" [width]="250" [videoOptions]="videoOptions" [allowCameraSwitch]="allowCameraSwitch">
@@ -185,6 +186,14 @@
                   src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.answer4}}" alt=""
                   class="responsive"></label>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="currentQuestionSet.answertype == 'Input' || currentQuestionSet.answertype == 'Input\r\n'">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="answer" [(ngModel)]="currentQuestionSet.selected"
+              placeholder="Enter your answer" />
           </div>
         </div>
       </div>

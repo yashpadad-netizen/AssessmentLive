@@ -89,13 +89,11 @@ export class StartquestionComponent implements OnInit {
     this.cq = (localStorage.getItem("cq") == null) ? null : localStorage.getItem("cq");
     this.obj = (localStorage.getItem("obj") == null) ? {} : JSON.parse(localStorage.getItem("obj"));
     if (this.routesetid != undefined || this.routesetid != null) {
-      console.log(this.cq);
 
       if (this.cq == null) {
         this.service.GetExamnew(this.coursename, this.language, this.UserId).subscribe((data: any) => {
 
           this.questions = data;
-          // console.log(data);
 
           localStorage.removeItem("qdata")
           localStorage.setItem("qdata", JSON.stringify(data));
@@ -127,7 +125,6 @@ export class StartquestionComponent implements OnInit {
         this.service.GetReExam(this.coursename, this.language, this.UserId, this.routesetid).subscribe((data: any) => {
 
           this.questions = data;
-          // console.log(JSON.stringify(data))
           localStorage.removeItem("qdata")
           localStorage.setItem("qdata", JSON.stringify(data));
           this.totalquestion = data.length;
@@ -200,9 +197,6 @@ export class StartquestionComponent implements OnInit {
 
   }
   Submit() {
-    console.log('submit');
-    console.log(this.coursename);
-
 
     this.loading = true;
     var total = localStorage.getItem("result")
@@ -264,7 +258,6 @@ export class StartquestionComponent implements OnInit {
       this.obj['language'] = this.language;
 
       this.service1.AddStudentSummerCampAssessment(this.UserValues.username, this.obj).subscribe((res: any) => {
-        console.log(res);
 
         if (res == 'Success') {
           localStorage.removeItem("cq");
@@ -385,6 +378,8 @@ export class StartquestionComponent implements OnInit {
       })
     }
     else {
+      console.log('beyond');
+      
       this.service.InsertUserExam(this.coursename, this.language, this.UserId, this.setid, this.obj).subscribe((res: any) => {
         if (res == 'Success') {
           localStorage.removeItem("cq");
