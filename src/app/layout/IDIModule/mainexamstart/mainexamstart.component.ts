@@ -29,17 +29,15 @@ export class MainexamstartComponent implements OnInit {
 
     this.userid = localStorage.getItem('UserId');
     this.UserValues = JSON.parse(sessionStorage.getItem('Uservalue'));
+    
     if (localStorage.getItem('cq') != null) {
       this.router.navigate(['/login'])
     }
     this.course = this.UserValues.coursename;
     this.totalmarks = this.UserValues.totalmarks;
-    console.log(this.course);
 
     this.service.GetLanguage(this.course).subscribe((data: any) => {
       this.languagename = data;
-      console.log(this.languagename);
-
       this.loading = false;
     });
 
@@ -49,7 +47,7 @@ export class MainexamstartComponent implements OnInit {
   ngOnInit() {
   }
   onchangedpd(language) {
-
+    this.regTypeSelectedOption = language;
 
     this.course = this.UserValues.coursename;
     this.totalmarks = this.UserValues.totalmarks;

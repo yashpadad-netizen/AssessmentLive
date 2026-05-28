@@ -7,7 +7,7 @@
       </select>
     </p>
 
-    <div *ngIf="noofmin">
+    <div *ngIf="noofmin && regTypeSelectedOption == 'English'">
       <div style="text-align: center;">
         <p style="font-size: 19px;"> Name : {{course}}</p>
         <div class="row form-group ">
@@ -31,10 +31,94 @@
           <ol style="font-size: 19px;list-style-position: inside;">
             <p style="font-size: 19px;"> <b>Instructions :</b></p>
 
-            <li>Before starting the test,check if you are in place with no disturbance.</li>
+            <li>Before starting the test, check if you are in place with no disturbance.</li>
             <li>Mark your answers by selecting the right option.</li>
             <li>Remeber that you mark only one best answer for each question.</li>
             <li>The test will automatically end after the maximum time allocated.</li>
+          </ol>
+        </div>
+        <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12"></div>
+
+      </div>
+      <br>
+      <div style="text-align: center;">
+        <!-- <button class="btn btn-primary"  >Start Exam</button> -->
+        <a (click)="send()" class="btn btn-lg btn-primary" style="color: white;">Start <i class="fa fa-arrow-right"
+            aria-hidden="true"></i>
+        </a>
+      </div>
+      <br>
+    </div>
+    <div *ngIf="noofmin && regTypeSelectedOption == 'Hindi'">
+      <div style="text-align: center;">
+        <p style="font-size: 19px;"> Name : {{course}}</p>
+        <div class="row form-group ">
+
+          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <p style="font-size: 19px;"> कुल निर्धारित समय : {{noofmin}} </p>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <p style="font-size: 19px;"> कुल प्रश्न : {{totalmarks}}</p>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12"></div>
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+          <ol style="font-size: 19px;list-style-position: inside;">
+            <p style="font-size: 19px;"> <b>निर्देश :</b></p>
+
+            <li>परीक्षा शुरू करने से पहले सुनिश्चित करें कि आप बिना किसी व्यवधान वाले शांत स्थान पर हैं।</li>
+            <li>सही विकल्प चुनकर अपने उत्तर दर्ज करें।</li>
+            <li>प्रत्येक प्रश्न के लिए केवल एक सर्वोत्तम उत्तर चुनें।</li>
+            <li>निर्धारित अधिकतम समय पूरा होने के बाद परीक्षा स्वतः समाप्त हो जाएगी।</li>
+          </ol>
+        </div>
+        <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12"></div>
+
+      </div>
+      <br>
+      <div style="text-align: center;">
+        <!-- <button class="btn btn-primary"  >Start Exam</button> -->
+        <a (click)="send()" class="btn btn-lg btn-primary" style="color: white;">Start <i class="fa fa-arrow-right"
+            aria-hidden="true"></i>
+        </a>
+      </div>
+      <br>
+    </div>
+    <div *ngIf="noofmin && regTypeSelectedOption == 'Marathi'">
+      <div style="text-align: center;">
+        <p style="font-size: 19px;"> Course Name : {{course}}</p>
+        <div class="row form-group ">
+
+          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <p style="font-size: 19px;"> एकूण निर्धारित वेळ : {{noofmin}} </p>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <p style="font-size: 19px;"> एकूण प्रश्न : {{totalmarks}}</p>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12"></div>
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+          <ol style="font-size: 19px;list-style-position: inside;">
+            <p style="font-size: 19px;"> <b>सूचना :</b></p>
+
+            <li>चाचणी सुरू करण्यापूर्वी, आपण कोणत्याही व्यत्ययाशिवाय शांत ठिकाणी आहात याची खात्री करा.</li>
+            <li>योग्य पर्याय निवडून आपल्या उत्तरांची नोंद करा.</li>
+            <li>प्रत्येक प्रश्नासाठी फक्त एकच सर्वोत्तम उत्तर निवडा.</li>
+            <li>निर्धारित कमाल वेळ पूर्ण झाल्यानंतर चाचणी आपोआप समाप्त होईल.</li>
           </ol>
         </div>
         <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12"></div>
