@@ -108,11 +108,15 @@ export class StartexamComponent implements OnInit {
     { name: "Youths Summer Camp 2025 - 26 (Pre Test)", totmarks: 10 },
     { name: "Youths Summer Camp 2025 - 26 (Post Test)", totmarks: 10 },
 
-    //
-    { name: "STD 6 - My e-School Baseline 2026-27", totmarks: 14 },
-    { name: "STD 7 - My e-School Baseline 2026-27", totmarks: 14 },
-    { name: "STD 8 - My e-School Baseline 2026-27", totmarks: 14 },
-    { name: "STD 9 - My e-School Baseline 2026-27", totmarks: 14 },
+    //my e-school baseline 2026-27
+    { name: "STD 6 - My e-School Baseline 2026-27", totmarks: 12 },
+    { name: "STD 7 - My e-School Baseline 2026-27", totmarks: 12 },
+    { name: "STD 8 - My e-School Baseline 2026-27", totmarks: 12 },
+    { name: "STD 9 - My e-School Baseline 2026-27", totmarks: 12 },
+
+    //flipkart
+    { name: "Digital Literacy for Employment Baseline 2026-27", totmarks: 50 },
+    { name: "Digital Literacy for Employment Endline 2026-27", totmarks: 50 },
 
   ];
   FinalGrade;

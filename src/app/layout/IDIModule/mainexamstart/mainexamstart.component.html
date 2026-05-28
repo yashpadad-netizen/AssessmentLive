@@ -4,13 +4,12 @@
       <select type="text" class="form-control" name="language" (change)="onchangedpd($event.target.value)">
         <option ngValue="">Select Language</option>
         <option *ngFor="let languagename of languagename" value={{languagename.lang}}>{{languagename.lang}}
-
       </select>
-
     </p>
+
     <div *ngIf="noofmin">
       <div style="text-align: center;">
-        <p style="font-size: 19px;"> Name :{{course}}</p>
+        <p style="font-size: 19px;"> Name : {{course}}</p>
         <div class="row form-group ">
 
           <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -23,13 +22,8 @@
           </div>
           <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
           </div>
-
-
-
-
         </div>
       </div>
-
 
       <div class="row">
         <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12"></div>
@@ -37,7 +31,7 @@
           <ol style="font-size: 19px;list-style-position: inside;">
             <p style="font-size: 19px;"> <b>Instructions :</b></p>
 
-            <li> Before starting the test,check if you are in place with no disturbance.</li>
+            <li>Before starting the test,check if you are in place with no disturbance.</li>
             <li>Mark your answers by selecting the right option.</li>
             <li>Remeber that you mark only one best answer for each question.</li>
             <li>The test will automatically end after the maximum time allocated.</li>
