@@ -23,7 +23,14 @@
         </div>
         <div *ngIf="currentQuestionSet.questiontype == 'Image' ||  currentQuestionSet.questiontype == 'Image\r\n'">
           <label [innerHTML]="currentQuestionSet.questiontext1"></label>
-          <img src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.url}}" alt="" class="responsive">
+          <img src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.url}}" alt="" class="responsive"
+            (click)="openImage()">
+
+          <div class="image-overlay" *ngIf="showImage" (click)="closeImage()">
+            <img src="http://dsexam.digitalsakshar.com/Image/{{currentQuestionSet.url}}" class="zoom-image"
+              (click)="$event.stopPropagation()" />
+          </div>
+
         </div>
         <hr>
         <!-- <div *ngIf="currentQuestionSet.answertype == 'Image'" >

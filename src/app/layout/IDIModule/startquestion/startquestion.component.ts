@@ -76,6 +76,9 @@ export class StartquestionComponent implements OnInit {
   public get triggerObservable(): Observable<void> {
     return this.trigger.asObservable();
   }
+
+  showImage = false;
+  
   constructor(private router: Router, private service: AssessmentService, private elementRef: ElementRef, private route: ActivatedRoute, private fb: FormBuilder, private service1: CalpifService) {
     this.routesetid = route.snapshot.params["id"];
     this.programid = localStorage.getItem('Programid');
@@ -451,5 +454,11 @@ export class StartquestionComponent implements OnInit {
     }
   }
 
+openImage() {
+  this.showImage = true;
+}
 
+closeImage() {
+  this.showImage = false;
+}
 }
