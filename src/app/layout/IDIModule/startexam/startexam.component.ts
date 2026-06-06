@@ -115,8 +115,8 @@ export class StartexamComponent implements OnInit {
     { name: "STD 9 - My e-School Baseline 2026-27", totmarks: 12 },
 
     //flipkart
-    { name: "Digital Literacy for Employment Baseline 2026-27", totmarks: 50 },
-    { name: "Digital Literacy for Employment Endline 2026-27", totmarks: 50 },
+    { name: "Digital Literacy for Employment Baseline 2026-27", totmarks: 30 },
+    { name: "Digital Literacy for Employment Endline 2026-27", totmarks: 30 },
 
   ];
   FinalGrade;
