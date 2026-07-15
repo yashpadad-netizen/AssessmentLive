@@ -141,6 +141,9 @@ export class CalpifService {
   YouthsRegistration(data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "YouthsRegistration", data);
   }
+  YouthsRegistrationSkilling(data: any) {
+    return this.http.post(environment.apiUrl + "DSAssessment/" + "YouthsRegistrationSkilling", data);
+  }
   InsertHappinessTeacherFeedback(userid: any, data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "InsertHappinessTeacherFeedback/" + userid, data);
   }

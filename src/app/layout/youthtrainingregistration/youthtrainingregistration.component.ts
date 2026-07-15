@@ -9,10 +9,19 @@ import { CalpifService } from 'src/app/shared/services/calpif.service';
   styleUrls: ['./youthtrainingregistration.component.scss']
 })
 export class YouthtrainingregistrationComponent implements OnInit {
+
   registrationForm: FormGroup;
+
   isSubmitting = false;
-  centerId: string;
-  empId: string;
+
+  id: string = '';
+
+  // Dynamic Dropdown
+  dropdownLabel = '';
+
+  tableName = '';
+  idColumn = '';
+  nameColumn = '';
 
   readonly qualificationOptions = [
     'Below Secondary (Below 10th)',
@@ -32,83 +41,150 @@ export class YouthtrainingregistrationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.centerId = this.route.snapshot.params['id'];
+
+    this.id = this.route.snapshot.params['id'];
 
     this.registrationForm = this.fb.group({
-      centname: ['', Validators.required],
+      name: ['', Validators.required],
       state: ['', Validators.required],
       location: ['', Validators.required],
       studentname: ['', Validators.required],
-      mobileno: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
+      mobileno: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[6-9][0-9]{9}$')
+        ]
+      ],
       dob: ['', Validators.required],
-      age: [{ value: '', disabled: true }, Validators.required],
+      age: [{ value: '', disabled: true }],
       qualification: ['', Validators.required],
       gender: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     });
 
-    this.loadCenterDetails();
+    this.initializePage();
   }
 
-  loadCenterDetails(): void {
-    if (!this.centerId) {
+  initializePage(): void {
+
+    if (!this.id) {
       return;
     }
 
-    this.service.FillDropDown('Center', 'centname', 'centid', "where centid = '" + this.centerId + "'")
-      .subscribe((res: any) => {
-        this.registrationForm.patchValue({
-          centname: res?.[0]?.column1 || ''
-        });
+    if (this.id.startsWith('CN')) {
+
+      this.dropdownLabel = 'Center';
+      this.tableName = 'Center';
+      this.idColumn = 'centid';
+      this.nameColumn = 'centname';
+
+    }
+    else if (this.id.startsWith('CL')) {
+
+      this.dropdownLabel = 'College';
+      this.tableName = 'College';
+      this.idColumn = 'collegeid';
+      this.nameColumn = 'collegename';
+
+    }
+
+    this.loadDetails();
+
+  }
+
+  loadDetails(): void {
+
+    const whereCondition = `where ${this.idColumn}='${this.id}'`;
+
+    // Name
+    this.service.FillDropDown(
+      this.tableName,
+      this.nameColumn,
+      this.idColumn,
+      whereCondition
+    ).subscribe((res: any) => {
+
+      this.registrationForm.patchValue({
+        centname: res?.[0]?.column1 || ''
       });
 
-    this.service.FillDropDown('Center', 'state', 'state', "where centid = '" + this.centerId + "'")
-      .subscribe((res: any) => {
-        this.registrationForm.patchValue({
-          state: res?.[0]?.column1 || ''
-        });
+    });
+
+    // State
+    this.service.FillDropDown(
+      this.tableName,
+      'state',
+      'state',
+      whereCondition
+    ).subscribe((res: any) => {
+
+      this.registrationForm.patchValue({
+        state: res?.[0]?.column1 || ''
       });
 
-    this.service.FillDropDown('Center', 'city', 'city', "where centid = '" + this.centerId + "'")
-      .subscribe((res: any) => {
-        this.registrationForm.patchValue({
-          location: res?.[0]?.column1 || ''
-        });
+    });
+
+    // Location (City)
+    this.service.FillDropDown(
+      this.tableName,
+      'city',
+      'city',
+      whereCondition
+    ).subscribe((res: any) => {
+
+      this.registrationForm.patchValue({
+        location: res?.[0]?.column1 || ''
       });
+
+    });
+
   }
 
   onDateOfBirthChange(): void {
-    const dateOfBirth = this.registrationForm.get('dob')?.value;
 
-    if (!dateOfBirth) {
+    const dob = this.registrationForm.get('dob')?.value;
+
+    if (!dob) {
+
       this.registrationForm.get('age')?.setValue('');
+
       return;
     }
 
-    const age = this.calculateAge(dateOfBirth);
+    const age = this.calculateAge(dob);
+
     this.registrationForm.get('age')?.setValue(age >= 0 ? age : '');
+
   }
 
   calculateAge(dateOfBirth: string): number {
+
     const birthDate = new Date(dateOfBirth);
+
     const today = new Date();
 
     let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    const monthDifference =
+      today.getMonth() - birthDate.getMonth();
 
     if (
       monthDifference < 0 ||
-      (monthDifference === 0 && today.getDate() < birthDate.getDate())
+      (
+        monthDifference === 0 &&
+        today.getDate() < birthDate.getDate()
+      )
     ) {
       age--;
     }
-    
+
     return age;
+
   }
 
   submitForm(): void {
-    console.log('submit');
-    
+
     if (this.registrationForm.invalid) {
       this.registrationForm.markAllAsTouched();
       return;
@@ -116,28 +192,61 @@ export class YouthtrainingregistrationComponent implements OnInit {
 
     this.isSubmitting = true;
 
-    // const formData = this.registrationForm.getRawValue();
-    const formData = {
+    const formData: any = {
       ...this.registrationForm.value,
-      centid: this.centerId,
       age: this.registrationForm.get('age')?.value
+    };
+
+    let registrationApi;
+
+    if (this.id.startsWith('CN')) {
+      formData.centid = this.id;
+      registrationApi = this.service.YouthsRegistration(formData);
+    }
+    else if (this.id.startsWith('CL')) {
+      formData.collegeid = this.id;
+      registrationApi = this.service.YouthsRegistrationSkilling(formData);
+    }
+    else {
+      this.isSubmitting = false;
+      alert('Invalid Registration Link');
+      return;
     }
 
-    this.service.YouthsRegistration(formData)
-      .subscribe((res) => {
+    registrationApi.subscribe(
+      (res: any) => {
+
         this.isSubmitting = false;
 
-        if (res == 'Student registered successfully') {
-          alert('Registered Successfully! \nPlease login with register mobile number to continue!');
+        if (res === 'Student registered successfully') {
+
+          alert(
+            'Registered Successfully!\nPlease login with registered mobile number.'
+          );
+
           this.registrationForm.reset();
           this.router.navigate(['/login']);
+
         } else {
-          alert('Registration failed');
+
+          alert('Registration failed.');
+
         }
-      });
+
+      },
+      (error) => {
+        this.isSubmitting = false;
+        alert('Something went wrong. Please try again.');
+        console.error(error);
+      }
+    );
+
   }
 
   get f() {
+
     return this.registrationForm.controls;
+
   }
+
 }
