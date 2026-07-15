@@ -201,10 +201,12 @@ export class YouthtrainingregistrationComponent implements OnInit {
 
     if (this.id.startsWith('CN')) {
       formData.centid = this.id;
+      formData.centname = this.registrationForm.get('name')?.value;
       registrationApi = this.service.YouthsRegistration(formData);
     }
     else if (this.id.startsWith('CL')) {
       formData.collegeid = this.id;
+      formData.collegename = this.registrationForm.get('name')?.value;
       registrationApi = this.service.YouthsRegistrationSkilling(formData);
     }
     else {
