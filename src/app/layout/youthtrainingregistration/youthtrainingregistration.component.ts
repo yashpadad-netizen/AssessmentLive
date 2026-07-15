@@ -106,7 +106,7 @@ export class YouthtrainingregistrationComponent implements OnInit {
     ).subscribe((res: any) => {
 
       this.registrationForm.patchValue({
-        centname: res?.[0]?.column1 || ''
+        name: res?.[0]?.column1 || ''
       });
 
     });
