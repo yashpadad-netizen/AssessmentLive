@@ -1,0 +1,212 @@
+<section class="registration-section">
+    <div class="container pt-5 pb-3">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h4 class="mb-0 text-center">Mobilize Student Registration</h4>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+                            <h5 class="section-title">Participant Details</h5>
+
+                            <div class="row mb-4">
+                                <div class="col-md-8 mb-4 mb-md-0 mb-lg-0">
+                                    <label>{{ dropdownLabel }} Name <span class="required">*</span></label>
+
+                                    <input type="text" class="form-control"
+                                        [placeholder]="dropdownLabel + ' Name'" formControlName="CenterName"
+                                        readonly>
+
+                                    <div class="text-danger" *ngIf="f.CenterName.touched && f.CenterName.errors">
+                                        {{ dropdownLabel }} Name is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>State <span class="required">*</span></label>
+                                    <input type="text" class="form-control" placeholder="State" formControlName="State"
+                                        readonly>
+
+                                    <div class="text-danger" *ngIf="f.State.touched && f.State.errors">
+                                        State is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-3 mb-4 mb-md-0 mb-lg-0">
+                                    <label>District <span class="required">*</span></label>
+                                    <input type="text" class="form-control" placeholder="District" formControlName="District" readonly>
+                                    <div class="text-danger" *ngIf="f.District.touched && f.District.errors">
+                                        District is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 mb-4 mb-md-0 mb-lg-0">
+                                    <label>City <span class="required">*</span></label>
+                                    <input type="text" class="form-control" placeholder="City" formControlName="City" readonly>
+                                    <div class="text-danger" *ngIf="f.City.touched && f.City.errors">
+                                        City is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Full Name <span class="required">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Enter Full Name" formControlName="StudentName">
+                                    <div class="text-danger" *ngIf="f.StudentName.touched && f.StudentName.errors">
+                                        Full CenterName is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-4 mb-md-0 mb-lg-0">
+                                    <label>Mobile Number <span class="required">*</span></label>
+                                    <input type="tel" inputmode="numeric" class="form-control" placeholder="Enter Mobile Number" (input)="onlyNumbers2($event)" formControlName="MobileNo" maxlength="10">
+                                    <div class="text-danger" *ngIf="f.MobileNo.touched && f.MobileNo.errors">
+                                        Enter a valid 10-digit mobile number
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Mail Id <span class="required">*</span></label>
+                                    <input type="Email" class="form-control" placeholder="Enter Email Address" formControlName="Email">
+                                    <div class="text-danger" *ngIf="f.Email.touched && f.Email.errors">
+                                        Enter a valid Email Address
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-4 mb-md-0 mb-lg-0">
+                                    <label>Date of Birth <span class="required">*</span></label>
+                                    <input type="date" class="form-control" formControlName="DOB" (change)="onDateOfBirthChange()">
+                                    <div class="text-danger" *ngIf="f.DOB.touched && f.DOB.errors">
+                                        Date of birth is required
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Age (Auto) <span class="required">*</span></label>
+                                    <input type="text" class="form-control" formControlName="Age" placeholder="Age will be calculated automatically" readonly>
+                                    <div class="text-danger" *ngIf="f.Age.touched && f.Age.errors">
+                                        Age is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-4 mb-4 mb-md-0 mb-lg-0">
+                                    <label>Gender <span class="required">*</span></label>
+                                    <select class="form-control" formControlName="Gender">
+                                        <option value="">Select</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+
+                                    <div class="text-danger" *ngIf="f.Gender.touched && f.Gender.errors">
+                                        Gender is required
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <label>Highest Educational Qualification <span class="required">*</span></label>
+                                    <select class="form-control" formControlName="Qualification">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let Qualification of qualificationOptions"
+                                            [value]="Qualification">
+                                            {{ Qualification }}
+                                        </option>
+                                    </select>
+
+                                    <div class="text-danger" *ngIf="f.Qualification.touched && f.Qualification.errors">
+                                        Highest educational Qualification is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-8 mb-4 mb-md-0 mb-lg-0">
+                                    <label>Address <span class="required">*</span></label>
+                                    <textarea class="form-control" formControlName="Address" placeholder="Address"></textarea>
+                                    <div class="text-danger" *ngIf="f.Address.touched && f.Address.errors">
+                                        Address is required
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Pincode <span class="required">*</span></label>
+                                    <input type="tel" inputmode="numeric" maxlength="6" class="form-control" formControlName="PinCode" placeholder="Pincode" (input)="onlyNumbers($event)">
+                                    <div class="text-danger" *ngIf="f.PinCode.touched && f.PinCode.errors?.['required']">
+                                        Pincode is required
+                                    </div>
+                                     <div class="text-danger" *ngIf="f.PinCode.touched && f.PinCode.errors?.['pattern']">
+                                        Enter a valid 6-digit PinCode.
+                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-4 mb-4 mb-md-0 mb-lg-0">
+                                    <label>No. of Family Members<span class="required"> *</span></label>
+                                    <input type="tel" maxlength="2" inputmode="numeric" class="form-control" formControlName="NumberOfFamily" placeholder="No. of Family Members" (input)="onlyNumbers1($event)">
+                                    <div class="text-danger" *ngIf="f.NumberOfFamily.touched && f.NumberOfFamily.errors">
+                                        No. of Family Members is required
+                                    </div>  
+                                </div>
+                                <div class="col-md-4 mb-4 mb-md-0 mb-lg-0">
+                                    <label>Job Interested <span class="required">*</span></label>
+                                    <select class="form-control" formControlName="JobInterested">
+                                        <option value="">Select</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="text-danger" *ngIf="f.JobInterested.touched && f.JobInterested.errors?.['required']">
+                                        Job Interested is required
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Model <span class="required">*</span></label>
+                                    <select class="form-control" formControlName="Model">
+                                        <option value="">Select</option>
+                                        <option value="Workshop">Workshop</option>
+                                        <option value="PBL">PBL</option>
+                                    </select>
+                                    <div class="text-danger" *ngIf="f.Model.touched && f.Model.errors?.['required']">
+                                        Model is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-2 mb-md-2 mb-lg-2">
+                                    <label>How did you know about the program? <span class="required">*</span></label>
+                                    <select class="form-control" formControlName="YouKnow">
+                                        <option value="">Select</option>
+                                        <option value="Neighbours">Neighbours</option>
+                                        <option value="Friends">Friends</option>
+                                        <option value="Family Member">Family Member</option>
+                                        <option value="Pratham InfoTech Foundation Team Member">Pratham InfoTech Foundation Team Member</option>
+                                        <option value="Own">Own</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="text-danger" *ngIf="f.YouKnow.touched && f.YouKnow.errors">
+                                        How did you know about the program is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button class="btn btn-primary px-5" type="submit"
+                                    [disabled]="registrationForm.invalid || isSubmitting">
+                                    {{ isSubmitting ? 'Submitting...' : 'Submit Registration' }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

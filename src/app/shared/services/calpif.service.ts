@@ -150,5 +150,7 @@ export class CalpifService {
   FillDropDown(tablename, column1, column2, where) {
     return this.http.get(environment.apiUrl + 'DSAssessment/' + 'FillDropDown?tablename=' + tablename + '&column1=' + btoa(column1).replace(/=+$/, '') + '&column2=' + btoa(column2).replace(/=+$/, '') + '&whr=' + btoa(where).replace(/=+$/, ''));
   }
-
+  AddMobilizeStudent(data: any) {
+    return this.http.post(environment.apiUrl + "DSAssessment/" + "AddMobilizeStudent", data);
+  }
 }

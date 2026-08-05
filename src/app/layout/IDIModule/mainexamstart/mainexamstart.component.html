@@ -133,6 +133,47 @@
       </div>
       <br>
     </div>
+    <div *ngIf="noofmin && regTypeSelectedOption == 'Gujarati'">
+      <div style="text-align: center;">
+        <p style="font-size: 19px;"> Course Name : {{course}}</p>
+        <div class="row form-group ">
+
+          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <p style="font-size: 19px;"> મિનિટોની સંખ્યા : {{noofmin}} </p>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <p style="font-size: 19px;"> પ્રશ્નોની સંખ્યા : {{totalmarks}}</p>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12"></div>
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+          <ol style="font-size: 19px;list-style-position: inside;">
+            <p style="font-size: 19px;"> <b>સૂચનાઓ :</b></p>
+            <li>પરીક્ષા શરૂ કરતા પહેલાં, તપાસી લો કે તમે એવી જગ્યાએ છો જ્યાં કોઈ ખલેલ ન હોય.</li>
+            <li>ચો વિકલ્પ પસંદ કરીને તમારા જવાબો અંકિત કરો.</li>
+            <li>યાદ રાખો કે દરેક પ્રશ્ન માટે તમે માત્ર એક જ શ્રેષ્ઠ જવાબ ચિહ્નિત કરો.</li>
+            <li>ફાળવવામાં આવેલો મહત્તમ સમય પૂરો થતાં જ પરીક્ષા આપમેળે સમાપ્ત થઈ જશે.</li>
+          </ol>
+        </div>
+        <div class="col-md-1 col-lg-1 col-sm-12 col-xs-12"></div>
+
+      </div>
+      <br>
+      <div style="text-align: center;">
+        <!-- <button class="btn btn-primary"  >Start Exam</button> -->
+        <a (click)="send()" class="btn btn-lg btn-primary" style="color: white;">Start <i class="fa fa-arrow-right"
+            aria-hidden="true"></i>
+        </a>
+      </div>
+      <br>
+    </div>
   </div>
 
 </div>
