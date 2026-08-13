@@ -117,7 +117,8 @@
                                 </div>
                                 <div class="col-md-8">
                                     <label>Highest Educational Qualification <span class="required">*</span></label>
-                                    <select class="form-control" formControlName="qualification">
+                                    <select class="form-control" formControlName="qualification"
+                                        (change)="onQualificationChanged()">
                                         <option value="">Select qualification</option>
                                         <option *ngFor="let qualification of qualificationOptions"
                                             [value]="qualification">
@@ -127,6 +128,22 @@
 
                                     <div class="text-danger" *ngIf="f.qualification.touched && f.qualification.errors">
                                         Highest educational qualification is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-8">
+                                    <label>Stream <span class="required">*</span></label>
+                                    <select class="form-control" formControlName="stream">
+                                        <option value="">Select Stream</option>
+                                        <option *ngFor="let stream of streamOptions" [value]="stream">
+                                            {{ stream }}
+                                        </option>
+                                    </select>
+
+                                    <div class="text-danger" *ngIf="f.stream.touched && f.stream.errors">
+                                        Stream is required
                                     </div>
                                 </div>
                             </div>

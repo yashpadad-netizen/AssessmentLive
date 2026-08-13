@@ -78,7 +78,7 @@ export class StartquestionComponent implements OnInit {
   }
 
   showImage = false;
-  
+
   constructor(private router: Router, private service: AssessmentService, private elementRef: ElementRef, private route: ActivatedRoute, private fb: FormBuilder, private service1: CalpifService) {
     this.routesetid = route.snapshot.params["id"];
     this.programid = localStorage.getItem('Programid');
@@ -382,7 +382,7 @@ export class StartquestionComponent implements OnInit {
     }
     else {
       console.log('beyond');
-      
+
       this.service.InsertUserExam(this.coursename, this.language, this.UserId, this.setid, this.obj).subscribe((res: any) => {
         if (res == 'Success') {
           localStorage.removeItem("cq");
@@ -454,11 +454,11 @@ export class StartquestionComponent implements OnInit {
     }
   }
 
-openImage() {
-  this.showImage = true;
-}
+  openImage() {
+    this.showImage = true;
+  }
 
-closeImage() {
-  this.showImage = false;
-}
+  closeImage() {
+    this.showImage = false;
+  }
 }

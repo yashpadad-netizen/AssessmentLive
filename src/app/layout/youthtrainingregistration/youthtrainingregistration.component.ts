@@ -33,6 +33,8 @@ export class YouthtrainingregistrationComponent implements OnInit {
     'Doctorate (Ph.D.)'
   ];
 
+  streamOptions = [];
+
   constructor(
     private fb: FormBuilder,
     private service: CalpifService,
@@ -59,6 +61,7 @@ export class YouthtrainingregistrationComponent implements OnInit {
       dob: ['', Validators.required],
       age: [{ value: '', disabled: true }],
       qualification: ['', Validators.required],
+      stream: ['', Validators.required],
       gender: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     });
@@ -183,6 +186,107 @@ export class YouthtrainingregistrationComponent implements OnInit {
 
   }
 
+  onQualificationChanged(): void {
+
+    const qualification = this.registrationForm.get('qualification')?.value;
+
+    if (qualification === 'Below Secondary (Below 10th)') {
+      this.streamOptions = [
+        'NA'
+      ];
+    }
+    if (qualification === 'Secondary (10th Pass)') {
+      this.streamOptions = [
+        'NA'
+      ];
+    }
+    if (qualification === 'Higher Secondary (12th Pass)') {
+      this.streamOptions = [
+        'Arts',
+        'Science',
+        'Commerce',
+        'Vocational'
+      ];
+    }
+    if (qualification === 'Diploma') {
+      this.streamOptions = [
+        'Engineering & Technology',
+        'Computer/IT',
+        'Pharmacy',
+        'Management/Business',
+        'Architecture',
+        'Paramedical/Health',
+        'Agriculture',
+        'Other'
+      ];
+    }
+    if (qualification === 'Undergraduate (Graduation)') {
+      this.streamOptions = [
+        'B.A. – Bachelor of Arts',
+        'B.Com. – Bachelor of Commerce',
+        'B.Sc. – Bachelor of Science',
+        'BBA – Bachelor of Business Administration',
+        'BCA – Bachelor of Computer Applications',
+        'BMS – Bachelor of Management Studies',
+        'BCS – Bachelor of Computer Science',
+        'B.E. / B.Tech. – Engineering',
+        'B.Pharm – Bachelor of Pharmacy',
+        'B.Sc. Nursing',
+        'B.A.M.S. – Ayurveda',
+        'B.H.M.S. – Homeopathy',
+        'LL.B. – Bachelor of Laws',
+        'B.Ed. – Bachelor of Education',
+        'BSW – Bachelor of Social Work',
+        'B.Arch. – Architecture',
+        'B.Voc. – Bachelor of Vocation',
+        'B.Des. – Bachelor of Design',
+        'B.Lib. / B.Lib.I.Sc. – Library Science',
+        'B.Com. / B.A. / B.Sc. – Other/Equivalent',
+        'Other'
+      ];
+    }
+    if (qualification === 'Postgraduate (Post Graduation)') {
+      this.streamOptions = [
+        'M.A. – Master of Arts',
+        'M.Com. – Master of Commerce',
+        'M.Sc. – Master of Science',
+        'MBA – Master of Business Administration',
+        'MCA – Master of Computer Applications',
+        'MMS – Master of Management Studies',
+        'M.E. / M.Tech. – Engineering',
+        'M.Pharm – Master of Pharmacy',
+        'M.Ed. – Master of Education',
+        'M.S.W. – Master of Social Work',
+        'LL.M. – Master of Laws',
+        'M.Arch. – Architecture',
+        'M.Des. – Master of Design',
+        'M.Lib. / M.Lib.I.Sc. – Library Science',
+        'MPH – Master of Public Health',
+        'M.Voc. – Master of Vocation',
+        'PG Diploma',
+        'Other'
+      ];
+    }
+    if (qualification === 'Doctorate (Ph.D.)') {
+      this.streamOptions = [
+        'Ph.D. – Arts & Humanities',
+        'Ph.D. – Commerce',
+        'Ph.D. – Management',
+        'Ph.D. – Science',
+        'Ph.D. – Computer Science / IT',
+        'Ph.D. – Engineering & Technology',
+        'Ph.D. – Education',
+        'Ph.D. – Social Sciences',
+        'Ph.D. – Law',
+        'Ph.D. – Pharmacy',
+        'Ph.D. – Medical & Health Sciences',
+        'Ph.D. – Agriculture',
+        'Ph.D. – Environmental Sciences',
+        'Ph.D. – Other'
+      ];
+    }
+  }
+
   submitForm(): void {
 
     if (this.registrationForm.invalid) {
@@ -223,7 +327,7 @@ export class YouthtrainingregistrationComponent implements OnInit {
         if (res === 'Student registered successfully') {
 
           alert(
-            'Registered Successfully!\nPlease login with registered mobile number.'
+            'Registered Successfully!'
           );
 
           this.registrationForm.reset();
