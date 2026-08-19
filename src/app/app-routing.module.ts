@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'IDIDownloadCertificate/:id/:id1', loadChildren: () => import('./CertificateDownload/idicertificate/idicertificate.module').then(m => m.IdicertificateModule) },
   { path: 'DownloadCertificate/:id/:id1', loadChildren: () => import('./CertificateDownload/studentcertificate/studentcertificate.module').then(m => m.StudentcertificateModule) },
   { path: 'CertificateSearch', loadChildren: () => import('./CertificateDownload/certificatesearch/certificatesearch.module').then(m => m.CertificatesearchModule) },
+  { path: 'TeacherWorkshopFeedback', loadChildren: () => import('./layout/Teacher Workshop/teacherworkshopfeedback/teacherworkshopfeedback.module').then(m => m.TeacherworkshopfeedbackModule) },
 
 ];
 

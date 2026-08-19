@@ -1,0 +1,1379 @@
+/* =========================================================
+   TEACHER WORKSHOP FEEDBACK
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   MAIN SECTION
+   ========================================================= */
+
+.feedback-section {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    background-image: url('/assets/images/dsbackground.jpg');
+
+    background-position: center;
+
+    background-repeat: repeat-y;
+
+    background-size: cover;
+
+    padding-top: 40px;
+
+    padding-bottom: 40px;
+
+    position: relative;
+
+}
+
+
+/* DARK OVERLAY */
+
+.feedback-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.40);
+
+    z-index: 0;
+
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.feedback-section .container {
+
+    position: relative;
+
+    z-index: 1;
+
+}
+
+
+/* =========================================================
+   MAIN CARD
+   ========================================================= */
+
+.feedback-section .card {
+
+    position: relative;
+
+    z-index: 2;
+
+    border: none;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.20);
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.feedback-section .card-header {
+
+    background: #0d6efd !important;
+
+    color: #ffffff;
+
+    border: none;
+
+    min-height: 65px;
+
+    padding: 18px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* HEADER TITLE */
+
+.feedback-section .card-header h4 {
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+    line-height: 1.4;
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+
+.feedback-section .card-body {
+
+    padding: 30px 35px !important;
+
+    background: #ffffff;
+
+}
+
+
+/* =========================================================
+   LANGUAGE SECTION
+   ========================================================= */
+
+.language-box {
+
+    width: 190px;
+
+    margin: auto;
+
+    margin-bottom: 25px;
+
+}
+
+
+.language-box label {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #343a40;
+
+    margin-bottom: 6px;
+
+}
+
+
+.language-select {
+
+    width: 100%;
+
+    height: 40px;
+
+    border: 1px solid #ced4da;
+
+    border-radius: 7px;
+
+    background-color: #ffffff;
+
+    color: #343a40;
+
+    font-size: 14px;
+
+    padding: 6px 12px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.language-select:focus {
+
+    border-color: #0d6efd;
+
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.15);
+
+    outline: none;
+
+}
+
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+
+.section-title {
+
+    position: relative;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #0d6efd;
+
+    margin-top: 10px;
+
+    margin-bottom: 22px;
+
+    padding-bottom: 8px;
+
+}
+
+
+.section-title::after {
+
+    content: "";
+
+    display: block;
+
+    width: 55px;
+
+    height: 3px;
+
+    background: #0d6efd;
+
+    border-radius: 5px;
+
+    margin-top: 7px;
+
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+.feedback-section label {
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #343a40;
+
+    margin-bottom: 6px;
+
+}
+
+
+.required {
+
+    color: #dc3545;
+
+    font-weight: 600;
+
+    margin-left: 2px;
+
+}
+
+
+/* =========================================================
+   FORM CONTROL
+   ========================================================= */
+
+.feedback-section .form-control {
+
+    height: 42px;
+
+    border: 1px solid #ced4da;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    color: #343a40;
+
+    background-color: #ffffff;
+
+    padding: 8px 12px;
+
+    transition: all 0.2s ease;
+
+}
+
+
+/* PLACEHOLDER */
+
+.feedback-section .form-control::placeholder {
+
+    color: #9aa0a6;
+
+    opacity: 1;
+
+}
+
+
+/* FOCUS */
+
+.feedback-section .form-control:focus {
+
+    border-color: #0d6efd;
+
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.12);
+
+    outline: none;
+
+}
+
+
+/* READONLY */
+
+.feedback-section .form-control[readonly] {
+
+    background-color: #f5f7fa;
+
+    color: #495057;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =========================================================
+   DATE INPUT
+   ========================================================= */
+
+.feedback-section input[type="date"] {
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   VALIDATION
+   ========================================================= */
+
+.feedback-section .text-danger {
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================================
+   HORIZONTAL LINE
+   ========================================================= */
+
+.feedback-section hr {
+
+    border: 0;
+
+    border-top: 1px solid #e5e7eb;
+
+    margin-top: 28px;
+
+    margin-bottom: 28px;
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   INSTRUCTION TEXT
+   ========================================================= */
+
+.instruction-text {
+
+    font-size: 14px;
+
+    color: #6c757d;
+
+    margin-top: -10px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =========================================================
+   FEEDBACK TABLE
+   ========================================================= */
+
+.feedback-table {
+
+    width: 100%;
+
+    border: 1px solid #dee2e6;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+}
+
+
+/* =========================================================
+   FEEDBACK ROW
+   ========================================================= */
+
+.feedback-row {
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 100px 100px 100px;
+
+    align-items: stretch;
+
+    min-height: 58px;
+
+    border-bottom: 1px solid #dee2e6;
+
+}
+
+
+/* LAST ROW */
+
+.feedback-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+/* =========================================================
+   FEEDBACK HEADER
+   ========================================================= */
+
+.feedback-header {
+
+    background: #f1f5f9;
+
+    font-weight: 600;
+
+    color: #343a40;
+
+}
+
+
+/* =========================================================
+   TABLE CELLS
+   ========================================================= */
+
+.feedback-row>div {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 12px;
+
+    font-size: 13px;
+
+    border-right: 1px solid #dee2e6;
+
+    text-align: center;
+
+}
+
+
+/* REMOVE LAST BORDER */
+
+.feedback-row>div:last-child {
+
+    border-right: none;
+
+}
+
+
+/* =========================================================
+   QUESTION COLUMN
+   ========================================================= */
+
+.feedback-row .question-column {
+
+    justify-content: flex-start;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #343a40;
+
+}
+
+
+/* HEADER QUESTION */
+
+.feedback-header .question-column {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   RADIO BUTTON
+   ========================================================= */
+
+.feedback-table input[type="radio"] {
+
+    width: 17px;
+
+    height: 17px;
+
+    margin: 0;
+
+    cursor: pointer;
+
+    accent-color: #0d6efd;
+
+}
+
+
+/* RADIO HOVER */
+
+.feedback-table input[type="radio"]:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+/* =========================================================
+   QUESTION CARD
+   ========================================================= */
+
+.question-card {
+
+    border: 1px solid #dee2e6;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    padding: 22px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+
+}
+
+
+/* =========================================================
+   QUESTION TITLE
+   ========================================================= */
+
+.question-title {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+
+    color: #343a40;
+
+    margin-bottom: 22px;
+
+}
+
+
+/* =========================================================
+   RATING SECTION
+   ========================================================= */
+
+.rating-section {
+
+    background: #f8f9fa;
+
+    border: 1px solid #e9ecef;
+
+    border-radius: 8px;
+
+    padding: 15px 18px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.rating-section:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   RATING TITLE
+   ========================================================= */
+
+.rating-title {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #495057;
+
+    margin-bottom: 14px;
+
+}
+
+
+/* =========================================================
+   RATING OPTIONS
+   ========================================================= */
+
+.rating-options {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 10px;
+
+}
+
+
+/* =========================================================
+   RATING OPTION
+   ========================================================= */
+
+.rating-option {
+
+    position: relative;
+
+    min-height: 65px;
+
+    border: 1px solid #dee2e6;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    padding: 8px;
+
+    margin: 0 !important;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+}
+
+
+/* HIDE DEFAULT RADIO */
+
+.rating-option input[type="radio"] {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* NUMBER */
+
+.rating-number {
+
+    width: 27px;
+
+    height: 27px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #e9ecef;
+
+    color: #495057;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+
+}
+
+
+/* TEXT */
+
+.rating-label {
+
+    font-size: 11px;
+
+    color: #6c757d;
+
+    font-weight: 500;
+
+    text-align: center;
+
+}
+
+
+/* HOVER */
+
+.rating-option:hover {
+
+    border-color: #0d6efd;
+
+    background: #f8fbff;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* SELECTED */
+
+.rating-option:has(input[type="radio"]:checked) {
+
+    border-color: #0d6efd;
+
+    background: #eaf3ff;
+
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.12);
+
+}
+
+
+/* SELECTED NUMBER */
+
+.rating-option:has(input[type="radio"]:checked) .rating-number {
+
+    background: #0d6efd;
+
+    color: #ffffff;
+
+}
+
+
+/* SELECTED LABEL */
+
+.rating-option:has(input[type="radio"]:checked) .rating-label {
+
+    color: #0d6efd;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   OVERALL TRAINING
+   ========================================================= */
+
+.overall-options {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+}
+
+
+/* =========================================================
+   OVERALL OPTION
+   ========================================================= */
+
+.overall-option {
+
+    border: 1px solid #dee2e6;
+
+    border-radius: 8px;
+
+    min-height: 52px;
+
+    padding: 10px 14px;
+
+    margin: 0 !important;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    text-align: center;
+
+}
+
+
+/* RADIO */
+
+.overall-option input[type="radio"] {
+
+    width: 17px;
+
+    height: 17px;
+
+    margin: 0;
+
+    cursor: pointer;
+
+    accent-color: #0d6efd;
+
+}
+
+
+/* HOVER */
+
+.overall-option:hover {
+
+    border-color: #0d6efd;
+
+    background: #f8fbff;
+
+}
+
+
+/* SELECTED */
+
+.overall-option:has(input[type="radio"]:checked) {
+
+    border-color: #0d6efd;
+
+    background: #eaf3ff;
+
+    color: #0d6efd;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+   ========================================================= */
+
+.feedback-section .btn-primary {
+
+    min-width: 190px;
+
+    height: 44px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #0d6efd;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    padding: 8px 25px;
+
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+
+    transition: all 0.2s ease;
+
+}
+
+
+/* HOVER */
+
+.feedback-section .btn-primary:hover:not(:disabled) {
+
+    background: #0b5ed7;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.30);
+
+}
+
+
+/* ACTIVE */
+
+.feedback-section .btn-primary:active:not(:disabled) {
+
+    transform: translateY(0);
+
+}
+
+
+/* DISABLED */
+
+.feedback-section .btn-primary:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .feedback-section {
+
+        padding-top: 25px;
+
+        padding-bottom: 25px;
+
+    }
+
+
+    .feedback-section .card-body {
+
+        padding: 25px !important;
+
+    }
+
+
+    .feedback-row {
+
+        grid-template-columns: minmax(0, 1fr) 85px 85px 85px;
+
+    }
+
+
+    .feedback-row>div {
+
+        padding: 9px 8px;
+
+    }
+
+
+    .rating-options {
+
+        gap: 8px;
+
+    }
+
+
+    .overall-options {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .feedback-section {
+
+        padding-top: 15px;
+
+        padding-bottom: 15px;
+
+    }
+
+
+    .feedback-section .container {
+
+        padding-left: 10px;
+
+        padding-right: 10px;
+
+    }
+
+
+    .feedback-section .card {
+
+        border-radius: 10px;
+
+    }
+
+
+    .feedback-section .card-header {
+
+        min-height: 58px;
+
+        padding: 15px;
+
+    }
+
+
+    .feedback-section .card-header h4 {
+
+        font-size: 17px;
+
+    }
+
+
+    .feedback-section .card-body {
+
+        padding: 20px 15px !important;
+
+    }
+
+
+    /* LANGUAGE */
+
+    .language-box {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        margin-bottom: 22px;
+
+    }
+
+
+    /* SECTION TITLE */
+
+    .section-title {
+
+        font-size: 17px;
+
+    }
+
+
+    /* FORM */
+
+    .feedback-section .row {
+
+        margin-bottom: 0 !important;
+
+    }
+
+
+    .feedback-section .row>div {
+
+        margin-bottom: 15px;
+
+    }
+
+
+    /* FEEDBACK TABLE */
+
+    .feedback-table {
+
+        overflow-x: auto;
+
+    }
+
+
+    .feedback-row {
+
+        min-width: 650px;
+
+        grid-template-columns: minmax(300px, 1fr) 90px 90px 90px;
+
+    }
+
+
+    /* QUESTION CARD */
+
+    .question-card {
+
+        padding: 15px;
+
+    }
+
+
+    .question-title {
+
+        font-size: 14px;
+
+    }
+
+
+    /* RATINGS */
+
+    .rating-options {
+
+        grid-template-columns: repeat(5, 1fr);
+
+        gap: 5px;
+
+    }
+
+
+    .rating-option {
+
+        min-height: 60px;
+
+        padding: 5px;
+
+    }
+
+
+    .rating-number {
+
+        width: 25px;
+
+        height: 25px;
+
+    }
+
+
+    .rating-label {
+
+        font-size: 9px;
+
+    }
+
+
+    /* OVERALL */
+
+    .overall-options {
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+    }
+
+
+    .overall-option {
+
+        min-height: 48px;
+
+    }
+
+
+    /* BUTTON */
+
+    .feedback-section .btn-primary {
+
+        width: 100%;
+
+        max-width: 300px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .feedback-section .card-header h4 {
+
+        font-size: 15px;
+
+    }
+
+
+    .feedback-section .card-body {
+
+        padding: 17px 12px !important;
+
+    }
+
+
+    .feedback-section .form-control {
+
+        height: 40px;
+
+        font-size: 13px;
+
+    }
+
+
+    .section-title {
+
+        font-size: 16px;
+
+    }
+
+
+    .instruction-text {
+
+        font-size: 13px;
+
+    }
+
+
+    .rating-options {
+
+        grid-template-columns: repeat(5, 1fr);
+
+        gap: 3px;
+
+    }
+
+
+    .rating-option {
+
+        min-height: 55px;
+
+        border-radius: 6px;
+
+    }
+
+
+    .rating-number {
+
+        width: 23px;
+
+        height: 23px;
+
+        font-size: 11px;
+
+    }
+
+
+    .rating-label {
+
+        font-size: 8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMOOTH FOCUS
+   ========================================================= */
+
+.feedback-section input:focus,
+.feedback-section select:focus {
+
+    outline: none;
+
+}
+
+
+/* =========================================================
+   DISABLED / READONLY VISUAL
+   ========================================================= */
+
+.feedback-section input[readonly] {
+
+    user-select: none;
+
+}
+
+
+/* =========================================================
+   REMOVE NUMBER SPINNERS IF ANY
+   ========================================================= */
+
+.feedback-section input[type="number"]::-webkit-inner-spin-button,
+.feedback-section input[type="number"]::-webkit-outer-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.feedback-section input[type="radio"]:focus-visible {
+
+    outline: 2px solid #0d6efd;
+
+    outline-offset: 2px;
+
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+    .feedback-section {
+
+        background: #ffffff;
+
+        padding: 0;
+
+    }
+
+
+    .feedback-section::before {
+
+        display: none;
+
+    }
+
+
+    .feedback-section .card {
+
+        box-shadow: none;
+
+        border: 1px solid #dee2e6;
+
+    }
+
+
+    .feedback-section .btn-primary {
+
+        display: none;
+
+    }
+
+
+    .language-box {
+
+        display: none;
+
+    }
+
+}

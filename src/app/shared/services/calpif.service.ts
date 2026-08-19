@@ -153,4 +153,7 @@ export class CalpifService {
   AddMobilizeStudent(data: any) {
     return this.http.post(environment.apiUrl + "DSAssessment/" + "AddMobilizeStudent", data);
   }
+  AddTeachersWorkshopFeedback(data: any) {
+    return this.http.post(environment.apiUrl1 + "Student/" + "AddTeachersWorkshopFeedback", data);
+  }
 }
