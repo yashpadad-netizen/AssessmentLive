@@ -83,7 +83,7 @@ export class TeacherworkshopfeedbackComponent implements OnInit {
 
         if (res && res.length > 0) {
           const school = res[0];
-          
+
           this.schoolid = school.schoolid;
           this.district = school.district;
 
@@ -227,20 +227,20 @@ export class TeacherworkshopfeedbackComponent implements OnInit {
       schoolNamePlaceholder: 'विद्यालय का नाम',
       invalidUdise: 'अमान्य यू-डाइस नंबर या विद्यालय नहीं मिला।',
       schoolFetchError: 'विद्यालय का विवरण प्राप्त नहीं किया जा सका।',
-      selectOpinion: 'कृपया अपनी राय चुनें',
+      selectOpinion: 'कृपया अपना सुझाव चुने',
       opinionInstruction: 'कृपया अपनी राय के अनुसार उपयुक्त विकल्प चुनें।',
       questions: 'प्रश्न',
       agreed: 'सहमत',
-      disagree: 'असहमत',
-      maybe: 'शायद',
-      objectiveClear: 'क्या कार्यशाला का उद्देश्य स्पष्ट है?',
-      informative: 'क्या आपको यह कार्यशाला जानकारीपूर्ण लगी?',
-      relevant: 'क्या यह कार्यशाला सत्र आपके कार्य से संबंधित है?',
-      createContent: 'मैं AI टूल्स का उपयोग करके शैक्षणिक सामग्री (वर्कशीट, क्विज़ और कक्षा गतिविधियाँ) बना सकता/सकती हूँ।',
-      useAI: 'मैं अपने शिक्षण और सीखने की सामग्री को बेहतर बनाने के लिए AI टूल्स का प्रभावी ढंग से उपयोग कर सकता/सकती हूँ।',
+      disagree: 'सहमत नहीं',
+      maybe: 'पता नहीं',
+      objectiveClear: 'कार्यशाला का उद्देश्य स्पष्ट है?',
+      informative: 'कार्यशाला माहिती पूर्वक थी?',
+      relevant: 'कार्यशाला आपके काम से संबंधित है?',
+      createContent: 'मैं AI टूल्स का उपयोग करके शैक्षणिक सामग्री (वर्कशीट, प्रश्नोत्तरी और कक्षा गतिविधियाँ) तैयार कर सकता/सकती हूँ।',
+      useAI: 'मैं अपने शिक्षण और अधिगम सामग्री को बेहतर बनाने के लिए AI टूल्स का प्रभावी उपयोग कर सकता/सकती हूँ।',
       answerAllQuestions: 'कृपया सभी प्रश्नों का उत्तर दें।',
-      workshopFeedback: 'कार्यशाला प्रतिक्रिया',
-      knowledgeQuestion: 'कार्यशाला में भाग लेने से पहले और बाद में इस विषय में अपने ज्ञान और कौशल के स्तर का आप किस प्रकार मूल्यांकन करेंगे?',
+      workshopFeedback: 'कार्यशाला अभिप्राय',
+      knowledgeQuestion: 'कार्यशाला में शा भाग लेने से पहले और बाद आप अपने ज्ञान और कौशल स्तर को कैसे आँकेंगे?',
       beforeWorkshop: 'कार्यशाला से पहले',
       afterWorkshop: 'कार्यशाला के बाद',
       poor: 'खराब',
@@ -271,26 +271,26 @@ export class TeacherworkshopfeedbackComponent implements OnInit {
       udiseNo: 'यू-डाइस क्रमांक',
       udisePlaceholder: '11 अंकी यू-डाइस क्रमांक प्रविष्ट करा',
       udiseRequired: 'वैध यू-डाइस क्रमांक आवश्यक आहे',
-      location: 'ठिकाण',
-      locationPlaceholder: 'ठिकाण',
+      location: 'स्थळ',
+      locationPlaceholder: 'स्थळ',
       schoolName: 'शाळेचे नाव',
       schoolNamePlaceholder: 'शाळेचे नाव',
       invalidUdise: 'अवैध यू-डाइस क्रमांक किंवा शाळा सापडली नाही.',
       schoolFetchError: 'शाळेचा तपशील मिळवता आला नाही.',
-      selectOpinion: 'कृपया आपले मत निवडा',
+      selectOpinion: 'कृपया आपले मत नोंदवा:',
       opinionInstruction: 'आपल्या मतानुसार योग्य पर्याय निवडा.',
       questions: 'प्रश्न',
       agreed: 'सहमत',
       disagree: 'असहमत',
-      maybe: 'कदाचित',
-      objectiveClear: 'कार्यशाळेचे उद्दिष्ट स्पष्ट आहे का?',
-      informative: 'ही कार्यशाळा तुम्हाला माहितीपूर्ण वाटली का?',
-      relevant: 'हे कार्यशाळा सत्र तुमच्या कामाशी संबंधित आहे का?',
-      createContent: 'मी AI साधनांचा वापर करून शैक्षणिक सामग्री (वर्कशीट, क्विझ आणि वर्गातील उपक्रम) तयार करू शकतो/शकते.',
-      useAI: 'माझे अध्यापन आणि अध्ययन साहित्य सुधारण्यासाठी मी AI साधनांचा प्रभावीपणे वापर करू शकतो/शकते.',
+      maybe: 'निश्चित सांगता येत नाही',
+      objectiveClear: 'कार्यशाळेचा उद्देश स्पष्ट आहे का?',
+      informative: 'ही कार्यशाळा माहितीपूर्ण व उपयुक्त वाटली का?',
+      relevant: 'कार्यशाळेतील सत्रे आपल्या कामाशी संबंधित आहेत का?',
+      createContent: 'मी AI Tools चा वापर करून शैक्षणिक सामग्री (वर्कशीट, प्रश्नमंजुषा आणि वर्गातील उपक्रम) तयार करू शकतो/शकते.',
+      useAI: 'माझ्या अध्यापन व अध्ययन सामग्रीमध्ये सुधारणा करण्यासाठी मी AI Tools चा प्रभावीपणे वापर करू शकतो/शकते.',
       answerAllQuestions: 'कृपया सर्व प्रश्नांची उत्तरे द्या.',
       workshopFeedback: 'कार्यशाला अभिप्राय',
-      knowledgeQuestion: 'कार्यशाळेत सहभागी होण्यापूर्वी आणि नंतर या विषयातील तुमच्या ज्ञान आणि कौशल्याच्या पातळीचे तुम्ही कसे मूल्यांकन कराल?',
+      knowledgeQuestion: 'कार्यशाळेला उपस्थित राहण्यापूर्वी आणि कार्य शाळेनंतर या विषयातील आपल्या ज्ञान व कौशल्याच्या पातळीचे आपण कसे मूल्यांकन कराल?',
       beforeWorkshop: 'कार्यशाळेपूर्वी',
       afterWorkshop: 'कार्यशाळेनंतर',
       poor: 'खराब',
@@ -298,7 +298,7 @@ export class TeacherworkshopfeedbackComponent implements OnInit {
       good: 'चांगले',
       veryGood: 'खूप चांगले',
       excellent: 'उत्कृष्ट',
-      trainingEvaluation: 'तुम्ही या प्रशिक्षणाचे एकूण मूल्यांकन कसे कराल?',
+      trainingEvaluation: 'एकूणच, आपण या प्रशिक्षणाचे मूल्यांकन कसे कराल?',
       satisfactory: 'समाधानकारक',
       unsatisfactory: 'असमाधानकारक',
       submit: 'अभिप्राय सादर करा',
@@ -313,12 +313,12 @@ export class TeacherworkshopfeedbackComponent implements OnInit {
     }
 
     this.isSubmitting = true;
-    
-    const formData = { 
+
+    const formData = {
       ...this.feedbackForm.value,
       schoolid: this.schoolid,
       district: this.district
-     };     
+    };
 
     this.service.AddTeachersWorkshopFeedback(formData).subscribe({
       next: (res: any) => {

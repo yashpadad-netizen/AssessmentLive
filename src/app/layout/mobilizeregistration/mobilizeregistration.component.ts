@@ -28,6 +28,7 @@ export class MobilizeregistrationComponent implements OnInit {
     'Higher Secondary (12th Pass)',
     'Diploma',
     'Undergraduate (Graduation)',
+    'Graduation',
     'Postgraduate (Post Graduation)',
     'Doctorate (Ph.D.)'
   ];
@@ -49,24 +50,19 @@ export class MobilizeregistrationComponent implements OnInit {
       District: ['', Validators.required],
       City: ['', Validators.required],
       StudentName: ['', Validators.required],
-      MobileNo: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^[6-9][0-9]{9}$')
-        ]
-      ],
+      MobileNo: ['', [Validators.required, Validators.pattern('^[6-9][0-9]{9}$')]],
+      AadhaarNumber: ['', [Validators.required, Validators.pattern('^[0-9]{12}$')]],
       DOB: ['', Validators.required],
       Age: [{ value: '', disabled: true }],
       Qualification: ['', Validators.required],
       Address: ['', Validators.required],
-      PinCode: ['', [Validators.required,Validators.pattern(/^[1-9][0-9]{5}$/)]],
+      PinCode: ['', [Validators.required, Validators.pattern(/^[1-9][0-9]{5}$/)]],
       Gender: ['', Validators.required],
       JobInterested: ['', Validators.required],
       NumberOfFamily: ['', Validators.required],
-      Model: ['', Validators.required],
+      // Model: ['', Validators.required],
       YouKnow: ['', Validators.required],
-      Email: ['', [Validators.required, Validators.email]]
+      Email: ['']
     });
 
     this.initializePage();
@@ -238,16 +234,16 @@ export class MobilizeregistrationComponent implements OnInit {
     registrationApi.subscribe((res: any) => {
 
       this.isSubmitting = false;
-      
+
       if (res.Message === 'Student saved successfully') {
-        alert('Registered Successfully!\nPlease login with registered mobile number.');
+        alert('Registered Successfully!');
         this.registrationForm.reset();
         this.router.navigate(['/login']);
       }
-      else if(res.Message === 'Mobile number already exists'){
+      else if (res.Message === 'Mobile number already exists') {
         alert("Student already exists!");
         this.registrationForm.reset();
-      } 
+      }
       else {
         alert('Registration failed!');
       }
@@ -275,6 +271,11 @@ export class MobilizeregistrationComponent implements OnInit {
   onlyNumbers2(event: any): void {
     event.target.value = event.target.value.replace(/[^0-9]/g, '');
     this.registrationForm.get('MobileNo')?.setValue(event.target.value, { emitEvent: false });
+  }
+
+  onlyNumbersAadhar(event: any): void {
+    event.target.value = event.target.value.replace(/[^0-9]/g, '');
+    this.registrationForm.get('AadhaarNumber')?.setValue(event.target.value, { emitEvent: false });
   }
 
   get f() {

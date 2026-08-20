@@ -15,9 +15,8 @@
                                 <div class="col-md-8 mb-4 mb-md-0 mb-lg-0">
                                     <label>{{ dropdownLabel }} Name <span class="required">*</span></label>
 
-                                    <input type="text" class="form-control"
-                                        [placeholder]="dropdownLabel + ' Name'" formControlName="CenterName"
-                                        readonly>
+                                    <input type="text" class="form-control" [placeholder]="dropdownLabel + ' Name'"
+                                        formControlName="CenterName" readonly>
 
                                     <div class="text-danger" *ngIf="f.CenterName.touched && f.CenterName.errors">
                                         {{ dropdownLabel }} Name is required
@@ -38,7 +37,8 @@
                             <div class="row mb-4">
                                 <div class="col-md-3 mb-4 mb-md-0 mb-lg-0">
                                     <label>District <span class="required">*</span></label>
-                                    <input type="text" class="form-control" placeholder="District" formControlName="District" readonly>
+                                    <input type="text" class="form-control" placeholder="District"
+                                        formControlName="District" readonly>
                                     <div class="text-danger" *ngIf="f.District.touched && f.District.errors">
                                         District is required
                                     </div>
@@ -46,7 +46,8 @@
 
                                 <div class="col-md-3 mb-4 mb-md-0 mb-lg-0">
                                     <label>City <span class="required">*</span></label>
-                                    <input type="text" class="form-control" placeholder="City" formControlName="City" readonly>
+                                    <input type="text" class="form-control" placeholder="City" formControlName="City"
+                                        readonly>
                                     <div class="text-danger" *ngIf="f.City.touched && f.City.errors">
                                         City is required
                                     </div>
@@ -54,7 +55,8 @@
 
                                 <div class="col-md-6">
                                     <label>Full Name <span class="required">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter Full Name" formControlName="StudentName">
+                                    <input type="text" class="form-control" placeholder="Enter Full Name"
+                                        formControlName="StudentName">
                                     <div class="text-danger" *ngIf="f.StudentName.touched && f.StudentName.errors">
                                         Full CenterName is required
                                     </div>
@@ -62,27 +64,38 @@
                             </div>
 
                             <div class="row mb-4">
-                                <div class="col-md-6 mb-4 mb-md-0 mb-lg-0">
+                                <div class="col-md-4 mb-4 mb-md-0 mb-lg-0">
+                                    <label>Aadhar Number <span class="required">*</span></label>
+                                    <input type="text" inputmode="numeric" class="form-control"
+                                        placeholder="Enter Mobile Number" (input)="onlyNumbersAadhar($event)"
+                                        formControlName="AadhaarNumber" maxlength="12">
+                                    <div class="text-danger" *ngIf="f.AadhaarNumber.touched && f.AadhaarNumber.errors">
+                                        Enter a valid 12-digit aadhar number
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
                                     <label>Mobile Number <span class="required">*</span></label>
-                                    <input type="tel" inputmode="numeric" class="form-control" placeholder="Enter Mobile Number" (input)="onlyNumbers2($event)" formControlName="MobileNo" maxlength="10">
+                                    <input type="tel" inputmode="numeric" class="form-control"
+                                        placeholder="Enter Mobile Number" (input)="onlyNumbers2($event)"
+                                        formControlName="MobileNo" maxlength="10">
                                     <div class="text-danger" *ngIf="f.MobileNo.touched && f.MobileNo.errors">
                                         Enter a valid 10-digit mobile number
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label>Mail Id <span class="required">*</span></label>
-                                    <input type="Email" class="form-control" placeholder="Enter Email Address" formControlName="Email">
-                                    <div class="text-danger" *ngIf="f.Email.touched && f.Email.errors">
-                                        Enter a valid Email Address
-                                    </div>
+                                <div class="col-md-4">
+                                    <label>Email ID</label>
+                                    <input type="Email" class="form-control" placeholder="Enter Email Address"
+                                        formControlName="Email">
                                 </div>
                             </div>
 
                             <div class="row mb-4">
                                 <div class="col-md-6 mb-4 mb-md-0 mb-lg-0">
                                     <label>Date of Birth <span class="required">*</span></label>
-                                    <input type="date" class="form-control" formControlName="DOB" (change)="onDateOfBirthChange()">
+                                    <input type="date" class="form-control" formControlName="DOB"
+                                        (change)="onDateOfBirthChange()">
                                     <div class="text-danger" *ngIf="f.DOB.touched && f.DOB.errors">
                                         Date of birth is required
                                     </div>
@@ -90,7 +103,8 @@
 
                                 <div class="col-md-6">
                                     <label>Age (Auto) <span class="required">*</span></label>
-                                    <input type="text" class="form-control" formControlName="Age" placeholder="Age will be calculated automatically" readonly>
+                                    <input type="text" class="form-control" formControlName="Age"
+                                        placeholder="Age will be calculated automatically" readonly>
                                     <div class="text-danger" *ngIf="f.Age.touched && f.Age.errors">
                                         Age is required
                                     </div>
@@ -130,43 +144,60 @@
                             <div class="row mb-4">
                                 <div class="col-md-8 mb-4 mb-md-0 mb-lg-0">
                                     <label>Address <span class="required">*</span></label>
-                                    <textarea class="form-control" formControlName="Address" placeholder="Address"></textarea>
+                                    <textarea class="form-control" formControlName="Address"
+                                        placeholder="Address"></textarea>
                                     <div class="text-danger" *ngIf="f.Address.touched && f.Address.errors">
                                         Address is required
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label>Pincode <span class="required">*</span></label>
-                                    <input type="tel" inputmode="numeric" maxlength="6" class="form-control" formControlName="PinCode" placeholder="Pincode" (input)="onlyNumbers($event)">
-                                    <div class="text-danger" *ngIf="f.PinCode.touched && f.PinCode.errors?.['required']">
+                                    <input type="tel" inputmode="numeric" maxlength="6" class="form-control"
+                                        formControlName="PinCode" placeholder="Pincode" (input)="onlyNumbers($event)">
+                                    <div class="text-danger"
+                                        *ngIf="f.PinCode.touched && f.PinCode.errors?.['required']">
                                         Pincode is required
                                     </div>
-                                     <div class="text-danger" *ngIf="f.PinCode.touched && f.PinCode.errors?.['pattern']">
+                                    <div class="text-danger" *ngIf="f.PinCode.touched && f.PinCode.errors?.['pattern']">
                                         Enter a valid 6-digit PinCode.
-                                     </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="row mb-4">
-                                <div class="col-md-4 mb-4 mb-md-0 mb-lg-0">
+                                <div class="col-md-6 mb-4 mb-md-0 mb-lg-0">
                                     <label>No. of Family Members<span class="required"> *</span></label>
-                                    <input type="tel" maxlength="2" inputmode="numeric" class="form-control" formControlName="NumberOfFamily" placeholder="No. of Family Members" (input)="onlyNumbers1($event)">
-                                    <div class="text-danger" *ngIf="f.NumberOfFamily.touched && f.NumberOfFamily.errors">
+                                    <select class="form-control" formControlName="NumberOfFamily">
+                                        <option value="">Select</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                    <div class="text-danger"
+                                        *ngIf="f.NumberOfFamily.touched && f.NumberOfFamily.errors">
                                         No. of Family Members is required
-                                    </div>  
+                                    </div>
                                 </div>
-                                <div class="col-md-4 mb-4 mb-md-0 mb-lg-0">
+                                <div class="col-md-6 mb-4 mb-md-0 mb-lg-0">
                                     <label>Job Interested <span class="required">*</span></label>
                                     <select class="form-control" formControlName="JobInterested">
                                         <option value="">Select</option>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                     </select>
-                                    <div class="text-danger" *ngIf="f.JobInterested.touched && f.JobInterested.errors?.['required']">
+                                    <div class="text-danger"
+                                        *ngIf="f.JobInterested.touched && f.JobInterested.errors?.['required']">
                                         Job Interested is required
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <label>Model <span class="required">*</span></label>
                                     <select class="form-control" formControlName="Model">
                                         <option value="">Select</option>
@@ -176,7 +207,7 @@
                                     <div class="text-danger" *ngIf="f.Model.touched && f.Model.errors?.['required']">
                                         Model is required
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="row mb-4">
@@ -187,7 +218,8 @@
                                         <option value="Neighbours">Neighbours</option>
                                         <option value="Friends">Friends</option>
                                         <option value="Family Member">Family Member</option>
-                                        <option value="Pratham InfoTech Foundation Team Member">Pratham InfoTech Foundation Team Member</option>
+                                        <option value="Pratham InfoTech Foundation Team Member">Pratham InfoTech
+                                            Foundation Team Member</option>
                                         <option value="Own">Own</option>
                                         <option value="Other">Other</option>
                                     </select>
