@@ -229,6 +229,44 @@
                                 </div>
                             </div>
 
+                            <!-- DECLARATION SECTION -->
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <h5 class="section-title">Declaration</h5>
+
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="declaration1"
+                                            formControlName="declaration1">
+                                        <label class="form-check-label" for="declaration1">
+                                            I hereby declare that the information furnished above is true, complete and
+                                            correct to the best of my knowledge and belief. I understand that in the
+                                            event of my information being found false or incorrect at any stage, my
+                                            candidature shall be liable to cancellation/termination without notice.
+                                            <span class="required">*</span>
+                                        </label>
+                                        <div class="text-danger"
+                                            *ngIf="f.declaration1.touched && f.declaration1.errors">
+                                            You must accept this declaration to proceed.
+                                        </div>
+                                    </div>
+
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="declaration2"
+                                            formControlName="declaration2">
+                                        <label class="form-check-label" for="declaration2">
+                                            I hereby provide my consent to Pratham InfoTech Foundation for the use of my
+                                            photographs, electronic media images, and personal details in any reports,
+                                            presentations, and social media posts of any kind. <span
+                                                class="required">*</span>
+                                        </label>
+                                        <div class="text-danger"
+                                            *ngIf="f.declaration2.touched && f.declaration2.errors">
+                                            You must accept this consent to proceed.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="text-center mt-4">
                                 <button class="btn btn-primary px-5" type="submit"
                                     [disabled]="registrationForm.invalid || isSubmitting">

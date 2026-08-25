@@ -23,14 +23,14 @@ export class MobilizeregistrationComponent implements OnInit {
   nameColumn = '';
 
   readonly qualificationOptions = [
-    'Below Secondary (Below 10th)',
-    'Secondary (10th Pass)',
-    'Higher Secondary (12th Pass)',
+    'Below 10th',
+    '10th Pass',
+    '12th Pass',
     'Diploma',
-    'Undergraduate (Graduation)',
+    'Undergraduation',
     'Graduation',
-    'Postgraduate (Post Graduation)',
-    'Doctorate (Ph.D.)'
+    'Postgraduation',
+    'Ph.D.'
   ];
 
   constructor(
@@ -62,7 +62,10 @@ export class MobilizeregistrationComponent implements OnInit {
       NumberOfFamily: ['', Validators.required],
       // Model: ['', Validators.required],
       YouKnow: ['', Validators.required],
-      Email: ['']
+      Email: [''],
+
+      declaration1: [false, Validators.requiredTrue],
+      declaration2: [false, Validators.requiredTrue]
     });
 
     this.initializePage();
@@ -169,7 +172,6 @@ export class MobilizeregistrationComponent implements OnInit {
     }
 
     const Age = this.calculateAge(DOB);
-    console.log(Age)
 
     this.registrationForm.get('Age')?.setValue(Age >= 0 ? Age : '');
 

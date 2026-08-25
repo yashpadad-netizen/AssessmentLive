@@ -1,11 +1,7 @@
 <section class="feedback-section">
-
     <div class="container py-5">
-
         <div class="row justify-content-center">
-
             <div class="col-xl-9 col-lg-10">
-
                 <div class="card shadow-lg border-0">
 
                     <!-- HEADER -->
@@ -15,528 +11,351 @@
                         </h4>
                     </div>
 
-
                     <div class="card-body p-4">
 
-                        <!-- ================================================= -->
                         <!-- LANGUAGE SELECTION -->
-                        <!-- ================================================= -->
-
-                        <div class="language-box">
-
-                            <label>
-                                {{ labels.selectLanguage }}
-                            </label>
-
-                            <select class="form-control language-select" [(ngModel)]="selectedLanguage"
-                                [ngModelOptions]="{standalone: true}" (change)="changeLanguage()">
-
-                                <option value="en">
+                        <div class="language-pill-container">
+                            <span class="language-label">{{ labels.selectLanguage }}</span>
+                            <div class="segmented-control">
+                                <button type="button" class="segmented-btn" [class.active]="selectedLanguage === 'en'"
+                                    (click)="selectedLanguage = 'en'; changeLanguage()">
                                     English
-                                </option>
-
-                                <option value="hi">
+                                </button>
+                                <button type="button" class="segmented-btn" [class.active]="selectedLanguage === 'hi'"
+                                    (click)="selectedLanguage = 'hi'; changeLanguage()">
                                     हिंदी
-                                </option>
-
-                                <option value="mr">
+                                </button>
+                                <button type="button" class="segmented-btn" [class.active]="selectedLanguage === 'mr'"
+                                    (click)="selectedLanguage = 'mr'; changeLanguage()">
                                     मराठी
-                                </option>
-
-                            </select>
-
+                                </button>
+                            </div>
                         </div>
 
+                        <!-- <div class="d-flex justify-content-end align-items-center gap-2 mb-4">
+                            <span class="text-secondary font-weight-500 fs-14">{{ labels.selectLanguage }} : &nbsp;</span>
+                            <select class="form-control compact-language-select" [(ngModel)]="selectedLanguage"
+                                [ngModelOptions]="{standalone: true}" (change)="changeLanguage()">
+                                <option value="en">English</option>
+                                <option value="hi">हिंदी</option>
+                                <option value="mr">मराठी</option>
+                            </select>
+                        </div> -->
 
                         <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
-
 
                             <!-- ================================================= -->
                             <!-- TRAINEE DETAILS -->
                             <!-- ================================================= -->
+                            <h5 class="section-title">{{ labels.traineeDetails }}</h5>
 
-                            <h5 class="section-title">
-                                {{ labels.traineeDetails }}
-                            </h5>
-
-
-                            <!-- DATE -->
-
+                            <!-- ROW 1: Date, Teacher Name, Gender -->
                             <div class="row mb-3">
-
                                 <div class="col-md-4">
-
-                                    <label>
-                                        {{ labels.date }}
-                                        <span class="required">*</span>
-                                    </label>
-
+                                    <label>{{ labels.date }} <span class="required">*</span></label>
                                     <input type="date" class="form-control" formControlName="trainingdate">
-
                                     <div class="text-danger" *ngIf="f.trainingdate.touched && f.trainingdate.errors">
-
                                         {{ labels.dateRequired }}
-
                                     </div>
-
                                 </div>
 
-
-                                <!-- TEACHER NAME -->
-
                                 <div class="col-md-4">
-
-                                    <label>
-                                        {{ labels.teacherName }}
-                                        <span class="required">*</span>
-                                    </label>
-
+                                    <label>{{ labels.teacherName }} <span class="required">*</span></label>
                                     <input type="text" class="form-control"
                                         [placeholder]="labels.teacherNamePlaceholder" formControlName="teachername">
-
                                     <div class="text-danger" *ngIf="f.teachername.touched && f.teachername.errors">
-
                                         {{ labels.teacherNameRequired }}
-
                                     </div>
-
                                 </div>
-
-
-                                <!-- Mobile No -->
 
                                 <div class="col-md-4">
-
-                                    <label>
-                                        {{ labels.contactNo }}
-                                        <span class="required">*</span>
-                                    </label>
-
-                                    <input type="text" class="form-control" [placeholder]="labels.contactNoPlaceholder"
-                                        formControlName="contactno">
-
-                                    <div class="text-danger" *ngIf="f.contactno.touched && f.contactno.errors">
-
-                                        {{ labels.contactNoRequired }}
-
+                                    <label>{{ labels.gender }} <span class="required">*</span></label>
+                                    <select class="form-control" formControlName="gender">
+                                        <option value="" disabled selected>-- Select --</option>
+                                        <option value="Male">{{ labels.male }}</option>
+                                        <option value="Female">{{ labels.female }}</option>
+                                        <option value="Other">{{ labels.other }}</option>
+                                    </select>
+                                    <div class="text-danger" *ngIf="f.gender.touched && f.gender.errors">
+                                        {{ labels.genderRequired }}
                                     </div>
-
                                 </div>
-
                             </div>
 
+                            <!-- ROW 2: Contact No, UDISE No, State -->
                             <div class="row mb-3">
-
-                                <!-- UDISE -->
+                                <div class="col-md-4">
+                                    <label>{{ labels.contactNo }} <span class="required">*</span></label>
+                                    <input type="text" class="form-control" [placeholder]="labels.contactNoPlaceholder"
+                                        formControlName="contactno">
+                                    <div class="text-danger" *ngIf="f.contactno.touched && f.contactno.errors">
+                                        {{ labels.contactNoRequired }}
+                                    </div>
+                                </div>
 
                                 <div class="col-md-4">
-
-                                    <label>
-                                        {{ labels.udiseNo }}
-                                        <span class="required">*</span>
-                                    </label>
-
+                                    <label>{{ labels.udiseNo }} <span class="required">*</span></label>
                                     <input type="text" class="form-control" [placeholder]="labels.udisePlaceholder"
                                         formControlName="udiseno" maxlength="11"
                                         (change)="onUdiseChange($any($event.target).value)">
-
                                     <div class="text-danger" *ngIf="f.udiseno.touched && f.udiseno.errors">
-
                                         {{ labels.udiseRequired }}
-
                                     </div>
-
                                 </div>
 
-
-                                <!-- state -->
-
                                 <div class="col-md-4">
-
-                                    <label>
-                                        {{ labels.state }}
-                                        <span class="required">*</span>
-                                    </label>
-
+                                    <label>{{ labels.state }} <span class="required">*</span></label>
                                     <input type="text" class="form-control" formControlName="state"
                                         [placeholder]="labels.statePlaceholder" readonly>
-
                                 </div>
+                            </div>
 
-
-                                <!-- LOCATION -->
-
+                            <!-- ROW 3: Location, Gram Panchayat/Municipality, School Name -->
+                            <div class="row mb-3">
                                 <div class="col-md-4">
-
-                                    <label>
-                                        {{ labels.location }}
-                                        <span class="required">*</span>
-                                    </label>
-
+                                    <label>{{ labels.location }} <span class="required">*</span></label>
                                     <input type="text" class="form-control" formControlName="city"
                                         [placeholder]="labels.locationPlaceholder" readonly>
-
                                 </div>
 
-                            </div>
+                                <div class="col-md-4">
+                                    <label>{{ labels.gramPanchayat }} <span class="required">*</span></label>
+                                    <input type="text" class="form-control" formControlName="panchayat"
+                                        [placeholder]="labels.gramPanchayatPlaceholder">    
+                                    <div class="text-danger"
+                                        *ngIf="f.panchayat.touched && f.panchayat.errors">
+                                        {{ labels.gramPanchayatRequired }}
+                                    </div>
+                                </div>
 
-
-                            <!-- LOCATION / SCHOOL NAME -->
-
-                            <div class="row mb-4">
-
-                                <!-- SCHOOL NAME -->
-
-                                <div class="col-md-8">
-
-                                    <label>
-                                        {{ labels.schoolName }}
-                                        <span class="required">*</span>
-                                    </label>
-
+                                <div class="col-md-4">
+                                    <label>{{ labels.schoolName }} <span class="required">*</span></label>
                                     <input type="text" class="form-control" formControlName="schoolname"
                                         [placeholder]="labels.schoolNamePlaceholder" readonly>
-
                                 </div>
-
                             </div>
 
+                            <!-- ROW 4: Subject, Standards Taught -->
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label>{{ labels.subject }} <span class="required">*</span></label>
+                                    <input type="text" class="form-control" formControlName="subject"
+                                        [placeholder]="labels.subjectPlaceholder">
+                                    <div class="text-danger" *ngIf="f.subject.touched && f.subject.errors">
+                                        {{ labels.subjectRequired }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>{{ labels.standardsTaught }} <span class="required">*</span></label>
+                                    <input type="text" class="form-control" formControlName="standard"
+                                        [placeholder]="labels.standardsTaughtPlaceholder">
+                                    <div class="text-danger"
+                                        *ngIf="f.standard.touched && f.standard.errors">
+                                        {{ labels.standardsTaughtRequired }}
+                                    </div>
+                                </div>
+                            </div>
 
                             <hr>
 
+                            <!-- ================================================= -->
+                            <!-- DIGITAL CLASSROOM USAGE -->
+                            <!-- ================================================= -->
+                            <h5 class="section-title">{{ labels.digitalClassroomUsage }}</h5>
+
+                            <div class="digital-classroom-box mb-4">
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-md-7">
+                                        <label class="mb-0 fw-semibold">
+                                            {{ labels.useDigitalClassroomQuestion }} <span class="required">*</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="d-flex gap-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" formControlName="usedigitalclassroom" value="Yes">
+                                                <span>{{ labels.yes }}</span>
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" formControlName="usedigitalclassroom" value="No">
+                                                <span>{{ labels.no }}</span>
+                                            </label>
+                                        </div>
+                                        <div class="text-danger"
+                                            *ngIf="f.usedigitalclassroom.touched && f.usedigitalclassroom.errors">
+                                            {{ labels.useDigitalClassroomRequired }}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row align-items-center" *ngIf="f.usedigitalclassroom.value === 'Yes'">
+                                    <div class="col-md-5">
+                                        <label class="mb-0 fw-semibold">
+                                            {{ labels.frequencyQuestion }} <span class="required">*</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control"
+                                            formControlName="howfrequently"
+                                            [placeholder]="labels.frequencyPlaceholder">
+                                        <div class="text-danger"
+                                            *ngIf="f.howfrequently.touched && f.howfrequently.errors">
+                                            {{ labels.frequencyRequired }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
 
                             <!-- ================================================= -->
                             <!-- OPINION -->
                             <!-- ================================================= -->
-
-                            <h5 class="section-title">
-                                {{ labels.selectOpinion }}
-                            </h5>
-
-
-                            <p class="instruction-text">
-                                {{ labels.opinionInstruction }}
-                            </p>
-
+                            <h5 class="section-title">{{ labels.selectOpinion }}</h5>
+                            <p class="instruction-text">{{ labels.opinionInstruction }}</p>
 
                             <div class="feedback-table">
-
-
-                                <!-- TABLE HEADER -->
-
                                 <div class="feedback-row feedback-header">
-
-                                    <div class="question-column">
-                                        {{ labels.questions }}
-                                    </div>
-
-                                    <div>
-                                        {{ labels.agreed }}
-                                    </div>
-
-                                    <div>
-                                        {{ labels.disagree }}
-                                    </div>
-
-                                    <div>
-                                        {{ labels.maybe }}
-                                    </div>
-
+                                    <div class="question-column">{{ labels.questions }}</div>
+                                    <div>{{ labels.agreed }}</div>
+                                    <div>{{ labels.disagree }}</div>
+                                    <div>{{ labels.maybe }}</div>
                                 </div>
 
-
-                                <!-- QUESTION 1 -->
-
                                 <div class="feedback-row">
-
-                                    <div class="question-column">
-                                        {{ labels.objectiveClear }}
-                                    </div>
-
-                                    <div>
+                                    <div class="question-column">{{ labels.objectiveClear }}</div>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q1" value="1">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q1" value="2">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q1" value="3">
-                                    </div>
-
+                                    </label>
                                 </div>
 
-
-                                <!-- QUESTION 2 -->
-
                                 <div class="feedback-row">
-
-                                    <div class="question-column">
-                                        {{ labels.informative }}
-                                    </div>
-
-                                    <div>
+                                    <div class="question-column">{{ labels.informative }}</div>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q2" value="1">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q2" value="2">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q2" value="3">
-                                    </div>
-
+                                    </label>
                                 </div>
 
-
-                                <!-- QUESTION 3 -->
-
                                 <div class="feedback-row">
-
-                                    <div class="question-column">
-                                        {{ labels.relevant }}
-                                    </div>
-
-                                    <div>
+                                    <div class="question-column">{{ labels.relevant }}</div>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q3" value="1">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q3" value="2">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q3" value="3">
-                                    </div>
-
+                                    </label>
                                 </div>
 
-
-                                <!-- QUESTION 4 -->
-
                                 <div class="feedback-row">
-
-                                    <div class="question-column">
-                                        {{ labels.createContent }}
-                                    </div>
-
-                                    <div>
+                                    <div class="question-column">{{ labels.createContent }}</div>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q4" value="1">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q4" value="2">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q4" value="3">
-                                    </div>
-
+                                    </label>
                                 </div>
-
-
-                                <!-- QUESTION 5 -->
 
                                 <div class="feedback-row">
-
-                                    <div class="question-column">
-                                        {{ labels.useAI }}
-                                    </div>
-
-                                    <div>
+                                    <div class="question-column">{{ labels.useAI }}</div>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q5" value="1">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q5" value="2">
-                                    </div>
-
-                                    <div>
+                                    </label>
+                                    <label class="radio-cell-option">
                                         <input type="radio" formControlName="q5" value="3">
-                                    </div>
-
+                                    </label>
                                 </div>
-
                             </div>
-
 
                             <div class="text-danger mt-2" *ngIf="opinionInvalid">
-
                                 {{ labels.answerAllQuestions }}
-
                             </div>
-
 
                             <hr>
 
-
-                            <!-- ================================================= -->
-                            <!-- WORKSHOP FEEDBACK -->
-                            <!-- ================================================= -->
-
-                            <h5 class="section-title">
-                                {{ labels.workshopFeedback }}
-                            </h5>
-
-
+                            <!-- WORKSHOP FEEDBACK & OVERALL EVALUATION REMAIN UNCHANGED -->
+                            <h5 class="section-title">{{ labels.workshopFeedback }}</h5>
                             <div class="question-card">
-
-                                <div class="question-title">
-                                    1. {{ labels.knowledgeQuestion }}
-                                </div>
-
-
-                                <!-- BEFORE WORKSHOP -->
-
+                                <div class="question-title">1. {{ labels.knowledgeQuestion }}</div>
                                 <div class="rating-section">
-
-                                    <div class="rating-title">
-                                        {{ labels.beforeWorkshop }}
-                                    </div>
-
-
+                                    <div class="rating-title">{{ labels.beforeWorkshop }}</div>
                                     <div class="rating-options">
-
                                         <label *ngFor="let rating of ratingOptions" class="rating-option">
-
                                             <input type="radio" formControlName="f1b" [value]="rating.value">
-
-                                            <span class="rating-number">
-                                                {{ rating.value }}
-                                            </span>
-
-                                            <span class="rating-label">
-                                                {{ getRatingLabel(rating.value) }}
-                                            </span>
-
+                                            <span class="rating-number">{{ rating.value }}</span>
+                                            <span class="rating-label">{{ getRatingLabel(rating.value) }}</span>
                                         </label>
-
                                     </div>
-
                                 </div>
-
-
-                                <!-- AFTER WORKSHOP -->
 
                                 <div class="rating-section">
-
-                                    <div class="rating-title">
-                                        {{ labels.afterWorkshop }}
-                                    </div>
-
-
+                                    <div class="rating-title">{{ labels.afterWorkshop }}</div>
                                     <div class="rating-options">
-
                                         <label *ngFor="let rating of ratingOptions" class="rating-option">
-
                                             <input type="radio" formControlName="f1a" [value]="rating.value">
-
-                                            <span class="rating-number">
-                                                {{ rating.value }}
-                                            </span>
-
-                                            <span class="rating-label">
-                                                {{ getRatingLabel(rating.value) }}
-                                            </span>
-
+                                            <span class="rating-number">{{ rating.value }}</span>
+                                            <span class="rating-label">{{ getRatingLabel(rating.value) }}</span>
                                         </label>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
-
-                            <!-- ================================================= -->
-                            <!-- OVERALL TRAINING -->
-                            <!-- ================================================= -->
 
                             <div class="question-card mt-4">
-
-                                <div class="question-title">
-                                    2. {{ labels.trainingEvaluation }}
-                                </div>
-
-
+                                <div class="question-title">2. {{ labels.trainingEvaluation }}</div>
                                 <div class="overall-options">
-
                                     <label class="overall-option">
-
                                         <input type="radio" formControlName="f2" value="1">
-
-                                        <span>
-                                            {{ labels.excellent }}
-                                        </span>
-
+                                        <span>{{ labels.excellent }}</span>
                                     </label>
-
-
                                     <label class="overall-option">
-
                                         <input type="radio" formControlName="f2" value="2">
-
-                                        <span>
-                                            {{ labels.good }}
-                                        </span>
-
+                                        <span>{{ labels.good }}</span>
                                     </label>
-
-
                                     <label class="overall-option">
-
                                         <input type="radio" formControlName="f2" value="3">
-
-                                        <span>
-                                            {{ labels.satisfactory }}
-                                        </span>
-
+                                        <span>{{ labels.satisfactory }}</span>
                                     </label>
-
-
                                     <label class="overall-option">
-
                                         <input type="radio" formControlName="f2" value="4">
-
-                                        <span>
-                                            {{ labels.unsatisfactory }}
-                                        </span>
-
+                                        <span>{{ labels.unsatisfactory }}</span>
                                     </label>
-
                                 </div>
-
                             </div>
 
-
-                            <!-- ================================================= -->
-                            <!-- SUBMIT -->
-                            <!-- ================================================= -->
-
+                            <!-- SUBMIT BUTTON -->
                             <div class="text-center mt-4">
-
                                 <button type="submit" class="btn btn-primary px-5"
                                     [disabled]="feedbackForm.invalid || isSubmitting">
-
                                     {{ isSubmitting ? labels.submitting : labels.submit }}
-
                                 </button>
-
                             </div>
 
-
                         </form>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>

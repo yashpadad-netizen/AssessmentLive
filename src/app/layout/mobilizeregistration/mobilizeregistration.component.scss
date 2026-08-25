@@ -39,6 +39,24 @@
     background-color: #eef3f9;
 }
 
+.form-check {
+    padding-left: 1.8rem;
+}
+
+.form-check-input {
+    // width: 1.2rem;
+    // height: 1.2rem;
+    margin-left: -1.8rem;
+    cursor: pointer;
+}
+
+.form-check-label {
+    // font-size: 0.95rem;
+    // line-height: 1.5;
+    color: #495057;
+    cursor: pointer;
+}
+
 .required {
     color: #dc3545;
 }
