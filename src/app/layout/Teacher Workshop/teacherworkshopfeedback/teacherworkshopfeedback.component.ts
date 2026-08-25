@@ -396,7 +396,7 @@ export class TeacherworkshopfeedbackComponent implements OnInit {
         if (res && res.success) {
           alert(res.message || 'Feedback saved successfully.');
           this.feedbackForm.reset();
-          this.router.navigate(['/login']);
+          this.router.navigate(['/TeacherWorkshopFeedback']);
         } else {
           alert(res.message || 'Submission failed. Please check your data.');
         }
