@@ -243,7 +243,11 @@ export class MobilizeregistrationComponent implements OnInit {
         this.router.navigate(['/login']);
       }
       else if (res.Message === 'Mobile number already exists') {
-        alert("Student already exists!");
+        alert("Mobile number already exists!");
+        this.registrationForm.reset();
+      }
+      else if (res.Message === 'Aadhaar Number already exists') {
+        alert("Aadhaar Number already exists!");
         this.registrationForm.reset();
       }
       else {
